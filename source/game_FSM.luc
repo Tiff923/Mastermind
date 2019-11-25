@@ -1,0 +1,164 @@
+module game_FSM(
+    input clk, // clock
+    input rst, // clock
+
+    input enter,
+    input toggle,
+
+    output alufn[6],
+    output asel[3],
+    output bsel[3],
+    output demux[2],
+
+    output led_out[8],
+    output led_out_1[8],
+    output led_out_2[3]
+) {
+
+.clk(clk){
+    .rst(rst){
+    fsm state = {
+        START,
+        IDLE,
+        STATE_RED,
+        STATE_GREEN,
+        STATE_BLUE,
+        CHECK_STATE,
+        CHECK_SUCCESS,
+        CHECK_BULL,
+        CHECK_COW,
+        CHECK_LIFE_PART1,
+        CHECK_LIFE_PART2,
+        CHECK_BULL_COW,
+        SUCCESS,
+        FAIL
+    };
+
+    dff check_state [3]; // check whether enter 4 times
+    dff user_input [16]; // store inputs from user
+
+    }
+}
+
+sig answer[16];
+
+    always {
+        alufn = 0;
+        asel = 0; 
+        bsel = 0;
+        demux = 0;
+        led_out = 0;
+        led_out_1 = 0;
+        led_out_2 = check_state.q;
+        answer = 16b1001100110011001; // all red
+        
+
+        case (state.q){
+            state.START:
+                if (enter) {
+                    state.d = state.IDLE;
+                }
+            
+            state.IDLE:
+                if (toggle) {
+                    state.d = state.STATE_RED;
+                }
+            
+            state.STATE_RED:
+                led_out = 8b00001001;
+
+                if (toggle) {
+                    state.d = state.STATE_GREEN;
+                }
+
+                else if (enter) {
+                    if (check_state.q == 0) {
+                        user_input.d[3:0] = 4b1001;
+                    }
+                    else if (check_state.q == 1) {
+                        user_input.d[7:4] = 4b1001;
+                    }
+
+                    else if (check_state.q == 2) {
+                        user_input.d[11:8] = 4b1001;
+                }
+                    else if (check_state.q == 3) {
+                        user_input.d[15:12] = 4b1001;
+                }
+                    check_state.d = check_state.q + 1;
+                    state.d = state.CHECK_STATE;
+                }
+            
+            state.STATE_GREEN:
+                led_out = 8b00000101;
+
+                if (toggle) {
+                    state.d = state.STATE_BLUE;
+                }
+
+                else if (enter) {
+                    if (check_state.q == 0) {
+                        user_input.d[3:0] = 4b0101;
+                    }
+                    else if (check_state.q == 1) {
+                        user_input.d[7:4] = 4b0101;
+                    }
+
+                    else if (check_state.q == 2) {
+                        user_input.d[11:8] = 4b0101;
+                }
+                    else if (check_state.q == 3) {
+                        user_input.d[15:12] = 4b0101;
+                }
+                    check_state.d = check_state.q + 1;
+                    state.d = state.CHECK_STATE;
+                }
+            
+            state.STATE_BLUE:
+                led_out = 8b00001101;
+
+                if (toggle) {
+                    state.d = state.STATE_RED;
+                }
+
+                else if (enter) {
+                    if (check_state.q == 0) {
+                        user_input.d[3:0] = 4b0011;
+                    }
+                    else if (check_state.q == 1) {
+                        user_input.d[7:4] = 4b0011;
+                    }
+
+                    else if (check_state.q == 2) {
+                        user_input.d[11:8] = 4b0011;
+                }
+                    else if (check_state.q == 3) {
+                        user_input.d[15:12] = 4b0011;
+                }
+                    check_state.d = check_state.q + 1;
+                    state.d = state.CHECK_STATE;
+                }
+            
+            state.CHECK_STATE:
+                if (check_state.q == 4) {
+                    state.d = state.CHECK_SUCCESS;
+                }
+                else {
+                    state.d = state.IDLE;
+                }
+            
+            state.CHECK_SUCCESS:
+                state.d = state.CHECK_BULL;
+            
+            state.CHECK_BULL:
+                if (answer == user_input.q) {
+                    led_out_1 = 8b11111111;
+                }
+
+                else {
+                    led_out_1 = 8b10000000;
+                }
+        }
+    }
+}
+      
