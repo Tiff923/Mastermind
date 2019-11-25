@@ -12,7 +12,7 @@ module game_FSM(
 
     output led_out[8],
     output led_out_1[8],
-    output led_out_2[3]
+    output led_out_2[8]
 ) {
 
 .clk(clk){
@@ -34,8 +34,14 @@ module game_FSM(
         FAIL
     };
 
+    var i;
+    var j;
+    var k;
     dff check_state [3]; // check whether enter 4 times
     dff user_input [16]; // store inputs from user
+    dff user_input_cow [16]; // store inputs from user after removing those of "bull"
+    dff output_cow [16]; // number of cows
+    dff output_bull [16];
 
     }
 }
@@ -48,11 +54,10 @@ sig answer[16];
         bsel = 0;
         demux = 0;
         led_out = 0;
-        led_out_1 = 0;
-        led_out_2 = check_state.q;
+        led_out_1 = output_bull.[7:0];
+        led_out_2 = output_bull.q[15:8];
         answer = 16b1001100110011001; // all red
         
-
         case (state.q){
             state.START:
                 if (enter) {
@@ -151,13 +156,47 @@ sig answer[16];
                 state.d = state.CHECK_BULL;
             
             state.CHECK_BULL:
-                if (answer == user_input.q) {
-                    led_out_1 = 8b11111111;
+                for (k = 0; k < 4; k++) {
+                    if (answer[k*4 + 3: k*4] == user_input.q[k*4 + 3: k*4]) {
+                        output_bull.d = output_bull.q + 4b0111;
+                        output_bull.d = output_bull.q << 4
+                    }
                 }
 
-                else {
-                    led_out_1 = 8b10000000;
+                state.d = state.CHECK_COW;
+
+            state.CHECK_COW:
+                for (i = 0; i < 4; i ++) {
+                    if (~(answer[i*4 + 3:i*4] == user_input.q[i*4 + 3:i*4])) {
+                        user_input_cow.d = user_input_cow.q + user_input.q[i*4 + 3:i*4];
+                        user_input_cow.d << 4; // shift left by 4 bits
+                    }
                 }
+
+                // j to represent index of user_input_cow
+                for (j = 0; j < 4; j++){
+                    if (user_input_cow.q[j*4 + 3:j*4] == answer[0:3]) {
+                        output_cow.d = output_cow.q + 4b1101;
+                        output_cow.d = output_cow.q << 4;
+                    }
+
+                    else if (user_input_cow.q[j*4 + 3:j*4] == answer[7:4]) {
+                        output_cow.d = output_cow.q + 4b1101;
+                        output_cow.d = output_cow.q << 4;
+                    }
+
+                    else if (user_input_cow.q[j*4 + 3:j*4] == answer[11:8]) {
+                        output_cow.d = output_cow.q + 4b1101;
+                        output_cow.d = output_cow.q << 4;
+                    }
+
+                    else if (user_input_cow.q[j*4 + 3:j*4] == answer[15:12]) {
+                        output_cow.d = output_cow.q + 4b1101;
+                        output_cow.d = output_cow.q << 4;
+                    }
+
+                }
+
         }
     }
 }
