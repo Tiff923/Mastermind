@@ -30,7 +30,23 @@ module game_FSM(
         CHECK_BULL_1,
         CHECK_BULL_2,
         CHECK_BULL_3,
-        CHECK_COW,
+        CHECK_COW_INIT,
+        CHECK_COW_0_0,
+        CHECK_COW_0_1,
+        CHECK_COW_0_2,
+        CHECK_COW_0_3,
+        CHECK_COW_1_0,
+        CHECK_COW_1_1,
+        CHECK_COW_1_2,
+        CHECK_COW_1_3,
+        CHECK_COW_2_0,
+        CHECK_COW_2_1,
+        CHECK_COW_2_2,
+        CHECK_COW_2_3,
+        CHECK_COW_3_0,
+        CHECK_COW_3_1,
+        CHECK_COW_3_2,
+        CHECK_COW_3_3,
         CHECK_LIFE_PART1,
         CHECK_LIFE_PART2,
         CHECK_BULL_COW,
@@ -44,21 +60,19 @@ module game_FSM(
     dff user_input_cow [16]; // store inputs from user after removing those of "bull"
     dff output_cow [16]; // number of cows
     dff output_bull [16];
-    dff k[3];
-    dff temp_ans[16]; // temporary register to hold answer
-    dff temp_input[16]; // temporary register to hold user input
+
+    dff temp_ans_bull[16]; // temporary register to hold answer
+    dff temp_input_bull[16]; // temporary register to hold user input
     dff bull_count[3];
+
+    dff temp_ans_cow[16]; // temporary register to hold answer
+    dff temp_input_cow[16]; // temporary register to hold user input
+    dff cow_count[3];
     
 
     }
 }
   
-// var i;
-// var j;
-// var k;
-
-sig end_index[3];
-sig start_index[3];
 sig answer[16];
 
     always {
@@ -68,7 +82,7 @@ sig answer[16];
         demux = 0;
         led_out = 0;
         led_out_1 = bull_count.q;
-        led_out_2 = 0;
+        led_out_2 = cow_count.q;
         answer = 16b1001100110011001; // all red
         
         case (state.q){
@@ -168,82 +182,207 @@ sig answer[16];
             state.CHECK_SUCCESS:
                 state.d = state.CHECK_BULL_INIT;
             
-            // state.CHECK_BULL:
-            //     for (k = 0; k < 4; k++) {
-            //         end_index = (k*4) + 3;
-            //         start_index = k * 4;
-            //         if (answer[end_index : start_index] == user_input.q[end_index : start_index]) { // cannot do indexing like that, but how?
-            //             output_bull.d = output_bull.q + 4b0111; 
-            //             output_bull.d = output_bull.q << 4;
-            //         }
-            //     }
-
-            //     state.d = state.CHECK_COW;
-
             state.CHECK_BULL_INIT:
-                k.d = 0;
-                temp_ans.d = answer;
-                temp_input.d = user_input.q;
+                temp_ans_bull.d = answer;
+                temp_input_bull.d = user_input.q;
                 bull_count.d = 0;
-                state.d = state.CHECK_BULL_1;
+                state.d = state.CHECK_BULL_0;
             
             state.CHECK_BULL_0:
-                // start_index = (k.q*4) + 3;
-                // end_index = k.q * 4;
-
-                if (temp_ans.q[3 : 0] == temp_input.q[3 : 0]) {
+                if (temp_ans_bull.q[3:0] == temp_input_bull.q[3:0]) {
                     bull_count.d = bull_count.q + 1;
-                    state.d = state.CHECK_BULL_1;
+                    temp_input_cow.d[3:0] = 4b0000;
+                }
+
+                else {
+                    temp_input_cow.d[3:0] = temp_input_bull.q[3:0];
                 }
                 
-                else {
-                    state.d = state.CHECK_BULL_1;
-        }
-
-                k.d = k.q + 1;
+                state.d = state.CHECK_BULL_1;
         
-              state.CHECK_BULL_1:
-                // start_index = (k.q*4) + 3;
-                // end_index = k.q * 4;
-
-                if (temp_ans.q[7 : 4] == temp_input.q[7 : 4]) {
+            state.CHECK_BULL_1:
+                if (temp_ans_bull.q[7:4] == temp_input_bull.q[7:4]) {
                     bull_count.d = bull_count.q + 1;
-                    state.d = state.CHECK_BULL_2;
+                    temp_input_cow.d[7:4] = 4b0000;
                 }
-                
+
                 else {
-                    state.d = state.CHECK_BULL_2;
-        }
+                    temp_input_cow.d[7:4] = temp_input_bull.q[7:4];
+                }
 
-                k.d = k.q + 1;
+                state.d = state.CHECK_BULL_2;
 
-              state.CHECK_BULL_2:
-                // start_index = (k.q*4) + 3;
-                // end_index = k.q * 4;
-
-                if (temp_ans.q[11 : 8] == temp_input.q[11 : 8]) {
+            state.CHECK_BULL_2:
+                if (temp_ans_bull.q[11:8] == temp_input_bull.q[11:8]) {
                     bull_count.d = bull_count.q + 1;
-                    state.d = state.CHECK_BULL_3;
+                    temp_input_cow.d[11:8] = 4b0000;
                 }
-                
+
                 else {
-                    state.d = state.CHECK_BULL_3;
-        }
-                k.d = k.q + 1;
+                    temp_input_cow.d[11:8] = temp_input_bull.q[11:8];
+                }
+
+                state.d = state.CHECK_BULL_3;
         
-              state.CHECK_BULL_3:
-                // start_index = (k.q*4) + 3;
-                // end_index = k.q * 4;
-
-                if (temp_ans.q[15 : 12] == temp_input.q[15 : 12]) {
+            state.CHECK_BULL_3:
+                if (temp_ans_bull.q[15:12] == temp_input_bull.q[15:12]) {
                     bull_count.d = bull_count.q + 1;
-                    state.d = state.STATE_RED;
+                    temp_input_cow.d[15:12] = 4b0000;
                 }
-                
-                else {
-                    state.d = state.STATE_GREEN;
-        }
 
+                else {
+                    temp_input_cow.d[15:12] = temp_input_bull.q[15:12];
+                }
+
+                state.d = state.CHECK_COW_INIT;
+            
+            state.CHECK_COW_INIT:
+                temp_ans_cow.d = answer;
+                cow_count.d = 0;
+                state.d = state.CHECK_COW_0_0
+            
+            state.CHECK_COW_0_0:
+                if (temp_input_cow[3:0] == temp_ans_cow.q[3:0]) {
+                    cow_count.d = cow_count.q + 1;
+                    state.d = state.CHECK_COW_1_0;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_0_1;
+                }
+            
+            state.CHECK_COW_0_1:
+                if (temp_input_cow[3:0] == temp_ans_cow.q[7:4]) {
+                    cow_count.d = cow_count.q + 1;
+                    state.d = state.CHECK_COW_1_0;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_0_2;
+                }
+
+            state.CHECK_COW_0_2:
+                if (temp_input_cow[3:0] == temp_ans_cow.q[11:8]) {
+                    cow_count.d = cow_count.q + 1;
+                    state.d = state.CHECK_COW_1_0;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_0_3;
+                }           
+
+            state.CHECK_COW_0_3:
+                if (temp_input_cow[3:0] == temp_ans_cow.q[15:12]) {
+                    cow_count.d = cow_count.q + 1;
+                }
+
+                state.d = state.CHECK_COW_1_0;
+
+            state.CHECK_COW_1_0:
+                if (temp_input_cow[7:4] == temp_ans_cow.q[3:0]) {
+                    cow_count.d = cow_count.q + 1;
+                    state.d = state.CHECK_COW_2_0;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_1_1;
+                }
+            
+            state.CHECK_COW_1_1:
+                if (temp_input_cow[7:4] == temp_ans_cow.q[7:4]) {
+                    cow_count.d = cow_count.q + 1;
+                    state.d = state.CHECK_COW_2_0;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_1_2;
+                }
+
+            state.CHECK_COW_1_2:
+                if (temp_input_cow[7:4] == temp_ans_cow.q[11:8]) {
+                    cow_count.d = cow_count.q + 1;
+                    state.d = state.CHECK_COW_2_0;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_1_3;
+                }           
+
+            state.CHECK_COW_1_3:
+                if (temp_input_cow[7:4] == temp_ans_cow.q[15:12]) {
+                    cow_count.d = cow_count.q + 1;
+                }
+
+                state.d = state.CHECK_COW_2_0;
+
+            state.CHECK_COW_2_0:
+                if (temp_input_cow[11:8] == temp_ans_cow.q[3:0]) {
+                    cow_count.d = cow_count.q + 1;
+                    state.d = state.CHECK_COW_3_0;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_2_1;
+                }
+            
+            state.CHECK_COW_2_1:
+                if (temp_input_cow[11:8] == temp_ans_cow.q[7:4]) {
+                    cow_count.d = cow_count.q + 1;
+                    state.d = state.CHECK_COW_3_0;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_2_2;
+                }
+
+            state.CHECK_COW_2_2:
+                if (temp_input_cow[11:8] == temp_ans_cow.q[11:8]) {
+                    cow_count.d = cow_count.q + 1;
+                    state.d = state.CHECK_COW_3_0;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_2_3;
+                }           
+
+            state.CHECK_COW_2_3:
+                if (temp_input_cow[11:8] == temp_ans_cow.q[15:12]) {
+                    cow_count.d = cow_count.q + 1;
+                }
+
+                state.d = state.CHECK_COW_3_0;
+
+            state.CHECK_COW_3_0:
+                if (temp_input_cow[15:12] == temp_ans_cow.q[3:0]) {
+                    cow_count.d = cow_count.q + 1;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_3_1;
+                }
+            
+            state.CHECK_COW_3_1:
+                if (temp_input_cow[15:12] == temp_ans_cow.q[7:4]) {
+                    cow_count.d = cow_count.q + 1;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_3_2;
+                }
+
+            state.CHECK_COW_3_2:
+                if (temp_input_cow[15:12] == temp_ans_cow.q[11:8]) {
+                    cow_count.d = cow_count.q + 1;
+                }
+
+                else {
+                    state.d = state.CHECK_COW_3_3;
+                }           
+
+            state.CHECK_COW_3_3:
+                if (temp_input_cow[15:12] == temp_ans_cow.q[15:12]) {
+                    cow_count.d = cow_count.q + 1;
+                }
 
 
             // state.CHECK_COW:
