@@ -69,7 +69,7 @@ module mojo_top_0 (
   wire [2-1:0] M_game_FSM_demux;
   wire [8-1:0] M_game_FSM_led_out;
   wire [8-1:0] M_game_FSM_led_out_1;
-  wire [3-1:0] M_game_FSM_led_out_2;
+  wire [8-1:0] M_game_FSM_led_out_2;
   reg [1-1:0] M_game_FSM_enter;
   reg [1-1:0] M_game_FSM_toggle;
   game_FSM_6 game_FSM (

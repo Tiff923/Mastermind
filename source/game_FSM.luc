@@ -34,9 +34,7 @@ module game_FSM(
         FAIL
     };
 
-    var i;
-    var j;
-    var k;
+
     dff check_state [3]; // check whether enter 4 times
     dff user_input [16]; // store inputs from user
     dff user_input_cow [16]; // store inputs from user after removing those of "bull"
@@ -45,8 +43,13 @@ module game_FSM(
 
     }
 }
-
+  
+var i;
+var j;
+var k;
 sig answer[16];
+var end_index;
+var start_index;
 
     always {
         alufn = 0;
@@ -54,7 +57,7 @@ sig answer[16];
         bsel = 0;
         demux = 0;
         led_out = 0;
-        led_out_1 = output_bull.[7:0];
+        led_out_1 = output_bull.q[7:0];
         led_out_2 = output_bull.q[15:8];
         answer = 16b1001100110011001; // all red
         
@@ -157,40 +160,47 @@ sig answer[16];
             
             state.CHECK_BULL:
                 for (k = 0; k < 4; k++) {
-                    if (answer[k*4 + 3: k*4] == user_input.q[k*4 + 3: k*4]) {
-                        output_bull.d = output_bull.q + 4b0111;
-                        output_bull.d = output_bull.q << 4
+                    end_index = (k*4) + 3;
+                    start_index = k * 4;
+                    if (answer[end_index : start_index] == user_input.q[end_index : start_index]) { // cannot do indexing like that, but how?
+                        output_bull.d = output_bull.q + 4b0111; 
+                        output_bull.d = output_bull.q << 4;
                     }
                 }
 
                 state.d = state.CHECK_COW;
 
             state.CHECK_COW:
-                for (i = 0; i < 4; i ++) {
-                    if (~(answer[i*4 + 3:i*4] == user_input.q[i*4 + 3:i*4])) {
-                        user_input_cow.d = user_input_cow.q + user_input.q[i*4 + 3:i*4];
-                        user_input_cow.d << 4; // shift left by 4 bits
+                // remove bulls to check for cows
+                for (i = 0; i < 4; i++) {
+                    end_index = (i*4) + 3;
+                    start_index = i * 4;
+                    if (~(answer[end_index : start_index] == user_input.q[end_index : start_index])) {
+                        user_input_cow.d = user_input_cow.q + user_input.q[end_index : start_index];
+                        user_input_cow.d = user_input_cow.q << 4; // shift left by 4 bits
                     }
                 }
 
                 // j to represent index of user_input_cow
                 for (j = 0; j < 4; j++){
-                    if (user_input_cow.q[j*4 + 3:j*4] == answer[0:3]) {
+                    end_index = (j*4) + 3;
+                    start_index = j * 4;
+                    if (user_input_cow.q[end_index : start_index] == answer[3:0]) {
                         output_cow.d = output_cow.q + 4b1101;
                         output_cow.d = output_cow.q << 4;
                     }
 
-                    else if (user_input_cow.q[j*4 + 3:j*4] == answer[7:4]) {
+                    else if (user_input_cow.q[end_index : start_index] == answer[7:4]) {
                         output_cow.d = output_cow.q + 4b1101;
                         output_cow.d = output_cow.q << 4;
                     }
 
-                    else if (user_input_cow.q[j*4 + 3:j*4] == answer[11:8]) {
+                    else if (user_input_cow.q[end_index : start_index] == answer[11:8]) {
                         output_cow.d = output_cow.q + 4b1101;
                         output_cow.d = output_cow.q << 4;
                     }
 
-                    else if (user_input_cow.q[j*4 + 3:j*4] == answer[15:12]) {
+                    else if (user_input_cow.q[end_index : start_index] == answer[15:12]) {
                         output_cow.d = output_cow.q + 4b1101;
                         output_cow.d = output_cow.q << 4;
                     }
