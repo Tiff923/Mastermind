@@ -35,7 +35,6 @@ Elaborating module <button_conditioner_4>.
 Elaborating module <pipeline_7>.
 
 Elaborating module <game_FSM_6>.
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_6.v" Line 221: Assignment to M_user_input_cow_q ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 80: Assignment to M_game_FSM_alufn ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 81: Assignment to M_game_FSM_asel ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 82: Assignment to M_game_FSM_bsel ignored, since the identifier is never used
@@ -103,36 +102,56 @@ Unit <pipeline_7> synthesized.
 Synthesizing Unit <game_FSM_6>.
     Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_6.v".
     Found 16-bit register for signal <M_user_input_q>.
-    Found 16-bit register for signal <M_temp_ans_q>.
-    Found 16-bit register for signal <M_temp_input_q>.
+    Found 16-bit register for signal <M_temp_ans_bull_q>.
+    Found 16-bit register for signal <M_temp_input_bull_q>.
     Found 3-bit register for signal <M_bull_count_q>.
-    Found 5-bit register for signal <M_state_q>.
+    Found 16-bit register for signal <M_temp_ans_cow_q>.
+    Found 16-bit register for signal <M_temp_input_cow_q>.
+    Found 3-bit register for signal <M_cow_count_q>.
+    Found 6-bit register for signal <M_state_q>.
     Found 3-bit register for signal <M_check_state_q>.
     Found finite state machine <FSM_0> for signal <M_state_q>.
     -----------------------------------------------------------------------
-    | States             | 11                                             |
-    | Transitions        | 21                                             |
-    | Inputs             | 4                                              |
-    | Outputs            | 8                                              |
+    | States             | 29                                             |
+    | Transitions        | 50                                             |
+    | Inputs             | 15                                             |
+    | Outputs            | 10                                             |
     | Clock              | clk (rising_edge)                              |
     | Reset              | rst (positive)                                 |
     | Reset type         | synchronous                                    |
-    | Reset State        | 00000                                          |
-    | Power Up State     | 00000                                          |
+    | Reset State        | 000000                                         |
+    | Power Up State     | 000000                                         |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 3-bit adder for signal <M_check_state_q[2]_GND_6_o_add_7_OUT> created at line 109.
-    Found 3-bit adder for signal <M_bull_count_q[2]_GND_6_o_add_41_OUT> created at line 185.
-    Found 4-bit comparator not equal for signal <M_temp_ans_q[3]_M_temp_input_q[3]_equal_41_o> created at line 184
-    Found 4-bit comparator not equal for signal <M_temp_ans_q[7]_M_temp_input_q[7]_equal_45_o> created at line 193
-    Found 4-bit comparator not equal for signal <M_temp_ans_q[11]_M_temp_input_q[11]_equal_49_o> created at line 202
-    Found 4-bit comparator equal for signal <M_temp_ans_q[15]_M_temp_input_q[15]_equal_53_o> created at line 211
+    Found 3-bit adder for signal <M_check_state_q[2]_GND_6_o_add_7_OUT> created at line 122.
+    Found 3-bit adder for signal <M_bull_count_q[2]_GND_6_o_add_41_OUT> created at line 197.
+    Found 3-bit adder for signal <M_cow_count_q[2]_GND_6_o_add_53_OUT> created at line 238.
+    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[3]_M_temp_input_bull_q[3]_equal_41_o> created at line 196
+    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[7]_M_temp_input_bull_q[7]_equal_44_o> created at line 205
+    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[11]_M_temp_input_bull_q[11]_equal_47_o> created at line 214
+    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[15]_M_temp_input_bull_q[15]_equal_50_o> created at line 223
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[3]_equal_53_o> created at line 237
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[7]_equal_57_o> created at line 245
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[11]_equal_61_o> created at line 253
+    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[15]_equal_65_o> created at line 261
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[3]_equal_68_o> created at line 269
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[7]_equal_72_o> created at line 277
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[11]_equal_76_o> created at line 285
+    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[15]_equal_80_o> created at line 293
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[3]_equal_83_o> created at line 301
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[7]_equal_87_o> created at line 309
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[11]_equal_91_o> created at line 317
+    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[15]_equal_95_o> created at line 325
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[3]_equal_98_o> created at line 333
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[7]_equal_102_o> created at line 341
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[11]_equal_106_o> created at line 349
+    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[15]_equal_110_o> created at line 357
     Summary:
-	inferred   2 Adder/Subtractor(s).
-	inferred  54 D-type flip-flop(s).
-	inferred   4 Comparator(s).
-	inferred  41 Multiplexer(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  89 D-type flip-flop(s).
+	inferred  20 Comparator(s).
+	inferred  63 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <game_FSM_6> synthesized.
 
@@ -140,23 +159,23 @@ Unit <game_FSM_6> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 4
+# Adders/Subtractors                                   : 5
  20-bit adder                                          : 2
- 3-bit adder                                           : 2
-# Registers                                            : 12
+ 3-bit adder                                           : 3
+# Registers                                            : 15
  1-bit register                                        : 2
- 16-bit register                                       : 3
+ 16-bit register                                       : 5
  2-bit register                                        : 2
  20-bit register                                       : 2
- 3-bit register                                        : 2
+ 3-bit register                                        : 3
  4-bit register                                        : 1
-# Comparators                                          : 4
- 4-bit comparator equal                                : 1
- 4-bit comparator not equal                            : 3
-# Multiplexers                                         : 41
- 1-bit 2-to-1 multiplexer                              : 35
- 16-bit 2-to-1 multiplexer                             : 5
- 3-bit 2-to-1 multiplexer                              : 1
+# Comparators                                          : 20
+ 4-bit comparator equal                                : 16
+ 4-bit comparator not equal                            : 4
+# Multiplexers                                         : 63
+ 1-bit 2-to-1 multiplexer                              : 51
+ 16-bit 2-to-1 multiplexer                             : 8
+ 3-bit 2-to-1 multiplexer                              : 4
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
 # FSMs                                                 : 1
@@ -181,17 +200,20 @@ Unit <game_FSM_6> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
+# Adders/Subtractors                                   : 1
+ 3-bit adder                                           : 1
 # Counters                                             : 4
  20-bit up counter                                     : 2
  3-bit up counter                                      : 2
-# Registers                                            : 58
- Flip-Flops                                            : 58
-# Comparators                                          : 4
- 4-bit comparator equal                                : 1
- 4-bit comparator not equal                            : 3
-# Multiplexers                                         : 40
- 1-bit 2-to-1 multiplexer                              : 35
- 16-bit 2-to-1 multiplexer                             : 5
+# Registers                                            : 93
+ Flip-Flops                                            : 93
+# Comparators                                          : 20
+ 4-bit comparator equal                                : 16
+ 4-bit comparator not equal                            : 4
+# Multiplexers                                         : 62
+ 1-bit 2-to-1 multiplexer                              : 51
+ 16-bit 2-to-1 multiplexer                             : 8
+ 3-bit 2-to-1 multiplexer                              : 3
 # FSMs                                                 : 1
 
 =========================================================================
@@ -199,40 +221,67 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <M_temp_ans_q_1> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_q_2> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_q_5> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_q_6> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_q_9> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_q_10> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_q_13> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_q_14> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <M_temp_ans_cow_q_1> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_cow_q_2> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_cow_q_5> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_cow_q_6> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_cow_q_9> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_cow_q_10> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_cow_q_14> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_cow_q_15> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_1> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_2> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_5> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_6> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_9> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_10> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_14> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_15> has a constant value of 0 in block <game_FSM_6>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <M_temp_ans_cow_q_0> in Unit <game_FSM_6> is equivalent to the following 7 FFs/Latches, which will be removed : <M_temp_ans_cow_q_3> <M_temp_ans_cow_q_4> <M_temp_ans_cow_q_7> <M_temp_ans_cow_q_8> <M_temp_ans_cow_q_11> <M_temp_ans_cow_q_12> <M_temp_ans_cow_q_13> 
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <game_FSM/FSM_0> on signal <M_state_q[1:5]> with user encoding.
--------------------
- State | Encoding
--------------------
- 00000 | 00000
- 00001 | 00001
- 00010 | 00010
- 00101 | 00101
- 00011 | 00011
- 00100 | 00100
- 00110 | 00110
- 00111 | 00111
- 01001 | 01001
- 01010 | 01010
- 01011 | 01011
--------------------
+Optimizing FSM <game_FSM/FSM_0> on signal <M_state_q[1:29]> with one-hot encoding.
+-----------------------------------------
+ State  | Encoding
+-----------------------------------------
+ 000000 | 00000000000000000000000000001
+ 000001 | 00000000000000000000000000010
+ 000010 | 00000000000000000000000000100
+ 000101 | 00000000000000000000000001000
+ 000011 | 00000000000000000000000010000
+ 000100 | 00000000000000000000000100000
+ 000110 | 00000000000000000000001000000
+ 000111 | 00000000000000000000010000000
+ 001000 | 00000000000000000000100000000
+ 001001 | 00000000000000000001000000000
+ 001010 | 00000000000000000010000000000
+ 001011 | 00000000000000000100000000000
+ 001100 | 00000000000000001000000000000
+ 001101 | 00000000000000010000000000000
+ 001110 | 00000000000000100000000000000
+ 010001 | 00000000000001000000000000000
+ 001111 | 00000000000010000000000000000
+ 010000 | 00000000000100000000000000000
+ 010010 | 00000000001000000000000000000
+ 010101 | 00000000010000000000000000000
+ 010011 | 00000000100000000000000000000
+ 010100 | 00000001000000000000000000000
+ 010110 | 00000010000000000000000000000
+ 011001 | 00000100000000000000000000000
+ 010111 | 00001000000000000000000000000
+ 011000 | 00010000000000000000000000000
+ 011010 | 00100000000000000000000000000
+ 011011 | 01000000000000000000000000000
+ 011100 | 10000000000000000000000000000
+-----------------------------------------
 
 Optimizing unit <mojo_top_0> ...
 
 Optimizing unit <game_FSM_6> ...
-INFO:Xst:2261 - The FF/Latch <game_FSM/M_temp_ans_q_15> in Unit <mojo_top_0> is equivalent to the following 7 FFs/Latches, which will be removed : <game_FSM/M_temp_ans_q_12> <game_FSM/M_temp_ans_q_11> <game_FSM/M_temp_ans_q_8> <game_FSM/M_temp_ans_q_7> <game_FSM/M_temp_ans_q_4> <game_FSM/M_temp_ans_q_3> <game_FSM/M_temp_ans_q_0> 
+INFO:Xst:2261 - The FF/Latch <game_FSM/M_temp_ans_bull_q_13> in Unit <mojo_top_0> is equivalent to the following 7 FFs/Latches, which will be removed : <game_FSM/M_temp_ans_bull_q_12> <game_FSM/M_temp_ans_bull_q_11> <game_FSM/M_temp_ans_bull_q_8> <game_FSM/M_temp_ans_bull_q_7> <game_FSM/M_temp_ans_bull_q_4> <game_FSM/M_temp_ans_bull_q_3> <game_FSM/M_temp_ans_bull_q_0> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 2.
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 3.
 
 Final Macro Processing ...
 
@@ -246,8 +295,8 @@ Unit <mojo_top_0> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 89
- Flip-Flops                                            : 89
+# Registers                                            : 134
+ Flip-Flops                                            : 134
 # Shift Registers                                      : 2
  2-bit shift register                                  : 2
 
@@ -273,7 +322,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 93    |
+clk                                | BUFGP                  | 138   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -284,9 +333,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 5.323ns (Maximum Frequency: 187.864MHz)
+   Minimum period: 6.027ns (Maximum Frequency: 165.920MHz)
    Minimum input arrival time before clock: 3.526ns
-   Maximum output required time after clock: 6.051ns
+   Maximum output required time after clock: 5.620ns
    Maximum combinational path delay: No path found
 
 =========================================================================
