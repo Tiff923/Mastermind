@@ -150,13 +150,13 @@ Synthesizing Unit <game_FSM_8>.
     Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[7]_equal_113_o> created at line 378
     Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[11]_equal_117_o> created at line 386
     Found 4-bit comparator not equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[15]_equal_121_o> created at line 394
-    Found 3-bit comparator greater for signal <M_bull_count_q[2]_PWR_6_o_LessThan_127_o> created at line 408
-    Found 3-bit comparator greater for signal <M_check_row_q[2]_PWR_6_o_LessThan_128_o> created at line 408
+    Found 3-bit comparator greater for signal <M_bull_count_q[2]_PWR_6_o_LessThan_127_o> created at line 409
+    Found 3-bit comparator greater for signal <M_check_row_q[2]_PWR_6_o_LessThan_128_o> created at line 409
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred  92 D-type flip-flop(s).
 	inferred  22 Comparator(s).
-	inferred  70 Multiplexer(s).
+	inferred  71 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <game_FSM_8> synthesized.
 
@@ -178,10 +178,10 @@ Macro Statistics
  3-bit comparator greater                              : 2
  4-bit comparator equal                                : 16
  4-bit comparator not equal                            : 4
-# Multiplexers                                         : 86
+# Multiplexers                                         : 87
  1-bit 2-to-1 multiplexer                              : 67
  16-bit 2-to-1 multiplexer                             : 11
- 3-bit 2-to-1 multiplexer                              : 8
+ 3-bit 2-to-1 multiplexer                              : 9
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
 # FSMs                                                 : 1
@@ -216,10 +216,10 @@ Macro Statistics
  3-bit comparator greater                              : 2
  4-bit comparator equal                                : 16
  4-bit comparator not equal                            : 4
-# Multiplexers                                         : 85
+# Multiplexers                                         : 86
  1-bit 2-to-1 multiplexer                              : 67
  16-bit 2-to-1 multiplexer                             : 11
- 3-bit 2-to-1 multiplexer                              : 7
+ 3-bit 2-to-1 multiplexer                              : 8
 # FSMs                                                 : 1
 
 =========================================================================
@@ -343,9 +343,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 6.352ns (Maximum Frequency: 157.431MHz)
+   Minimum period: 5.847ns (Maximum Frequency: 171.028MHz)
    Minimum input arrival time before clock: 3.526ns
-   Maximum output required time after clock: 5.772ns
+   Maximum output required time after clock: 5.946ns
    Maximum combinational path delay: 6.412ns
 
 =========================================================================

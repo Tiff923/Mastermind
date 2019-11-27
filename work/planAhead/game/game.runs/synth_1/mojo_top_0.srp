@@ -3,7 +3,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> Reading design: mojo_top_0.prj
 
@@ -196,13 +196,13 @@ Synthesizing Unit <game_FSM_8>.
     Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[7]_equal_113_o> created at line 378
     Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[11]_equal_117_o> created at line 386
     Found 4-bit comparator not equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[15]_equal_121_o> created at line 394
-    Found 3-bit comparator greater for signal <M_bull_count_q[2]_PWR_6_o_LessThan_127_o> created at line 408
-    Found 3-bit comparator greater for signal <M_check_row_q[2]_PWR_6_o_LessThan_128_o> created at line 408
+    Found 3-bit comparator greater for signal <M_bull_count_q[2]_PWR_6_o_LessThan_127_o> created at line 409
+    Found 3-bit comparator greater for signal <M_check_row_q[2]_PWR_6_o_LessThan_128_o> created at line 409
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred  92 D-type flip-flop(s).
 	inferred  22 Comparator(s).
-	inferred  70 Multiplexer(s).
+	inferred  71 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <game_FSM_8> synthesized.
 
@@ -224,10 +224,10 @@ Macro Statistics
  3-bit comparator greater                              : 2
  4-bit comparator equal                                : 16
  4-bit comparator not equal                            : 4
-# Multiplexers                                         : 86
+# Multiplexers                                         : 87
  1-bit 2-to-1 multiplexer                              : 67
  16-bit 2-to-1 multiplexer                             : 11
- 3-bit 2-to-1 multiplexer                              : 8
+ 3-bit 2-to-1 multiplexer                              : 9
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
 # FSMs                                                 : 1
@@ -262,10 +262,10 @@ Macro Statistics
  3-bit comparator greater                              : 2
  4-bit comparator equal                                : 16
  4-bit comparator not equal                            : 4
-# Multiplexers                                         : 85
+# Multiplexers                                         : 86
  1-bit 2-to-1 multiplexer                              : 67
  16-bit 2-to-1 multiplexer                             : 11
- 3-bit 2-to-1 multiplexer                              : 7
+ 3-bit 2-to-1 multiplexer                              : 8
 # FSMs                                                 : 1
 
 =========================================================================
@@ -377,17 +377,16 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 396
+# BELS                             : 377
 #      GND                         : 8
 #      INV                         : 7
 #      LUT1                        : 57
-#      LUT2                        : 5
-#      LUT3                        : 30
-#      LUT4                        : 20
-#      LUT5                        : 41
-#      LUT6                        : 99
+#      LUT2                        : 10
+#      LUT3                        : 27
+#      LUT4                        : 14
+#      LUT5                        : 37
+#      LUT6                        : 92
 #      MUXCY                       : 57
-#      MUXF7                       : 4
 #      VCC                         : 8
 #      XORCY                       : 60
 # FlipFlops/Latches                : 172
@@ -413,17 +412,17 @@ Selected Device : 6slx9tqg144-2
 
 Slice Logic Utilization: 
  Number of Slice Registers:             172  out of  11440     1%  
- Number of Slice LUTs:                  262  out of   5720     4%  
-    Number used as Logic:               259  out of   5720     4%  
+ Number of Slice LUTs:                  247  out of   5720     4%  
+    Number used as Logic:               244  out of   5720     4%  
     Number used as Memory:                3  out of   1440     0%  
        Number used as SRL:                3
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    292
-   Number with an unused Flip Flop:     120  out of    292    41%  
-   Number with an unused LUT:            30  out of    292    10%  
-   Number of fully used LUT-FF pairs:   142  out of    292    48%  
-   Number of unique control sets:        18
+ Number of LUT Flip Flop pairs used:    277
+   Number with an unused Flip Flop:     105  out of    277    37%  
+   Number with an unused LUT:            30  out of    277    10%  
+   Number of fully used LUT-FF pairs:   142  out of    277    51%  
+   Number of unique control sets:        17
 
 IO Utilization: 
  Number of IOs:                          87
@@ -464,9 +463,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 6.352ns (Maximum Frequency: 157.431MHz)
+   Minimum period: 5.847ns (Maximum Frequency: 171.028MHz)
    Minimum input arrival time before clock: 3.526ns
-   Maximum output required time after clock: 5.772ns
+   Maximum output required time after clock: 5.946ns
    Maximum combinational path delay: 6.412ns
 
 Timing Details:
@@ -475,32 +474,32 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.352ns (frequency: 157.431MHz)
-  Total number of paths / destination ports: 6100 / 441
+  Clock period: 5.847ns (frequency: 171.028MHz)
+  Total number of paths / destination ports: 6054 / 441
 -------------------------------------------------------------------------
-Delay:               6.352ns (Levels of Logic = 6)
-  Source:            btn_cond_2/M_ctr_q_9 (FF)
-  Destination:       game_FSM/M_user_input_q_14 (FF)
+Delay:               5.847ns (Levels of Logic = 6)
+  Source:            btn_cond_1/M_ctr_q_9 (FF)
+  Destination:       game_FSM/M_check_state_q_0 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: btn_cond_2/M_ctr_q_9 to game_FSM/M_user_input_q_14
+  Data Path: btn_cond_1/M_ctr_q_9 to game_FSM/M_check_state_q_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDRE:C->Q             2   0.525   1.181  M_ctr_q_9 (M_ctr_q_9)
      LUT6:I0->O            3   0.254   0.994  out3 (out2)
-     end scope: 'btn_cond_2:out2'
-     begin scope: 'edge_dt_btn_2:out2'
-     LUT6:I3->O           16   0.235   1.637  out1 (out)
-     end scope: 'edge_dt_btn_2:out'
-     begin scope: 'game_FSM:toggle'
-     LUT6:I0->O            8   0.254   0.944  M_state_q__n0443_inv1_rstpot (M_state_q__n0443_inv1_rstpot)
-     LUT3:I2->O            1   0.254   0.000  M_user_input_q_1_dpot (M_user_input_q_1_dpot)
-     FDRE:D                    0.074          M_user_input_q_1
+     end scope: 'btn_cond_1:out2'
+     begin scope: 'edge_dt_btn_1:out2'
+     LUT6:I3->O           21   0.235   1.310  out1 (out)
+     end scope: 'edge_dt_btn_1:out'
+     begin scope: 'game_FSM:enter'
+     LUT5:I4->O            3   0.254   0.766  M_state_q__n0734_inv1 (_n0734_inv)
+     LUT3:I2->O            1   0.254   0.000  M_check_state_q_2_rstpot (M_check_state_q_2_rstpot)
+     FDR:D                     0.074          M_check_state_q_2
     ----------------------------------------
-    Total                      6.352ns (1.596ns logic, 4.756ns route)
-                                       (25.1% logic, 74.9% route)
+    Total                      5.847ns (1.596ns logic, 4.251ns route)
+                                       (27.3% logic, 72.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
@@ -527,7 +526,7 @@ Offset:              3.526ns (Levels of Logic = 3)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 27 / 15
 -------------------------------------------------------------------------
-Offset:              5.772ns (Levels of Logic = 3)
+Offset:              5.946ns (Levels of Logic = 3)
   Source:            game_FSM/M_state_q_FSM_FFd28 (FF)
   Destination:       io_led<0> (PAD)
   Source Clock:      clk rising
@@ -536,13 +535,13 @@ Offset:              5.772ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             12   0.525   1.297  M_state_q_FSM_FFd28 (M_state_q_FSM_FFd28)
-     LUT3:I0->O            4   0.235   0.803  M_state_q_FSM_FFd29-In11 (led_out<0>)
+     FDR:C->Q             10   0.525   1.236  M_state_q_FSM_FFd28 (M_state_q_FSM_FFd28)
+     LUT3:I0->O           11   0.235   1.038  M_state_q_FSM_FFd29-In11 (led_out<0>)
      end scope: 'game_FSM:led_out<0>'
      OBUF:I->O                 2.912          io_led_0_OBUF (io_led<0>)
     ----------------------------------------
-    Total                      5.772ns (3.672ns logic, 2.100ns route)
-                                       (63.6% logic, 36.4% route)
+    Total                      5.946ns (3.672ns logic, 2.274ns route)
+                                       (61.8% logic, 38.2% route)
 
 =========================================================================
 Timing constraint: Default path analysis
@@ -573,18 +572,18 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    6.352|         |         |         |
+clk            |    5.847|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 6.50 secs
+Total CPU time to Xst completion: 6.35 secs
  
 --> 
 
-Total memory usage is 4510996 kilobytes
+Total memory usage is 4510992 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   21 (   0 filtered)

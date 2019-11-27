@@ -401,6 +401,7 @@ module game_FSM_8 (
       CHECK_BULL_COW_state: begin
         if (M_bull_count_q == 3'h4) begin
           M_state_d = SUCCESS_state;
+          M_cow_count_d = 1'h0;
         end else begin
           if (M_bull_count_q < 3'h4 & M_check_row_q == 3'h7) begin
             M_state_d = FAIL_state;

@@ -22,9 +22,9 @@ module game_FSM(
 .clk(clk){
     .rst(rst){
     fsm state = {
+        INIT,
         START,
         IDLE,
-        INIT,
         STATE_RED,
         STATE_GREEN,
         STATE_BLUE,
@@ -66,11 +66,11 @@ module game_FSM(
 
     dff temp_ans_bull[16]; // temporary register to hold answer
     dff temp_input_bull[16]; // temporary register to hold user input
-    dff bull_count[3];
+    dff bull_count[3]; // register to store # of bull counts
 
     dff temp_ans_cow[16]; // temporary register to hold answer
     dff temp_input_cow[16]; // temporary register to hold user input
-    dff cow_count[3];
+    dff cow_count[3]; // register to store # of cow counts
     
 
     }
@@ -440,6 +440,7 @@ sig answer[16];
             state.CHECK_BULL_COW:
                 if (bull_count.q == 4) {
                     state.d = state.SUCCESS;
+                    cow_count.d = 0;
                 }
                 
                 else if (bull_count.q < 4 & check_row.q == 7) {
