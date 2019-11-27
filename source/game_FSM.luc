@@ -93,6 +93,10 @@ sig answer[16];
                 if (toggle) {
                     state.d = state.STATE_RED;
                 }
+
+                else if (reset) {
+                    state.d = state.START;
+                }
                 
             
             state.STATE_RED:
@@ -100,6 +104,10 @@ sig answer[16];
 
                 if (toggle) {
                     state.d = state.STATE_GREEN;
+                }
+
+                else if (reset) {
+                    state.d = state.START;
                 }
 
                 else if (enter) {
@@ -127,6 +135,10 @@ sig answer[16];
                     state.d = state.STATE_BLUE;
                 }
 
+                else if (reset) {
+                    state.d = state.START;
+                }
+
                 else if (enter) {
                     if (check_state.q == 0) {
                         user_input.d[15:12] = 4b0101;
@@ -150,6 +162,10 @@ sig answer[16];
 
                 if (toggle) {
                     state.d = state.STATE_RED;
+                }
+                
+                else if (reset) {
+                    state.d = state.START;
                 }
 
                 else if (enter) {
