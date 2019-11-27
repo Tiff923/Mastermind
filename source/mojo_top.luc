@@ -29,9 +29,11 @@ module mojo_top (
     
     edge_detector edge_dt_btn_1 (#RISE(1), #FALL(0));
     edge_detector edge_dt_btn_2 (#RISE(1), #FALL(0));
+    edge_detector edge_dt_btn_3 (#RISE(1), #FALL(0));
     
     button_conditioner btn_cond_1;
     button_conditioner btn_cond_2;
+    button_conditioner btn_cond_3;
     
     .rst(rst){
     game_FSM game_FSM;
@@ -58,11 +60,14 @@ module mojo_top (
     
     btn_cond_1.in = io_button[1];
     btn_cond_2.in = io_button[4];
+    btn_cond_3.in = io_button[3];
     edge_dt_btn_1.in = btn_cond_1.out;
     edge_dt_btn_2.in = btn_cond_2.out;
+    edge_dt_btn_3.in = btn_cond_3.out;
     
     game_FSM.enter = edge_dt_btn_1.out;
     game_FSM.toggle = edge_dt_btn_2.out;
+    game_FSM.reset = edge_dt_btn_3.out;
     
   }
 }

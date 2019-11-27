@@ -4,6 +4,7 @@ module game_FSM(
 
     input enter,
     input toggle,
+    input reset,
 
     output alufn[6],
     output asel[3],
@@ -92,6 +93,7 @@ sig answer[16];
                 if (toggle) {
                     state.d = state.STATE_RED;
                 }
+                
             
             state.STATE_RED:
                 led_out = 4b1001;
