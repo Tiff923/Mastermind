@@ -276,7 +276,7 @@ sig answer[16];
                 
                 else {
                   state.d = state.CHECK_COW_1_0;
-        }
+                }
         
             state.CHECK_COW_1_0:
                 if (temp_input_cow.q[7:4] == temp_ans_cow.q[3:0]) {
@@ -316,7 +316,8 @@ sig answer[16];
                 
                 else {
                     state.d = state.CHECK_COW_2_0;
-        }
+                }
+                
             state.CHECK_COW_2_0:
                 if (temp_input_cow.q[11:8] == temp_ans_cow.q[3:0]) {
                     cow_count.d = cow_count.q + 1;
@@ -352,9 +353,10 @@ sig answer[16];
                     cow_count.d = cow_count.q + 1;
                     state.d = state.CHECK_COW_3_0;
                 }
+
                 else {
-                  state.d = state.CHECK_COW_3_0;
-        }
+                    state.d = state.CHECK_COW_3_0;
+                }
         
             state.CHECK_COW_3_0:
                 if (temp_input_cow.q[15:12] == temp_ans_cow.q[3:0]) {
@@ -391,9 +393,10 @@ sig answer[16];
                     cow_count.d = cow_count.q + 1;
                     state.d = state.IDLE;
                 }
-                 else {
-                state.d = state.IDLE;
-        }
+
+                else {
+                    state.d = state.IDLE;
+                }
 
         }
     }
