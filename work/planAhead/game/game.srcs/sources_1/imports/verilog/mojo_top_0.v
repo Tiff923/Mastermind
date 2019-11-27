@@ -84,6 +84,8 @@ module mojo_top_0 (
   wire [8-1:0] M_game_FSM_led_out;
   wire [8-1:0] M_game_FSM_led_out_1;
   wire [8-1:0] M_game_FSM_led_out_2;
+  wire [8-1:0] M_game_FSM_led_out_3;
+  wire [8-1:0] M_game_FSM_led_out_4;
   reg [1-1:0] M_game_FSM_enter;
   reg [1-1:0] M_game_FSM_toggle;
   reg [1-1:0] M_game_FSM_reset;
@@ -99,7 +101,9 @@ module mojo_top_0 (
     .demux(M_game_FSM_demux),
     .led_out(M_game_FSM_led_out),
     .led_out_1(M_game_FSM_led_out_1),
-    .led_out_2(M_game_FSM_led_out_2)
+    .led_out_2(M_game_FSM_led_out_2),
+    .led_out_3(M_game_FSM_led_out_3),
+    .led_out_4(M_game_FSM_led_out_4)
   );
   
   always @* begin
@@ -124,5 +128,18 @@ module mojo_top_0 (
     M_game_FSM_enter = M_edge_dt_btn_1_out;
     M_game_FSM_toggle = M_edge_dt_btn_2_out;
     M_game_FSM_reset = M_edge_dt_btn_3_out;
+    
+    case (io_dip[0+0+0-:1])
+      1'h0: begin
+        io_led[0+7-:8] = M_game_FSM_led_out;
+        io_led[8+7-:8] = M_game_FSM_led_out_1;
+        io_led[16+7-:8] = M_game_FSM_led_out_2;
+      end
+      1'h1: begin
+        io_led[0+7-:8] = M_game_FSM_led_out;
+        io_led[8+7-:8] = M_game_FSM_led_out_3;
+        io_led[16+7-:8] = M_game_FSM_led_out_4;
+      end
+    endcase
   end
 endmodule

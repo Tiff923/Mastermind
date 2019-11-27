@@ -13,7 +13,10 @@ module game_FSM(
 
     output led_out[8],
     output led_out_1[8],
-    output led_out_2[8]
+    output led_out_2[8],
+    output led_out_3[8],
+    output led_out_4[8]
+    
 ) {
 
 .clk(clk){
@@ -58,6 +61,7 @@ module game_FSM(
 
 
     dff check_state [3]; // check whether enter 4 times
+    dff check_row [3]; // check whether 7 rows
     dff user_input [16]; // store inputs from user
 
     dff temp_ans_bull[16]; // temporary register to hold answer
@@ -82,9 +86,15 @@ sig answer[16];
         led_out = 0;
         led_out_1 = bull_count.q;
         led_out_2 = cow_count.q;
-        answer = 16b1001010110011001; // all red
+        led_out_3 = check_row.q;
+        led_out_4 = 0;
+        answer = 16b1001010110011001;
         
         case (state.q){
+            state.INIT:
+                check_row.d = 0;
+                state.d = state.START;
+        
             state.START:
                 if (reset) {
                     state.d = state.START;
@@ -99,7 +109,7 @@ sig answer[16];
                 }
                 
                 if (reset) {
-                  state.d = state.START;
+                  state.d = state.INIT;
                 }
                 
             state.STATE_RED:
@@ -110,7 +120,7 @@ sig answer[16];
                 }
 
                 else if (reset) {
-                    state.d = state.START;
+                    state.d = state.INIT;
                 }
 
                 else if (enter) {
@@ -139,7 +149,7 @@ sig answer[16];
                 }
 
                 else if (reset) {
-                    state.d = state.START;
+                    state.d = state.INIT;
                 }
 
                 else if (enter) {
@@ -168,7 +178,7 @@ sig answer[16];
                 }
                 
                 else if (reset) {
-                    state.d = state.START;
+                    state.d = state.INIT;
                 }
 
                 else if (enter) {
@@ -191,15 +201,12 @@ sig answer[16];
             
             state.CHECK_STATE:
                 if (check_state.q == 4) {
-                    state.d = state.CHECK_SUCCESS;
+                    state.d = state.CHECK_BULL_INIT;
                 }
                 else {
                     state.d = state.IDLE;
                 }
-            
-            state.CHECK_SUCCESS:
-                state.d = state.CHECK_BULL_INIT;
-            
+                         
             state.CHECK_BULL_INIT:
                 temp_ans_bull.d = answer;
                 temp_input_bull.d = user_input.q;
@@ -260,7 +267,11 @@ sig answer[16];
                     temp_ans_cow.d[15:12] = answer[15:12];
                 }
 
-                state.d = state.CHECK_COW_INIT;
+                state.d = state.CHECK_SUCCESS;
+        
+            state.CHECK_SUCCESS:
+                check_row.d = check_row.q + 1;
+                state.d = state.CHECK_BULL_COW;
             
             state.CHECK_COW_INIT:
                 cow_count.d = 0;
@@ -425,8 +436,26 @@ sig answer[16];
                 else {
                     state.d = state.START;
                 }
+        
+            state.CHECK_BULL_COW:
+                if (bull_count.q == 4) {
+                    state.d = state.SUCCESS;
+                }
+                
+                else if (bull_count.q < 4 & check_row.q == 7) {
+                    state.d = state.FAIL;
+                }
+                
+                else if (bull_count.q < 4 & check_row.q < 7) {
+                    state.d = state.CHECK_COW_INIT;
+                }
+        
+            state.SUCCESS:
+                led_out_4 = 8b11111111;
 
-        }
+            state.FAIL:
+                led_out_4 = 8b10101010;
     }
+    
 }
-      
+}

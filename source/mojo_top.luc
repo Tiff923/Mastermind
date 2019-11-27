@@ -69,5 +69,18 @@ module mojo_top (
     game_FSM.toggle = edge_dt_btn_2.out;
     game_FSM.reset = edge_dt_btn_3.out;
     
+    case(io_dip[0][0]) { // to debug
+        0:
+        io_led[0] = game_FSM.led_out;
+        io_led[1] = game_FSM.led_out_1;
+        io_led[2] = game_FSM.led_out_2;
+        
+        1:
+        io_led[0] = game_FSM.led_out;
+        io_led[1] = game_FSM.led_out_3;
+        io_led[2] = game_FSM.led_out_4;
+    }
+    
+    
   }
 }

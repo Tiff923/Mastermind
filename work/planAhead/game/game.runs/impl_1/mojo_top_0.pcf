@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Nov 27 11:22:30 2019
+// Written by: Map P.20131013 on Wed Nov 27 14:35:56 2019
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -11,7 +11,6 @@ COMP "io_button[1]" LOCATE = SITE "P140" LEVEL 1;
 COMP "io_button[3]" LOCATE = SITE "P142" LEVEL 1;
 COMP "io_button[4]" LOCATE = SITE "P138" LEVEL 1;
 COMP "cclk" LOCATE = SITE "P70" LEVEL 1;
-COMP "io_dip(0)" LOCATE = SITE "P120" LEVEL 1;
 COMP "io_dip(1)" LOCATE = SITE "P121" LEVEL 1;
 COMP "io_dip(2)" LOCATE = SITE "P118" LEVEL 1;
 COMP "io_dip(3)" LOCATE = SITE "P119" LEVEL 1;
@@ -21,6 +20,7 @@ COMP "io_dip(6)" LOCATE = SITE "P114" LEVEL 1;
 COMP "io_dip(7)" LOCATE = SITE "P115" LEVEL 1;
 COMP "io_dip(8)" LOCATE = SITE "P112" LEVEL 1;
 COMP "io_dip(9)" LOCATE = SITE "P111" LEVEL 1;
+COMP "io_dip[0]" LOCATE = SITE "P120" LEVEL 1;
 COMP "rst_n" LOCATE = SITE "P38" LEVEL 1;
 COMP "io_led[0]" LOCATE = SITE "P97" LEVEL 1;
 COMP "io_led[1]" LOCATE = SITE "P98" LEVEL 1;
@@ -100,16 +100,25 @@ TIMEGRP clk = BEL "btn_cond_3/M_ctr_q_0" BEL "btn_cond_3/M_ctr_q_1" BEL
         "reset_cond/M_stage_q_2" BEL "reset_cond/M_stage_q_1" BEL
         "reset_cond/M_stage_q_0" BEL "edge_dt_btn_1/M_last_q" BEL
         "edge_dt_btn_2/M_last_q" BEL "edge_dt_btn_3/M_last_q" BEL
-        "game_FSM/M_state_q_FSM_FFd16" BEL "game_FSM/M_state_q_FSM_FFd17" BEL
-        "game_FSM/M_state_q_FSM_FFd18" BEL "game_FSM/M_state_q_FSM_FFd19" BEL
         "game_FSM/M_state_q_FSM_FFd20" BEL "game_FSM/M_state_q_FSM_FFd21" BEL
-        "game_FSM/M_state_q_FSM_FFd22" BEL "game_FSM/M_state_q_FSM_FFd6" BEL
-        "game_FSM/M_state_q_FSM_FFd10" BEL "game_FSM/M_state_q_FSM_FFd14" BEL
-        "game_FSM/M_state_q_FSM_FFd24" BEL "game_FSM/M_state_q_FSM_FFd25" BEL
-        "game_FSM/M_state_q_FSM_FFd26" BEL "game_FSM/M_state_q_FSM_FFd28" BEL
-        "game_FSM/M_state_q_FSM_FFd29" BEL "game_FSM/M_state_q_FSM_FFd27" BEL
-        "game_FSM/M_bull_count_q_2" BEL "game_FSM/M_bull_count_q_1" BEL
-        "game_FSM/M_bull_count_q_0" BEL "game_FSM/M_temp_ans_bull_q_15" BEL
+        "game_FSM/M_state_q_FSM_FFd22" BEL "game_FSM/M_state_q_FSM_FFd23" BEL
+        "game_FSM/M_state_q_FSM_FFd19" BEL "game_FSM/M_state_q_FSM_FFd24" BEL
+        "game_FSM/M_state_q_FSM_FFd2" BEL "game_FSM/M_state_q_FSM_FFd3" BEL
+        "game_FSM/M_state_q_FSM_FFd1" BEL "game_FSM/M_state_q_FSM_FFd9" BEL
+        "game_FSM/M_state_q_FSM_FFd13" BEL "game_FSM/M_state_q_FSM_FFd17" BEL
+        "game_FSM/M_state_q_FSM_FFd25" BEL "game_FSM/M_state_q_FSM_FFd27" BEL
+        "game_FSM/M_state_q_FSM_FFd28" BEL "game_FSM/M_state_q_FSM_FFd31" BEL
+        "game_FSM/M_state_q_FSM_FFd29" BEL "game_FSM/M_state_q_FSM_FFd32" BEL
+        "game_FSM/M_state_q_FSM_FFd33" BEL "game_FSM/M_check_row_q_2" BEL
+        "game_FSM/M_check_row_q_1" BEL "game_FSM/M_check_row_q_0" BEL
+        "game_FSM/M_user_input_q_15" BEL "game_FSM/M_user_input_q_14" BEL
+        "game_FSM/M_user_input_q_13" BEL "game_FSM/M_user_input_q_12" BEL
+        "game_FSM/M_user_input_q_11" BEL "game_FSM/M_user_input_q_10" BEL
+        "game_FSM/M_user_input_q_9" BEL "game_FSM/M_user_input_q_8" BEL
+        "game_FSM/M_user_input_q_7" BEL "game_FSM/M_user_input_q_6" BEL
+        "game_FSM/M_user_input_q_5" BEL "game_FSM/M_user_input_q_4" BEL
+        "game_FSM/M_user_input_q_3" BEL "game_FSM/M_user_input_q_2" BEL
+        "game_FSM/M_user_input_q_1" BEL "game_FSM/M_user_input_q_0" BEL
         "game_FSM/M_temp_input_cow_q_15" BEL "game_FSM/M_temp_input_cow_q_14"
         BEL "game_FSM/M_temp_input_cow_q_13" BEL
         "game_FSM/M_temp_input_cow_q_12" BEL "game_FSM/M_temp_input_cow_q_11"
@@ -124,8 +133,10 @@ TIMEGRP clk = BEL "btn_cond_3/M_ctr_q_0" BEL "btn_cond_3/M_ctr_q_1" BEL
         "game_FSM/M_temp_ans_cow_q_14" BEL "game_FSM/M_temp_ans_cow_q_11" BEL
         "game_FSM/M_temp_ans_cow_q_10" BEL "game_FSM/M_temp_ans_cow_q_7" BEL
         "game_FSM/M_temp_ans_cow_q_6" BEL "game_FSM/M_temp_ans_cow_q_3" BEL
-        "game_FSM/M_temp_ans_cow_q_2" BEL "game_FSM/M_temp_input_bull_q_15"
-        BEL "game_FSM/M_temp_input_bull_q_14" BEL
+        "game_FSM/M_temp_ans_cow_q_2" BEL "game_FSM/M_bull_count_q_2" BEL
+        "game_FSM/M_bull_count_q_1" BEL "game_FSM/M_bull_count_q_0" BEL
+        "game_FSM/M_temp_input_bull_q_15" BEL
+        "game_FSM/M_temp_input_bull_q_14" BEL
         "game_FSM/M_temp_input_bull_q_13" BEL
         "game_FSM/M_temp_input_bull_q_12" BEL
         "game_FSM/M_temp_input_bull_q_11" BEL
@@ -136,46 +147,39 @@ TIMEGRP clk = BEL "btn_cond_3/M_ctr_q_0" BEL "btn_cond_3/M_ctr_q_1" BEL
         "game_FSM/M_temp_input_bull_q_4" BEL "game_FSM/M_temp_input_bull_q_3"
         BEL "game_FSM/M_temp_input_bull_q_2" BEL
         "game_FSM/M_temp_input_bull_q_1" BEL "game_FSM/M_temp_input_bull_q_0"
-        BEL "game_FSM/M_user_input_q_15" BEL "game_FSM/M_user_input_q_14" BEL
-        "game_FSM/M_user_input_q_13" BEL "game_FSM/M_user_input_q_12" BEL
-        "game_FSM/M_user_input_q_11" BEL "game_FSM/M_user_input_q_10" BEL
-        "game_FSM/M_user_input_q_9" BEL "game_FSM/M_user_input_q_8" BEL
-        "game_FSM/M_user_input_q_7" BEL "game_FSM/M_user_input_q_6" BEL
-        "game_FSM/M_user_input_q_5" BEL "game_FSM/M_user_input_q_4" BEL
-        "game_FSM/M_user_input_q_3" BEL "game_FSM/M_user_input_q_2" BEL
-        "game_FSM/M_user_input_q_1" BEL "game_FSM/M_user_input_q_0" BEL
-        "game_FSM/M_check_state_q_2" BEL "game_FSM/M_check_state_q_1" BEL
-        "game_FSM/M_state_q_FSM_FFd2" BEL "game_FSM/M_state_q_FSM_FFd3" BEL
-        "game_FSM/M_state_q_FSM_FFd1" BEL "game_FSM/M_state_q_FSM_FFd5" BEL
-        "game_FSM/M_state_q_FSM_FFd4" BEL "game_FSM/M_state_q_FSM_FFd8" BEL
-        "game_FSM/M_state_q_FSM_FFd9" BEL "game_FSM/M_state_q_FSM_FFd7" BEL
-        "game_FSM/M_state_q_FSM_FFd11" BEL "game_FSM/M_state_q_FSM_FFd12" BEL
-        "game_FSM/M_state_q_FSM_FFd13" BEL "game_FSM/M_state_q_FSM_FFd15" BEL
-        "game_FSM/M_state_q_FSM_FFd23" BEL "game_FSM/M_cow_count_q_2" BEL
-        "game_FSM/M_cow_count_q_1" BEL "game_FSM/M_cow_count_q_0" BEL
-        "game_FSM/M_check_state_q_0" BEL "game_FSM/M_state_q_FSM_FFd22_1" BEL
-        "btn_cond_1/M_ctr_q_0" BEL "btn_cond_1/M_ctr_q_1" BEL
-        "btn_cond_1/M_ctr_q_2" BEL "btn_cond_1/M_ctr_q_3" BEL
-        "btn_cond_1/M_ctr_q_4" BEL "btn_cond_1/M_ctr_q_5" BEL
-        "btn_cond_1/M_ctr_q_6" BEL "btn_cond_1/M_ctr_q_7" BEL
-        "btn_cond_1/M_ctr_q_8" BEL "btn_cond_1/M_ctr_q_9" BEL
-        "btn_cond_1/M_ctr_q_10" BEL "btn_cond_1/M_ctr_q_11" BEL
-        "btn_cond_1/M_ctr_q_12" BEL "btn_cond_1/M_ctr_q_13" BEL
-        "btn_cond_1/M_ctr_q_14" BEL "btn_cond_1/M_ctr_q_15" BEL
-        "btn_cond_1/M_ctr_q_16" BEL "btn_cond_1/M_ctr_q_17" BEL
-        "btn_cond_1/M_ctr_q_18" BEL "btn_cond_1/M_ctr_q_19" BEL
-        "btn_cond_1/sync/M_pipe_q_1" BEL "btn_cond_1/sync/Mshreg_M_pipe_q_1"
-        BEL "btn_cond_2/M_ctr_q_0" BEL "btn_cond_2/M_ctr_q_1" BEL
-        "btn_cond_2/M_ctr_q_2" BEL "btn_cond_2/M_ctr_q_3" BEL
-        "btn_cond_2/M_ctr_q_4" BEL "btn_cond_2/M_ctr_q_5" BEL
-        "btn_cond_2/M_ctr_q_6" BEL "btn_cond_2/M_ctr_q_7" BEL
-        "btn_cond_2/M_ctr_q_8" BEL "btn_cond_2/M_ctr_q_9" BEL
-        "btn_cond_2/M_ctr_q_10" BEL "btn_cond_2/M_ctr_q_11" BEL
-        "btn_cond_2/M_ctr_q_12" BEL "btn_cond_2/M_ctr_q_13" BEL
-        "btn_cond_2/M_ctr_q_14" BEL "btn_cond_2/M_ctr_q_15" BEL
-        "btn_cond_2/M_ctr_q_16" BEL "btn_cond_2/M_ctr_q_17" BEL
-        "btn_cond_2/M_ctr_q_18" BEL "btn_cond_2/M_ctr_q_19" BEL
-        "btn_cond_2/sync/M_pipe_q_1" BEL "btn_cond_2/sync/Mshreg_M_pipe_q_1";
+        BEL "game_FSM/M_temp_ans_bull_q_0" BEL "game_FSM/M_state_q_FSM_FFd4"
+        BEL "game_FSM/M_state_q_FSM_FFd5" BEL "game_FSM/M_state_q_FSM_FFd6"
+        BEL "game_FSM/M_state_q_FSM_FFd7" BEL "game_FSM/M_state_q_FSM_FFd10"
+        BEL "game_FSM/M_state_q_FSM_FFd8" BEL "game_FSM/M_state_q_FSM_FFd11"
+        BEL "game_FSM/M_state_q_FSM_FFd12" BEL "game_FSM/M_state_q_FSM_FFd14"
+        BEL "game_FSM/M_state_q_FSM_FFd16" BEL "game_FSM/M_state_q_FSM_FFd15"
+        BEL "game_FSM/M_state_q_FSM_FFd18" BEL "game_FSM/M_state_q_FSM_FFd26"
+        BEL "game_FSM/M_state_q_FSM_FFd30" BEL "game_FSM/M_check_state_q_1"
+        BEL "game_FSM/M_check_state_q_0" BEL "game_FSM/M_cow_count_q_1" BEL
+        "game_FSM/M_cow_count_q_0" BEL "game_FSM/M_check_state_q_2" BEL
+        "game_FSM/M_cow_count_q_2" BEL "btn_cond_1/M_ctr_q_0" BEL
+        "btn_cond_1/M_ctr_q_1" BEL "btn_cond_1/M_ctr_q_2" BEL
+        "btn_cond_1/M_ctr_q_3" BEL "btn_cond_1/M_ctr_q_4" BEL
+        "btn_cond_1/M_ctr_q_5" BEL "btn_cond_1/M_ctr_q_6" BEL
+        "btn_cond_1/M_ctr_q_7" BEL "btn_cond_1/M_ctr_q_8" BEL
+        "btn_cond_1/M_ctr_q_9" BEL "btn_cond_1/M_ctr_q_10" BEL
+        "btn_cond_1/M_ctr_q_11" BEL "btn_cond_1/M_ctr_q_12" BEL
+        "btn_cond_1/M_ctr_q_13" BEL "btn_cond_1/M_ctr_q_14" BEL
+        "btn_cond_1/M_ctr_q_15" BEL "btn_cond_1/M_ctr_q_16" BEL
+        "btn_cond_1/M_ctr_q_17" BEL "btn_cond_1/M_ctr_q_18" BEL
+        "btn_cond_1/M_ctr_q_19" BEL "btn_cond_1/sync/M_pipe_q_1" BEL
+        "btn_cond_1/sync/Mshreg_M_pipe_q_1" BEL "btn_cond_2/M_ctr_q_0" BEL
+        "btn_cond_2/M_ctr_q_1" BEL "btn_cond_2/M_ctr_q_2" BEL
+        "btn_cond_2/M_ctr_q_3" BEL "btn_cond_2/M_ctr_q_4" BEL
+        "btn_cond_2/M_ctr_q_5" BEL "btn_cond_2/M_ctr_q_6" BEL
+        "btn_cond_2/M_ctr_q_7" BEL "btn_cond_2/M_ctr_q_8" BEL
+        "btn_cond_2/M_ctr_q_9" BEL "btn_cond_2/M_ctr_q_10" BEL
+        "btn_cond_2/M_ctr_q_11" BEL "btn_cond_2/M_ctr_q_12" BEL
+        "btn_cond_2/M_ctr_q_13" BEL "btn_cond_2/M_ctr_q_14" BEL
+        "btn_cond_2/M_ctr_q_15" BEL "btn_cond_2/M_ctr_q_16" BEL
+        "btn_cond_2/M_ctr_q_17" BEL "btn_cond_2/M_ctr_q_18" BEL
+        "btn_cond_2/M_ctr_q_19" BEL "btn_cond_2/sync/M_pipe_q_1" BEL
+        "btn_cond_2/sync/Mshreg_M_pipe_q_1";
 TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 SCHEMATIC END;
 

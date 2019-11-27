@@ -16,7 +16,9 @@ module game_FSM_8 (
     output reg [1:0] demux,
     output reg [7:0] led_out,
     output reg [7:0] led_out_1,
-    output reg [7:0] led_out_2
+    output reg [7:0] led_out_2,
+    output reg [7:0] led_out_3,
+    output reg [7:0] led_out_4
   );
   
   
@@ -59,6 +61,7 @@ module game_FSM_8 (
   
   reg [5:0] M_state_d, M_state_q = START_state;
   reg [2:0] M_check_state_d, M_check_state_q = 1'h0;
+  reg [2:0] M_check_row_d, M_check_row_q = 1'h0;
   reg [15:0] M_user_input_d, M_user_input_q = 1'h0;
   reg [15:0] M_temp_ans_bull_d, M_temp_ans_bull_q = 1'h0;
   reg [15:0] M_temp_input_bull_d, M_temp_input_bull_q = 1'h0;
@@ -71,6 +74,7 @@ module game_FSM_8 (
   
   always @* begin
     M_state_d = M_state_q;
+    M_check_row_d = M_check_row_q;
     M_temp_input_bull_d = M_temp_input_bull_q;
     M_bull_count_d = M_bull_count_q;
     M_cow_count_d = M_cow_count_q;
@@ -87,9 +91,15 @@ module game_FSM_8 (
     led_out = 1'h0;
     led_out_1 = M_bull_count_q;
     led_out_2 = M_cow_count_q;
+    led_out_3 = M_check_row_q;
+    led_out_4 = 1'h0;
     answer = 16'h9599;
     
     case (M_state_q)
+      INIT_state: begin
+        M_check_row_d = 1'h0;
+        M_state_d = START_state;
+      end
       START_state: begin
         if (reset) begin
           M_state_d = START_state;
@@ -102,7 +112,7 @@ module game_FSM_8 (
           M_state_d = STATE_RED_state;
         end
         if (reset) begin
-          M_state_d = START_state;
+          M_state_d = INIT_state;
         end
       end
       STATE_RED_state: begin
@@ -111,7 +121,7 @@ module game_FSM_8 (
           M_state_d = STATE_GREEN_state;
         end else begin
           if (reset) begin
-            M_state_d = START_state;
+            M_state_d = INIT_state;
           end else begin
             if (enter) begin
               if (M_check_state_q == 1'h0) begin
@@ -141,7 +151,7 @@ module game_FSM_8 (
           M_state_d = STATE_BLUE_state;
         end else begin
           if (reset) begin
-            M_state_d = START_state;
+            M_state_d = INIT_state;
           end else begin
             if (enter) begin
               if (M_check_state_q == 1'h0) begin
@@ -171,7 +181,7 @@ module game_FSM_8 (
           M_state_d = STATE_RED_state;
         end else begin
           if (reset) begin
-            M_state_d = START_state;
+            M_state_d = INIT_state;
           end else begin
             if (enter) begin
               if (M_check_state_q == 1'h0) begin
@@ -197,13 +207,10 @@ module game_FSM_8 (
       end
       CHECK_STATE_state: begin
         if (M_check_state_q == 3'h4) begin
-          M_state_d = CHECK_SUCCESS_state;
+          M_state_d = CHECK_BULL_INIT_state;
         end else begin
           M_state_d = IDLE_state;
         end
-      end
-      CHECK_SUCCESS_state: begin
-        M_state_d = CHECK_BULL_INIT_state;
       end
       CHECK_BULL_INIT_state: begin
         M_temp_ans_bull_d = answer;
@@ -253,7 +260,11 @@ module game_FSM_8 (
           M_temp_input_cow_d[12+3-:4] = M_temp_input_bull_q[12+3-:4];
           M_temp_ans_cow_d[12+3-:4] = answer[12+3-:4];
         end
-        M_state_d = CHECK_COW_INIT_state;
+        M_state_d = CHECK_SUCCESS_state;
+      end
+      CHECK_SUCCESS_state: begin
+        M_check_row_d = M_check_row_q + 1'h1;
+        M_state_d = CHECK_BULL_COW_state;
       end
       CHECK_COW_INIT_state: begin
         M_cow_count_d = 1'h0;
@@ -387,12 +398,32 @@ module game_FSM_8 (
           M_state_d = START_state;
         end
       end
+      CHECK_BULL_COW_state: begin
+        if (M_bull_count_q == 3'h4) begin
+          M_state_d = SUCCESS_state;
+        end else begin
+          if (M_bull_count_q < 3'h4 & M_check_row_q == 3'h7) begin
+            M_state_d = FAIL_state;
+          end else begin
+            if (M_bull_count_q < 3'h4 & M_check_row_q < 3'h7) begin
+              M_state_d = CHECK_COW_INIT_state;
+            end
+          end
+        end
+      end
+      SUCCESS_state: begin
+        led_out_4 = 8'hff;
+      end
+      FAIL_state: begin
+        led_out_4 = 8'haa;
+      end
     endcase
   end
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
       M_check_state_q <= 1'h0;
+      M_check_row_q <= 1'h0;
       M_user_input_q <= 1'h0;
       M_temp_ans_bull_q <= 1'h0;
       M_temp_input_bull_q <= 1'h0;
@@ -403,6 +434,7 @@ module game_FSM_8 (
       M_state_q <= 1'h0;
     end else begin
       M_check_state_q <= M_check_state_d;
+      M_check_row_q <= M_check_row_d;
       M_user_input_q <= M_user_input_d;
       M_temp_ans_bull_q <= M_temp_ans_bull_d;
       M_temp_input_bull_q <= M_temp_input_bull_d;
