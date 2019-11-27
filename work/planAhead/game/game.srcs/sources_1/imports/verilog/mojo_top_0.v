@@ -49,19 +49,33 @@ module mojo_top_0 (
     .in(M_edge_dt_btn_2_in),
     .out(M_edge_dt_btn_2_out)
   );
+  wire [1-1:0] M_edge_dt_btn_3_out;
+  reg [1-1:0] M_edge_dt_btn_3_in;
+  edge_detector_2 edge_dt_btn_3 (
+    .clk(clk),
+    .in(M_edge_dt_btn_3_in),
+    .out(M_edge_dt_btn_3_out)
+  );
   wire [1-1:0] M_btn_cond_1_out;
   reg [1-1:0] M_btn_cond_1_in;
-  button_conditioner_4 btn_cond_1 (
+  button_conditioner_5 btn_cond_1 (
     .clk(clk),
     .in(M_btn_cond_1_in),
     .out(M_btn_cond_1_out)
   );
   wire [1-1:0] M_btn_cond_2_out;
   reg [1-1:0] M_btn_cond_2_in;
-  button_conditioner_4 btn_cond_2 (
+  button_conditioner_5 btn_cond_2 (
     .clk(clk),
     .in(M_btn_cond_2_in),
     .out(M_btn_cond_2_out)
+  );
+  wire [1-1:0] M_btn_cond_3_out;
+  reg [1-1:0] M_btn_cond_3_in;
+  button_conditioner_5 btn_cond_3 (
+    .clk(clk),
+    .in(M_btn_cond_3_in),
+    .out(M_btn_cond_3_out)
   );
   wire [6-1:0] M_game_FSM_alufn;
   wire [3-1:0] M_game_FSM_asel;
@@ -72,11 +86,13 @@ module mojo_top_0 (
   wire [8-1:0] M_game_FSM_led_out_2;
   reg [1-1:0] M_game_FSM_enter;
   reg [1-1:0] M_game_FSM_toggle;
-  game_FSM_6 game_FSM (
+  reg [1-1:0] M_game_FSM_reset;
+  game_FSM_8 game_FSM (
     .clk(clk),
     .rst(rst),
     .enter(M_game_FSM_enter),
     .toggle(M_game_FSM_toggle),
+    .reset(M_game_FSM_reset),
     .alufn(M_game_FSM_alufn),
     .asel(M_game_FSM_asel),
     .bsel(M_game_FSM_bsel),
@@ -101,9 +117,12 @@ module mojo_top_0 (
     io_led[16+7-:8] = M_game_FSM_led_out_2;
     M_btn_cond_1_in = io_button[1+0-:1];
     M_btn_cond_2_in = io_button[4+0-:1];
+    M_btn_cond_3_in = io_button[3+0-:1];
     M_edge_dt_btn_1_in = M_btn_cond_1_out;
     M_edge_dt_btn_2_in = M_btn_cond_2_out;
+    M_edge_dt_btn_3_in = M_btn_cond_3_out;
     M_game_FSM_enter = M_edge_dt_btn_1_out;
     M_game_FSM_toggle = M_edge_dt_btn_2_out;
+    M_game_FSM_reset = M_edge_dt_btn_3_out;
   end
 endmodule

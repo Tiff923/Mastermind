@@ -21,6 +21,7 @@ module game_FSM(
     fsm state = {
         START,
         IDLE,
+        INIT,
         STATE_RED,
         STATE_GREEN,
         STATE_BLUE,
@@ -81,24 +82,26 @@ sig answer[16];
         led_out = 0;
         led_out_1 = bull_count.q;
         led_out_2 = cow_count.q;
-        answer = 16b0011100110011001; // all red
+        answer = 16b1001010110011001; // all red
         
         case (state.q){
             state.START:
-                if (enter) {
-                    state.d = state.IDLE;
-                }
-            
+                if (reset) {
+                    state.d = state.START;
+                }          
+                check_state.d = 0;
+                state.d = state.IDLE;
+        
             state.IDLE:
+                
                 if (toggle) {
                     state.d = state.STATE_RED;
                 }
-
-                else if (reset) {
-                    state.d = state.START;
+                
+                if (reset) {
+                  state.d = state.START;
                 }
                 
-            
             state.STATE_RED:
                 led_out = 4b1001;
 
@@ -207,10 +210,12 @@ sig answer[16];
                 if (temp_ans_bull.q[3:0] == temp_input_bull.q[3:0]) {
                     bull_count.d = bull_count.q + 1;
                     temp_input_cow.d[3:0] = 4b0000;
+                    temp_ans_cow.d[3:0] = 4b1111;
                 }
 
                 else {
                     temp_input_cow.d[3:0] = temp_input_bull.q[3:0];
+                    temp_ans_cow.d[3:0] = answer[3:0];
                 }
                 
                 state.d = state.CHECK_BULL_1;
@@ -219,10 +224,12 @@ sig answer[16];
                 if (temp_ans_bull.q[7:4] == temp_input_bull.q[7:4]) {
                     bull_count.d = bull_count.q + 1;
                     temp_input_cow.d[7:4] = 4b0000;
+                    temp_ans_cow.d[7:4] = 4b1111;
                 }
 
                 else {
                     temp_input_cow.d[7:4] = temp_input_bull.q[7:4];
+                    temp_ans_cow.d[7:4] = answer[7:4];
                 }
 
                 state.d = state.CHECK_BULL_2;
@@ -231,10 +238,12 @@ sig answer[16];
                 if (temp_ans_bull.q[11:8] == temp_input_bull.q[11:8]) {
                     bull_count.d = bull_count.q + 1;
                     temp_input_cow.d[11:8] = 4b0000;
+                    temp_ans_cow.d[11:8] = 4b1111;
                 }
 
                 else {
                     temp_input_cow.d[11:8] = temp_input_bull.q[11:8];
+                    temp_ans_cow.d[11:8] = answer[11:8];
                 }
 
                 state.d = state.CHECK_BULL_3;
@@ -243,16 +252,17 @@ sig answer[16];
                 if (temp_ans_bull.q[15:12] == temp_input_bull.q[15:12]) {
                     bull_count.d = bull_count.q + 1;
                     temp_input_cow.d[15:12] = 4b0000;
+                    temp_ans_cow.d[15:12] = 4b1111;
                 }
 
                 else {
                     temp_input_cow.d[15:12] = temp_input_bull.q[15:12];
+                    temp_ans_cow.d[15:12] = answer[15:12];
                 }
 
                 state.d = state.CHECK_COW_INIT;
             
             state.CHECK_COW_INIT:
-                temp_ans_cow.d = answer;
                 cow_count.d = 0;
                 state.d = state.CHECK_COW_0_0;
             
@@ -379,7 +389,7 @@ sig answer[16];
             state.CHECK_COW_3_0:
                 if (temp_input_cow.q[15:12] == temp_ans_cow.q[3:0]) {
                     cow_count.d = cow_count.q + 1;
-                    state.d = state.IDLE;
+                    state.d = state.START;
                 }
 
                 else {
@@ -389,7 +399,7 @@ sig answer[16];
             state.CHECK_COW_3_1:
                 if (temp_input_cow.q[15:12] == temp_ans_cow.q[7:4]) {
                     cow_count.d = cow_count.q + 1;
-                    state.d = state.IDLE;
+                    state.d = state.START;
                 }
 
                 else {
@@ -399,7 +409,7 @@ sig answer[16];
             state.CHECK_COW_3_2:
                 if (temp_input_cow.q[15:12] == temp_ans_cow.q[11:8]) {
                     cow_count.d = cow_count.q + 1;
-                    state.d = state.IDLE;
+                    state.d = state.START;
                 }
 
                 else {
@@ -409,11 +419,11 @@ sig answer[16];
             state.CHECK_COW_3_3:
                 if (temp_input_cow.q[15:12] == temp_ans_cow.q[15:12]) {
                     cow_count.d = cow_count.q + 1;
-                    state.d = state.IDLE;
+                    state.d = state.START;
                 }
 
                 else {
-                    state.d = state.IDLE;
+                    state.d = state.START;
                 }
 
         }
