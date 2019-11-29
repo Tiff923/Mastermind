@@ -3,7 +3,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.19 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> Reading design: mojo_top_0.prj
 
@@ -156,12 +156,15 @@ Synthesizing Unit <game_FSM_8>.
     Found 16-bit register for signal <M_temp_ans_cow_q>.
     Found 16-bit register for signal <M_temp_input_cow_q>.
     Found 3-bit register for signal <M_cow_count_q>.
+    Found 4-bit register for signal <M_check_ans_q>.
+    Found 16-bit register for signal <M_answer_q>.
+    Found 8-bit register for signal <M_final_q>.
     Found 6-bit register for signal <M_state_q>.
     Found 3-bit register for signal <M_check_state_q>.
     Found finite state machine <FSM_0> for signal <M_state_q>.
     -----------------------------------------------------------------------
-    | States             | 33                                             |
-    | Transitions        | 61                                             |
+    | States             | 34                                             |
+    | Transitions        | 64                                             |
     | Inputs             | 20                                             |
     | Outputs            | 18                                             |
     | Clock              | clk (rising_edge)                              |
@@ -172,37 +175,39 @@ Synthesizing Unit <game_FSM_8>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 3-bit adder for signal <M_check_state_q[2]_GND_6_o_add_38_OUT> created at line 202.
-    Found 3-bit adder for signal <M_bull_count_q[2]_GND_6_o_add_60_OUT> created at line 256.
-    Found 3-bit adder for signal <M_check_row_q[2]_GND_6_o_add_62_OUT> created at line 266.
-    Found 3-bit adder for signal <M_cow_count_q[2]_GND_6_o_add_121_OUT> created at line 395.
-    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[3]_M_temp_input_bull_q[3]_equal_51_o> created at line 222
-    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[7]_M_temp_input_bull_q[7]_equal_54_o> created at line 233
-    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[11]_M_temp_input_bull_q[11]_equal_57_o> created at line 244
-    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[15]_M_temp_input_bull_q[15]_equal_60_o> created at line 255
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[3]_equal_64_o> created at line 274
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[7]_equal_68_o> created at line 282
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[11]_equal_72_o> created at line 290
-    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[15]_equal_76_o> created at line 298
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[3]_equal_79_o> created at line 306
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[7]_equal_83_o> created at line 314
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[11]_equal_87_o> created at line 322
-    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[15]_equal_91_o> created at line 330
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[3]_equal_94_o> created at line 338
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[7]_equal_98_o> created at line 346
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[11]_equal_102_o> created at line 354
-    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[15]_equal_106_o> created at line 362
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[3]_equal_109_o> created at line 370
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[7]_equal_113_o> created at line 378
-    Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[11]_equal_117_o> created at line 386
-    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[15]_equal_121_o> created at line 394
-    Found 3-bit comparator greater for signal <M_bull_count_q[2]_PWR_6_o_LessThan_127_o> created at line 409
-    Found 3-bit comparator greater for signal <M_check_row_q[2]_PWR_6_o_LessThan_128_o> created at line 409
+    Found 3-bit adder for signal <M_check_state_q[2]_GND_6_o_add_71_OUT> created at line 255.
+    Found 3-bit adder for signal <M_bull_count_q[2]_GND_6_o_add_93_OUT> created at line 309.
+    Found 3-bit adder for signal <M_check_row_q[2]_GND_6_o_add_95_OUT> created at line 319.
+    Found 3-bit adder for signal <M_cow_count_q[2]_GND_6_o_add_154_OUT> created at line 448.
+    Found 4-bit adder for signal <M_check_ans_q[3]_GND_6_o_add_168_OUT> created at line 478.
+    Found 4-bit comparator greater for signal <PWR_6_o_M_check_ans_q[3]_LessThan_12_o> created at line 146
+    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[3]_M_temp_input_bull_q[3]_equal_84_o> created at line 275
+    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[7]_M_temp_input_bull_q[7]_equal_87_o> created at line 286
+    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[11]_M_temp_input_bull_q[11]_equal_90_o> created at line 297
+    Found 4-bit comparator equal for signal <M_temp_ans_bull_q[15]_M_temp_input_bull_q[15]_equal_93_o> created at line 308
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[3]_equal_97_o> created at line 327
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[7]_equal_101_o> created at line 335
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[11]_equal_105_o> created at line 343
+    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[3]_M_temp_ans_cow_q[15]_equal_109_o> created at line 351
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[3]_equal_112_o> created at line 359
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[7]_equal_116_o> created at line 367
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[11]_equal_120_o> created at line 375
+    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[7]_M_temp_ans_cow_q[15]_equal_124_o> created at line 383
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[3]_equal_127_o> created at line 391
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[7]_equal_131_o> created at line 399
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[11]_equal_135_o> created at line 407
+    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[11]_M_temp_ans_cow_q[15]_equal_139_o> created at line 415
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[3]_equal_142_o> created at line 423
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[7]_equal_146_o> created at line 431
+    Found 4-bit comparator equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[11]_equal_150_o> created at line 439
+    Found 4-bit comparator not equal for signal <M_temp_input_cow_q[15]_M_temp_ans_cow_q[15]_equal_154_o> created at line 447
+    Found 3-bit comparator greater for signal <M_bull_count_q[2]_PWR_6_o_LessThan_160_o> created at line 462
+    Found 3-bit comparator greater for signal <M_check_row_q[2]_PWR_6_o_LessThan_161_o> created at line 462
     Summary:
-	inferred   4 Adder/Subtractor(s).
-	inferred  92 D-type flip-flop(s).
-	inferred  22 Comparator(s).
-	inferred  71 Multiplexer(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred 120 D-type flip-flop(s).
+	inferred  23 Comparator(s).
+	inferred  87 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <game_FSM_8> synthesized.
 
@@ -210,24 +215,28 @@ Unit <game_FSM_8> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 7
+# Adders/Subtractors                                   : 8
  20-bit adder                                          : 3
  3-bit adder                                           : 4
-# Registers                                            : 19
+ 4-bit adder                                           : 1
+# Registers                                            : 22
  1-bit register                                        : 3
- 16-bit register                                       : 5
+ 16-bit register                                       : 6
  2-bit register                                        : 3
  20-bit register                                       : 3
  3-bit register                                        : 4
- 4-bit register                                        : 1
-# Comparators                                          : 22
+ 4-bit register                                        : 2
+ 8-bit register                                        : 1
+# Comparators                                          : 23
  3-bit comparator greater                              : 2
  4-bit comparator equal                                : 16
+ 4-bit comparator greater                              : 1
  4-bit comparator not equal                            : 4
-# Multiplexers                                         : 87
- 1-bit 2-to-1 multiplexer                              : 67
- 16-bit 2-to-1 multiplexer                             : 11
- 3-bit 2-to-1 multiplexer                              : 9
+# Multiplexers                                         : 103
+ 1-bit 2-to-1 multiplexer                              : 83
+ 16-bit 2-to-1 multiplexer                             : 12
+ 3-bit 2-to-1 multiplexer                              : 7
+ 4-bit 2-to-1 multiplexer                              : 1
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
 # FSMs                                                 : 1
@@ -245,27 +254,31 @@ Unit <button_conditioner_5> synthesized (advanced).
 
 Synthesizing (advanced) Unit <game_FSM_8>.
 The following registers are absorbed into counter <M_check_row_q>: 1 register on signal <M_check_row_q>.
+The following registers are absorbed into counter <M_check_ans_q>: 1 register on signal <M_check_ans_q>.
+The following registers are absorbed into counter <M_check_state_q>: 1 register on signal <M_check_state_q>.
 Unit <game_FSM_8> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 3
- 3-bit adder                                           : 3
-# Counters                                             : 4
+# Adders/Subtractors                                   : 2
+ 3-bit adder                                           : 2
+# Counters                                             : 6
  20-bit up counter                                     : 3
- 3-bit up counter                                      : 1
-# Registers                                            : 102
- Flip-Flops                                            : 102
-# Comparators                                          : 22
+ 3-bit up counter                                      : 2
+ 4-bit up counter                                      : 1
+# Registers                                            : 123
+ Flip-Flops                                            : 123
+# Comparators                                          : 23
  3-bit comparator greater                              : 2
  4-bit comparator equal                                : 16
+ 4-bit comparator greater                              : 1
  4-bit comparator not equal                            : 4
-# Multiplexers                                         : 86
- 1-bit 2-to-1 multiplexer                              : 67
- 16-bit 2-to-1 multiplexer                             : 11
- 3-bit 2-to-1 multiplexer                              : 8
+# Multiplexers                                         : 100
+ 1-bit 2-to-1 multiplexer                              : 83
+ 16-bit 2-to-1 multiplexer                             : 12
+ 3-bit 2-to-1 multiplexer                              : 5
 # FSMs                                                 : 1
 
 =========================================================================
@@ -273,70 +286,59 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <M_temp_ans_bull_q_1> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_2> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_5> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_6> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_9> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_11> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_13> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_temp_ans_bull_q_14> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <M_temp_ans_bull_q_0> in Unit <game_FSM_8> is equivalent to the following 7 FFs/Latches, which will be removed : <M_temp_ans_bull_q_3> <M_temp_ans_bull_q_4> <M_temp_ans_bull_q_7> <M_temp_ans_bull_q_8> <M_temp_ans_bull_q_10> <M_temp_ans_bull_q_12> <M_temp_ans_bull_q_15> 
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <game_FSM/FSM_0> on signal <M_state_q[1:33]> with one-hot encoding.
----------------------------------------------
+Optimizing FSM <game_FSM/FSM_0> on signal <M_state_q[1:34]> with one-hot encoding.
+----------------------------------------------
  State  | Encoding
----------------------------------------------
- 000000 | 000000000000000000000000000000001
- 000001 | 000000000000000000000000000000010
- 000011 | 000000000000000000000000000000100
- 000010 | 000000000000000000000000000001000
- 000110 | 000000000000000000000000000010000
- 000100 | 000000000000000000000000000100000
- 000101 | 000000000000000000000000001000000
- 001000 | 000000000000000000000000010000000
- 100000 | 000000000000000000000000100000000
- 001001 | 000000000000000000000001000000000
- 001010 | 000000000000000000000010000000000
- 001011 | 000000000000000000000100000000000
- 001100 | 000000000000000000001000000000000
- 000111 | 000000000000000000010000000000000
- 001110 | 000000000000000000100000000000000
- 001111 | 000000000000000001000000000000000
- 010010 | 000000000000000010000000000000000
- 010000 | 000000000000000100000000000000000
- 010001 | 000000000000001000000000000000000
- 010011 | 000000000000010000000000000000000
- 010110 | 000000000000100000000000000000000
- 010100 | 000000000001000000000000000000000
- 010101 | 000000000010000000000000000000000
- 010111 | 000000000100000000000000000000000
- 011010 | 000000001000000000000000000000000
- 011000 | 000000010000000000000000000000000
- 011001 | 000000100000000000000000000000000
- 011011 | 000001000000000000000000000000000
- 011100 | 000010000000000000000000000000000
- 011101 | 000100000000000000000000000000000
- 001101 | 001000000000000000000000000000000
- 100010 | 010000000000000000000000000000000
- 100001 | 100000000000000000000000000000000
----------------------------------------------
+----------------------------------------------
+ 000000 | 0000000000000000000000000000000001
+ 000001 | 0000000000000000000000000000000010
+ 000010 | 0000000000000000000000000000000100
+ 000011 | 0000000000000000000000000000001000
+ 000100 | 0000000000000000000000000000010000
+ 000111 | 0000000000000000000000000000100000
+ 000101 | 0000000000000000000000000001000000
+ 000110 | 0000000000000000000000000010000000
+ 001001 | 0000000000000000000000000100000000
+ 100001 | 0000000000000000000000001000000000
+ 001010 | 0000000000000000000000010000000000
+ 001011 | 0000000000000000000000100000000000
+ 001100 | 0000000000000000000001000000000000
+ 001101 | 0000000000000000000010000000000000
+ 001000 | 0000000000000000000100000000000000
+ 001111 | 0000000000000000001000000000000000
+ 010000 | 0000000000000000010000000000000000
+ 010011 | 0000000000000000100000000000000000
+ 010001 | 0000000000000001000000000000000000
+ 010010 | 0000000000000010000000000000000000
+ 010100 | 0000000000000100000000000000000000
+ 010111 | 0000000000001000000000000000000000
+ 010101 | 0000000000010000000000000000000000
+ 010110 | 0000000000100000000000000000000000
+ 011000 | 0000000001000000000000000000000000
+ 011011 | 0000000010000000000000000000000000
+ 011001 | 0000000100000000000000000000000000
+ 011010 | 0000001000000000000000000000000000
+ 011100 | 0000010000000000000000000000000000
+ 011101 | 0000100000000000000000000000000000
+ 011110 | 0001000000000000000000000000000000
+ 001110 | 0010000000000000000000000000000000
+ 100011 | 0100000000000000000000000000000000
+ 100010 | 1000000000000000000000000000000000
+----------------------------------------------
+INFO:Xst:2261 - The FF/Latch <M_final_q_0> in Unit <game_FSM_8> is equivalent to the following 3 FFs/Latches, which will be removed : <M_final_q_2> <M_final_q_4> <M_final_q_6> 
+INFO:Xst:2261 - The FF/Latch <M_final_q_1> in Unit <game_FSM_8> is equivalent to the following 3 FFs/Latches, which will be removed : <M_final_q_3> <M_final_q_5> <M_final_q_7> 
 
 Optimizing unit <mojo_top_0> ...
 
 Optimizing unit <game_FSM_8> ...
-INFO:Xst:2261 - The FF/Latch <game_FSM/M_temp_ans_cow_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <game_FSM/M_temp_ans_cow_q_1> 
-INFO:Xst:2261 - The FF/Latch <game_FSM/M_temp_ans_cow_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <game_FSM/M_temp_ans_cow_q_0> 
-INFO:Xst:2261 - The FF/Latch <game_FSM/M_temp_ans_cow_q_6> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <game_FSM/M_temp_ans_cow_q_5> 
-INFO:Xst:2261 - The FF/Latch <game_FSM/M_temp_ans_cow_q_7> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <game_FSM/M_temp_ans_cow_q_4> 
-INFO:Xst:2261 - The FF/Latch <game_FSM/M_temp_ans_cow_q_10> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <game_FSM/M_temp_ans_cow_q_8> 
-INFO:Xst:2261 - The FF/Latch <game_FSM/M_temp_ans_cow_q_11> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <game_FSM/M_temp_ans_cow_q_9> 
-INFO:Xst:2261 - The FF/Latch <game_FSM/M_temp_ans_cow_q_14> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <game_FSM/M_temp_ans_cow_q_13> 
-INFO:Xst:2261 - The FF/Latch <game_FSM/M_temp_ans_cow_q_15> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <game_FSM/M_temp_ans_cow_q_12> 
+INFO:Xst:2261 - The FF/Latch <M_answer_q_0> in Unit <game_FSM_8> is equivalent to the following 3 FFs/Latches, which will be removed : <M_answer_q_4> <M_answer_q_8> <M_answer_q_12> 
+INFO:Xst:2261 - The FF/Latch <M_temp_ans_bull_q_0> in Unit <game_FSM_8> is equivalent to the following 3 FFs/Latches, which will be removed : <M_temp_ans_bull_q_4> <M_temp_ans_bull_q_8> <M_temp_ans_bull_q_12> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 4.
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 6.
+FlipFlop game_FSM/M_state_q_FSM_FFd26 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -351,8 +353,8 @@ Unit <mojo_top_0> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 169
- Flip-Flops                                            : 169
+# Registers                                            : 210
+ Flip-Flops                                            : 210
 # Shift Registers                                      : 3
  2-bit shift register                                  : 3
 
@@ -377,23 +379,23 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 377
-#      GND                         : 8
+# BELS                             : 444
+#      GND                         : 9
 #      INV                         : 7
 #      LUT1                        : 57
-#      LUT2                        : 10
-#      LUT3                        : 27
-#      LUT4                        : 14
-#      LUT5                        : 37
-#      LUT6                        : 92
+#      LUT2                        : 15
+#      LUT3                        : 37
+#      LUT4                        : 36
+#      LUT5                        : 67
+#      LUT6                        : 91
 #      MUXCY                       : 57
 #      VCC                         : 8
 #      XORCY                       : 60
-# FlipFlops/Latches                : 172
-#      FD                          : 17
+# FlipFlops/Latches                : 213
+#      FD                          : 20
 #      FDE                         : 3
-#      FDR                         : 24
-#      FDRE                        : 123
+#      FDR                         : 23
+#      FDRE                        : 162
 #      FDS                         : 5
 # Shift Registers                  : 3
 #      SRLC16E                     : 3
@@ -411,18 +413,18 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             172  out of  11440     1%  
- Number of Slice LUTs:                  247  out of   5720     4%  
-    Number used as Logic:               244  out of   5720     4%  
+ Number of Slice Registers:             213  out of  11440     1%  
+ Number of Slice LUTs:                  313  out of   5720     5%  
+    Number used as Logic:               310  out of   5720     5%  
     Number used as Memory:                3  out of   1440     0%  
        Number used as SRL:                3
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    277
-   Number with an unused Flip Flop:     105  out of    277    37%  
-   Number with an unused LUT:            30  out of    277    10%  
-   Number of fully used LUT-FF pairs:   142  out of    277    51%  
-   Number of unique control sets:        17
+ Number of LUT Flip Flop pairs used:    359
+   Number with an unused Flip Flop:     146  out of    359    40%  
+   Number with an unused LUT:            46  out of    359    12%  
+   Number of fully used LUT-FF pairs:   167  out of    359    46%  
+   Number of unique control sets:        21
 
 IO Utilization: 
  Number of IOs:                          87
@@ -452,7 +454,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 175   |
+clk                                | BUFGP                  | 216   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -463,10 +465,10 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 5.847ns (Maximum Frequency: 171.028MHz)
+   Minimum period: 6.493ns (Maximum Frequency: 154.012MHz)
    Minimum input arrival time before clock: 3.526ns
-   Maximum output required time after clock: 5.946ns
-   Maximum combinational path delay: 6.412ns
+   Maximum output required time after clock: 5.870ns
+   Maximum combinational path delay: 6.328ns
 
 Timing Details:
 ---------------
@@ -474,32 +476,29 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 5.847ns (frequency: 171.028MHz)
-  Total number of paths / destination ports: 6054 / 441
+  Clock period: 6.493ns (frequency: 154.012MHz)
+  Total number of paths / destination ports: 7732 / 558
 -------------------------------------------------------------------------
-Delay:               5.847ns (Levels of Logic = 6)
-  Source:            btn_cond_1/M_ctr_q_9 (FF)
-  Destination:       game_FSM/M_check_state_q_0 (FF)
+Delay:               6.493ns (Levels of Logic = 5)
+  Source:            game_FSM/M_state_q_FSM_FFd17 (FF)
+  Destination:       game_FSM/M_user_input_q_15 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: btn_cond_1/M_ctr_q_9 to game_FSM/M_check_state_q_0
+  Data Path: game_FSM/M_state_q_FSM_FFd17 to game_FSM/M_user_input_q_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             2   0.525   1.181  M_ctr_q_9 (M_ctr_q_9)
-     LUT6:I0->O            3   0.254   0.994  out3 (out2)
-     end scope: 'btn_cond_1:out2'
-     begin scope: 'edge_dt_btn_1:out2'
-     LUT6:I3->O           21   0.235   1.310  out1 (out)
-     end scope: 'edge_dt_btn_1:out'
-     begin scope: 'game_FSM:enter'
-     LUT5:I4->O            3   0.254   0.766  M_state_q__n0734_inv1 (_n0734_inv)
-     LUT3:I2->O            1   0.254   0.000  M_check_state_q_2_rstpot (M_check_state_q_2_rstpot)
-     FDR:D                     0.074          M_check_state_q_2
+     FDR:C->Q              4   0.525   1.080  M_state_q_FSM_FFd17 (M_state_q_FSM_FFd17)
+     LUT4:I0->O            5   0.254   1.069  M_state_q_M_cow_count_d<0>111 (M_state_q_M_cow_count_d<0>11)
+     LUT6:I3->O           10   0.235   1.008  M_state_q_M_state_q<1> (M_state_q<1>)
+     LUT6:I5->O            4   0.254   0.804  M_state_q__n0498<11>11 (M_state_q__n0498<11>1)
+     LUT6:I5->O            1   0.254   0.682  M_state_q__n0498<15>1 (_n0498<15>)
+     LUT3:I2->O            1   0.254   0.000  M_user_input_q_15_dpot (M_user_input_q_15_dpot)
+     FDRE:D                    0.074          M_user_input_q_15
     ----------------------------------------
-    Total                      5.847ns (1.596ns logic, 4.251ns route)
-                                       (27.3% logic, 72.7% route)
+    Total                      6.493ns (1.850ns logic, 4.643ns route)
+                                       (28.5% logic, 71.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
@@ -524,43 +523,43 @@ Offset:              3.526ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 27 / 15
+  Total number of paths / destination ports: 23 / 15
 -------------------------------------------------------------------------
-Offset:              5.946ns (Levels of Logic = 3)
-  Source:            game_FSM/M_state_q_FSM_FFd28 (FF)
+Offset:              5.870ns (Levels of Logic = 3)
+  Source:            game_FSM/M_state_q_FSM_FFd30 (FF)
   Destination:       io_led<0> (PAD)
   Source Clock:      clk rising
 
-  Data Path: game_FSM/M_state_q_FSM_FFd28 to io_led<0>
+  Data Path: game_FSM/M_state_q_FSM_FFd30 to io_led<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             10   0.525   1.236  M_state_q_FSM_FFd28 (M_state_q_FSM_FFd28)
-     LUT3:I0->O           11   0.235   1.038  M_state_q_FSM_FFd29-In11 (led_out<0>)
+     FDR:C->Q             18   0.525   1.343  M_state_q_FSM_FFd30 (M_state_q_FSM_FFd30)
+     LUT3:I1->O            5   0.250   0.840  led_out<0>1 (led_out<0>)
      end scope: 'game_FSM:led_out<0>'
      OBUF:I->O                 2.912          io_led_0_OBUF (io_led<0>)
     ----------------------------------------
-    Total                      5.946ns (3.672ns logic, 2.274ns route)
-                                       (61.8% logic, 38.2% route)
+    Total                      5.870ns (3.687ns logic, 2.183ns route)
+                                       (62.8% logic, 37.2% route)
 
 =========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 11 / 11
 -------------------------------------------------------------------------
-Delay:               6.412ns (Levels of Logic = 3)
+Delay:               6.328ns (Levels of Logic = 3)
   Source:            io_dip<0> (PAD)
-  Destination:       io_led<23> (PAD)
+  Destination:       io_led<18> (PAD)
 
-  Data Path: io_dip<0> to io_led<23>
+  Data Path: io_dip<0> to io_led<18>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             8   1.328   1.172  io_dip_0_IBUF (io_dip_0_IBUF)
-     LUT3:I0->O            3   0.235   0.765  Mmux_io_led<23>11 (io_led_19_OBUF)
-     OBUF:I->O                 2.912          io_led_19_OBUF (io_led<19>)
+     LUT3:I0->O            1   0.235   0.681  Mmux_io_led<17>11 (io_led_17_OBUF)
+     OBUF:I->O                 2.912          io_led_17_OBUF (io_led<17>)
     ----------------------------------------
-    Total                      6.412ns (4.475ns logic, 1.937ns route)
-                                       (69.8% logic, 30.2% route)
+    Total                      6.328ns (4.475ns logic, 1.853ns route)
+                                       (70.7% logic, 29.3% route)
 
 =========================================================================
 
@@ -572,20 +571,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    5.847|         |         |         |
+clk            |    6.493|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 6.35 secs
+Total CPU time to Xst completion: 6.25 secs
  
 --> 
 
-Total memory usage is 4510992 kilobytes
+Total memory usage is 4511952 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   21 (   0 filtered)
-Number of infos    :   14 (   0 filtered)
+Number of warnings :   13 (   0 filtered)
+Number of infos    :    9 (   0 filtered)
 

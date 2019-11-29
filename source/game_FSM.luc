@@ -1,7 +1,7 @@
 module game_FSM(
     input clk, // clock
-    input rst, // clock
-
+    input rst, // reset
+    
     input enter,
     input toggle,
     input reset,
@@ -22,6 +22,7 @@ module game_FSM(
 .clk(clk){
     .rst(rst){
     fsm state = {
+        INIT_ANS,
         INIT,
         START,
         IDLE,
@@ -59,7 +60,6 @@ module game_FSM(
         FAIL
     };
 
-
     dff check_state [3]; // check whether enter 4 times
     dff check_row [3]; // check whether 7 rows
     dff user_input [16]; // store inputs from user
@@ -72,11 +72,13 @@ module game_FSM(
     dff temp_input_cow[16]; // temporary register to hold user input
     dff cow_count[3]; // register to store # of cow counts
     
+    dff check_ans[4]; // to rotate between ans
+    dff answer[16]; // to store ans
+      
+    dff final[8]; // final state
 
     }
 }
-  
-sig answer[16];
 
     always {
         alufn = 0;
@@ -87,23 +89,72 @@ sig answer[16];
         led_out_1 = bull_count.q;
         led_out_2 = cow_count.q;
         led_out_3 = check_row.q;
-        led_out_4 = 0;
-        answer = 16b1001010110011001;
+        led_out_4 = final.q;
         
-        case (state.q){
+        case (state.q) {
+            state.INIT_ANS:
+                check_ans.d = 0;
+                state.d = state.INIT;
+        
             state.INIT:
                 check_row.d = 0;
+                final.d = 0;
                 state.d = state.START;
         
             state.START:
                 if (reset) {
-                    state.d = state.START;
-                }          
+                    state.d = state.INIT;
+                }   
+        
+                if (check_ans.q == 0) {
+                    answer.d = 16b1001100100110011; // RRBB
+                }
+          
+                else if (check_ans.q == 1) {
+                    answer.d = 16b1001010100110101; // RGBG
+                }  
+          
+                else if (check_ans.q == 2) {
+                    answer.d = 16b1001001110010011; // RBRB
+                } 
+          
+                else if (check_ans.q == 3) {
+                    answer.d = 16b0101001101011001; // GBGR
+                }  
+          
+                else if (check_ans.q == 4) {
+                    answer.d = 16b0101100101010101; // GRGG
+                }  
+          
+                else if (check_ans.q == 5) {
+                    answer.d = 16b1001010100111001; // RGBR
+                }  
+          
+                else if (check_ans.q == 6) {
+                    answer.d = 16b1001010101010011; // RGGB
+                }  
+          
+                else if (check_ans.q == 7) {
+                    answer.d = 16b0011001100110011; // BBBB
+                } 
+          
+                else if (check_ans.q == 8) {
+                    answer.d = 16b0011100101011001; // BRGR
+                }  
+          
+                else if (check_ans.q == 9) {
+                    answer.d = 16b0011100101010101; // BRGG
+                }   
+                                      
+                else if (check_ans.q > 9){
+                    check_ans.d = 0; // reset ans to dff 0
+                    answer.d = 16b1001100100110011; // RRBB
+                } 
+        
                 check_state.d = 0;
                 state.d = state.IDLE;
         
-            state.IDLE:
-                
+            state.IDLE:             
                 if (toggle) {
                     state.d = state.STATE_RED;
                 }
@@ -208,7 +259,7 @@ sig answer[16];
                 }
                          
             state.CHECK_BULL_INIT:
-                temp_ans_bull.d = answer;
+                temp_ans_bull.d = answer.q;
                 temp_input_bull.d = user_input.q;
                 bull_count.d = 0;
                 state.d = state.CHECK_BULL_0;
@@ -222,7 +273,7 @@ sig answer[16];
 
                 else {
                     temp_input_cow.d[3:0] = temp_input_bull.q[3:0];
-                    temp_ans_cow.d[3:0] = answer[3:0];
+                    temp_ans_cow.d[3:0] = answer.q[3:0];
                 }
                 
                 state.d = state.CHECK_BULL_1;
@@ -236,7 +287,7 @@ sig answer[16];
 
                 else {
                     temp_input_cow.d[7:4] = temp_input_bull.q[7:4];
-                    temp_ans_cow.d[7:4] = answer[7:4];
+                    temp_ans_cow.d[7:4] = answer.q[7:4];
                 }
 
                 state.d = state.CHECK_BULL_2;
@@ -250,7 +301,7 @@ sig answer[16];
 
                 else {
                     temp_input_cow.d[11:8] = temp_input_bull.q[11:8];
-                    temp_ans_cow.d[11:8] = answer[11:8];
+                    temp_ans_cow.d[11:8] = answer.q[11:8];
                 }
 
                 state.d = state.CHECK_BULL_3;
@@ -264,7 +315,7 @@ sig answer[16];
 
                 else {
                     temp_input_cow.d[15:12] = temp_input_bull.q[15:12];
-                    temp_ans_cow.d[15:12] = answer[15:12];
+                    temp_ans_cow.d[15:12] = answer.q[15:12];
                 }
 
                 state.d = state.CHECK_SUCCESS;
@@ -452,10 +503,21 @@ sig answer[16];
                 }
         
             state.SUCCESS:
-                led_out_4 = 8b11111111;
+                final.d = 8b11111111;
+                
+                if (reset) {
+                    check_ans.d = check_ans.q + 1;
+                    state.d = state.INIT;
+                }
+                
 
             state.FAIL:
-                led_out_4 = 8b10101010;
+                final.d = 8b10101010;
+                
+                if (reset) {
+                    check_ans.d = check_ans.q + 1;
+                    state.d = state.INIT;
+                }
     }
     
 }

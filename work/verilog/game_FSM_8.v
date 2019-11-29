@@ -23,43 +23,44 @@ module game_FSM_8 (
   
   
   
-  localparam START_state = 6'd0;
-  localparam IDLE_state = 6'd1;
-  localparam INIT_state = 6'd2;
-  localparam STATE_RED_state = 6'd3;
-  localparam STATE_GREEN_state = 6'd4;
-  localparam STATE_BLUE_state = 6'd5;
-  localparam CHECK_STATE_state = 6'd6;
-  localparam CHECK_SUCCESS_state = 6'd7;
-  localparam CHECK_BULL_INIT_state = 6'd8;
-  localparam CHECK_BULL_0_state = 6'd9;
-  localparam CHECK_BULL_1_state = 6'd10;
-  localparam CHECK_BULL_2_state = 6'd11;
-  localparam CHECK_BULL_3_state = 6'd12;
-  localparam CHECK_COW_INIT_state = 6'd13;
-  localparam CHECK_COW_0_0_state = 6'd14;
-  localparam CHECK_COW_0_1_state = 6'd15;
-  localparam CHECK_COW_0_2_state = 6'd16;
-  localparam CHECK_COW_0_3_state = 6'd17;
-  localparam CHECK_COW_1_0_state = 6'd18;
-  localparam CHECK_COW_1_1_state = 6'd19;
-  localparam CHECK_COW_1_2_state = 6'd20;
-  localparam CHECK_COW_1_3_state = 6'd21;
-  localparam CHECK_COW_2_0_state = 6'd22;
-  localparam CHECK_COW_2_1_state = 6'd23;
-  localparam CHECK_COW_2_2_state = 6'd24;
-  localparam CHECK_COW_2_3_state = 6'd25;
-  localparam CHECK_COW_3_0_state = 6'd26;
-  localparam CHECK_COW_3_1_state = 6'd27;
-  localparam CHECK_COW_3_2_state = 6'd28;
-  localparam CHECK_COW_3_3_state = 6'd29;
-  localparam CHECK_LIFE_PART1_state = 6'd30;
-  localparam CHECK_LIFE_PART2_state = 6'd31;
-  localparam CHECK_BULL_COW_state = 6'd32;
-  localparam SUCCESS_state = 6'd33;
-  localparam FAIL_state = 6'd34;
+  localparam INIT_ANS_state = 6'd0;
+  localparam INIT_state = 6'd1;
+  localparam START_state = 6'd2;
+  localparam IDLE_state = 6'd3;
+  localparam STATE_RED_state = 6'd4;
+  localparam STATE_GREEN_state = 6'd5;
+  localparam STATE_BLUE_state = 6'd6;
+  localparam CHECK_STATE_state = 6'd7;
+  localparam CHECK_SUCCESS_state = 6'd8;
+  localparam CHECK_BULL_INIT_state = 6'd9;
+  localparam CHECK_BULL_0_state = 6'd10;
+  localparam CHECK_BULL_1_state = 6'd11;
+  localparam CHECK_BULL_2_state = 6'd12;
+  localparam CHECK_BULL_3_state = 6'd13;
+  localparam CHECK_COW_INIT_state = 6'd14;
+  localparam CHECK_COW_0_0_state = 6'd15;
+  localparam CHECK_COW_0_1_state = 6'd16;
+  localparam CHECK_COW_0_2_state = 6'd17;
+  localparam CHECK_COW_0_3_state = 6'd18;
+  localparam CHECK_COW_1_0_state = 6'd19;
+  localparam CHECK_COW_1_1_state = 6'd20;
+  localparam CHECK_COW_1_2_state = 6'd21;
+  localparam CHECK_COW_1_3_state = 6'd22;
+  localparam CHECK_COW_2_0_state = 6'd23;
+  localparam CHECK_COW_2_1_state = 6'd24;
+  localparam CHECK_COW_2_2_state = 6'd25;
+  localparam CHECK_COW_2_3_state = 6'd26;
+  localparam CHECK_COW_3_0_state = 6'd27;
+  localparam CHECK_COW_3_1_state = 6'd28;
+  localparam CHECK_COW_3_2_state = 6'd29;
+  localparam CHECK_COW_3_3_state = 6'd30;
+  localparam CHECK_LIFE_PART1_state = 6'd31;
+  localparam CHECK_LIFE_PART2_state = 6'd32;
+  localparam CHECK_BULL_COW_state = 6'd33;
+  localparam SUCCESS_state = 6'd34;
+  localparam FAIL_state = 6'd35;
   
-  reg [5:0] M_state_d, M_state_q = START_state;
+  reg [5:0] M_state_d, M_state_q = INIT_ANS_state;
   reg [2:0] M_check_state_d, M_check_state_q = 1'h0;
   reg [2:0] M_check_row_d, M_check_row_q = 1'h0;
   reg [15:0] M_user_input_d, M_user_input_q = 1'h0;
@@ -69,14 +70,18 @@ module game_FSM_8 (
   reg [15:0] M_temp_ans_cow_d, M_temp_ans_cow_q = 1'h0;
   reg [15:0] M_temp_input_cow_d, M_temp_input_cow_q = 1'h0;
   reg [2:0] M_cow_count_d, M_cow_count_q = 1'h0;
-  
-  reg [15:0] answer;
+  reg [3:0] M_check_ans_d, M_check_ans_q = 1'h0;
+  reg [15:0] M_answer_d, M_answer_q = 1'h0;
+  reg [7:0] M_final_d, M_final_q = 1'h0;
   
   always @* begin
     M_state_d = M_state_q;
+    M_final_d = M_final_q;
+    M_check_ans_d = M_check_ans_q;
     M_check_row_d = M_check_row_q;
     M_temp_input_bull_d = M_temp_input_bull_q;
     M_bull_count_d = M_bull_count_q;
+    M_answer_d = M_answer_q;
     M_cow_count_d = M_cow_count_q;
     M_user_input_d = M_user_input_q;
     M_temp_ans_cow_d = M_temp_ans_cow_q;
@@ -92,17 +97,65 @@ module game_FSM_8 (
     led_out_1 = M_bull_count_q;
     led_out_2 = M_cow_count_q;
     led_out_3 = M_check_row_q;
-    led_out_4 = 1'h0;
-    answer = 16'h9599;
+    led_out_4 = M_final_q;
     
     case (M_state_q)
+      INIT_ANS_state: begin
+        M_check_ans_d = 1'h0;
+        M_state_d = INIT_state;
+      end
       INIT_state: begin
         M_check_row_d = 1'h0;
+        M_final_d = 1'h0;
         M_state_d = START_state;
       end
       START_state: begin
         if (reset) begin
-          M_state_d = START_state;
+          M_state_d = INIT_state;
+        end
+        if (M_check_ans_q == 1'h0) begin
+          M_answer_d = 16'h9933;
+        end else begin
+          if (M_check_ans_q == 1'h1) begin
+            M_answer_d = 16'h9535;
+          end else begin
+            if (M_check_ans_q == 2'h2) begin
+              M_answer_d = 16'h9393;
+            end else begin
+              if (M_check_ans_q == 2'h3) begin
+                M_answer_d = 16'h5359;
+              end else begin
+                if (M_check_ans_q == 3'h4) begin
+                  M_answer_d = 16'h5955;
+                end else begin
+                  if (M_check_ans_q == 3'h5) begin
+                    M_answer_d = 16'h9539;
+                  end else begin
+                    if (M_check_ans_q == 3'h6) begin
+                      M_answer_d = 16'h9553;
+                    end else begin
+                      if (M_check_ans_q == 3'h7) begin
+                        M_answer_d = 16'h3333;
+                      end else begin
+                        if (M_check_ans_q == 4'h8) begin
+                          M_answer_d = 16'h3959;
+                        end else begin
+                          if (M_check_ans_q == 4'h9) begin
+                            M_answer_d = 16'h3955;
+                          end else begin
+                            if (M_check_ans_q > 4'h9) begin
+                              M_check_ans_d = 1'h0;
+                              M_answer_d = 16'h9933;
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
         end
         M_check_state_d = 1'h0;
         M_state_d = IDLE_state;
@@ -213,7 +266,7 @@ module game_FSM_8 (
         end
       end
       CHECK_BULL_INIT_state: begin
-        M_temp_ans_bull_d = answer;
+        M_temp_ans_bull_d = M_answer_q;
         M_temp_input_bull_d = M_user_input_q;
         M_bull_count_d = 1'h0;
         M_state_d = CHECK_BULL_0_state;
@@ -225,7 +278,7 @@ module game_FSM_8 (
           M_temp_ans_cow_d[0+3-:4] = 4'hf;
         end else begin
           M_temp_input_cow_d[0+3-:4] = M_temp_input_bull_q[0+3-:4];
-          M_temp_ans_cow_d[0+3-:4] = answer[0+3-:4];
+          M_temp_ans_cow_d[0+3-:4] = M_answer_q[0+3-:4];
         end
         M_state_d = CHECK_BULL_1_state;
       end
@@ -236,7 +289,7 @@ module game_FSM_8 (
           M_temp_ans_cow_d[4+3-:4] = 4'hf;
         end else begin
           M_temp_input_cow_d[4+3-:4] = M_temp_input_bull_q[4+3-:4];
-          M_temp_ans_cow_d[4+3-:4] = answer[4+3-:4];
+          M_temp_ans_cow_d[4+3-:4] = M_answer_q[4+3-:4];
         end
         M_state_d = CHECK_BULL_2_state;
       end
@@ -247,7 +300,7 @@ module game_FSM_8 (
           M_temp_ans_cow_d[8+3-:4] = 4'hf;
         end else begin
           M_temp_input_cow_d[8+3-:4] = M_temp_input_bull_q[8+3-:4];
-          M_temp_ans_cow_d[8+3-:4] = answer[8+3-:4];
+          M_temp_ans_cow_d[8+3-:4] = M_answer_q[8+3-:4];
         end
         M_state_d = CHECK_BULL_3_state;
       end
@@ -258,7 +311,7 @@ module game_FSM_8 (
           M_temp_ans_cow_d[12+3-:4] = 4'hf;
         end else begin
           M_temp_input_cow_d[12+3-:4] = M_temp_input_bull_q[12+3-:4];
-          M_temp_ans_cow_d[12+3-:4] = answer[12+3-:4];
+          M_temp_ans_cow_d[12+3-:4] = M_answer_q[12+3-:4];
         end
         M_state_d = CHECK_SUCCESS_state;
       end
@@ -413,10 +466,18 @@ module game_FSM_8 (
         end
       end
       SUCCESS_state: begin
-        led_out_4 = 8'hff;
+        M_final_d = 8'hff;
+        if (reset) begin
+          M_check_ans_d = M_check_ans_q + 1'h1;
+          M_state_d = INIT_state;
+        end
       end
       FAIL_state: begin
-        led_out_4 = 8'haa;
+        M_final_d = 8'haa;
+        if (reset) begin
+          M_check_ans_d = M_check_ans_q + 1'h1;
+          M_state_d = INIT_state;
+        end
       end
     endcase
   end
@@ -432,6 +493,9 @@ module game_FSM_8 (
       M_temp_ans_cow_q <= 1'h0;
       M_temp_input_cow_q <= 1'h0;
       M_cow_count_q <= 1'h0;
+      M_check_ans_q <= 1'h0;
+      M_answer_q <= 1'h0;
+      M_final_q <= 1'h0;
       M_state_q <= 1'h0;
     end else begin
       M_check_state_q <= M_check_state_d;
@@ -443,6 +507,9 @@ module game_FSM_8 (
       M_temp_ans_cow_q <= M_temp_ans_cow_d;
       M_temp_input_cow_q <= M_temp_input_cow_d;
       M_cow_count_q <= M_cow_count_d;
+      M_check_ans_q <= M_check_ans_d;
+      M_answer_q <= M_answer_d;
+      M_final_q <= M_final_d;
       M_state_q <= M_state_d;
     end
   end
