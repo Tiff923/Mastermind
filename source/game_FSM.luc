@@ -76,10 +76,11 @@ module game_FSM(
     dff answer[16]; // to store ans
       
     dff final[8]; // final state
+    dff total_life[3]; // total number of lives/rows
 
     }
 }
-
+    
     always {
         alufn = 0;
         asel = 0; 
@@ -93,6 +94,7 @@ module game_FSM(
         
         case (state.q) {
             state.INIT_ANS:
+                total_life.d = 7;
                 check_ans.d = 0;
                 state.d = state.INIT;
         
@@ -252,7 +254,12 @@ module game_FSM(
             
             state.CHECK_STATE:
                 if (check_state.q == 4) {
-                    state.d = state.CHECK_BULL_INIT;
+                    if (total_life.q == 7) {
+                        state.d = state.CHECK_LIFE_PART1;
+                    }
+                    else if (total_life.q < 7) {
+                        state.d = state.CHECK_LIFE_PART2;
+                    }
                 }
                 else {
                     state.d = state.IDLE;
@@ -502,6 +509,22 @@ module game_FSM(
                     state.d = state.CHECK_COW_INIT;
                 }
         
+            state.CHECK_LIFE_PART1:
+                asel = 3b000;
+                bsel = 3b001;
+                alufn = 6b000001;
+                demux = 2b01; // store in R1
+                total_life.q = beta.registerlife.q; // update life using beta
+                state.d = state.CHECK_BULL_INIT;
+        
+            state.CHECK_LIFE_PART2:
+                asel = 3b010;
+                bsel = 3b001;
+                alufn = 6b000001;
+                demux = 2b01; // store in R1
+                total_life.q = beta.registerlife.q; // update life using beta
+                state.d = state.CHECK_BULL_INIT;
+        
             state.SUCCESS:
                 final.d = 8b11111111;
                 
@@ -509,7 +532,6 @@ module game_FSM(
                     check_ans.d = check_ans.q + 1;
                     state.d = state.INIT;
                 }
-                
 
             state.FAIL:
                 final.d = 8b10101010;
