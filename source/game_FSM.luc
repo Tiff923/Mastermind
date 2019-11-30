@@ -30,12 +30,14 @@ module game_FSM(
         STATE_GREEN,
         STATE_BLUE,
         CHECK_STATE,
-        CHECK_SUCCESS,
         CHECK_BULL_INIT,
         CHECK_BULL_0,
         CHECK_BULL_1,
         CHECK_BULL_2,
         CHECK_BULL_3,
+        CHECK_BULL_PART1,
+        CHECK_BULL_PART2,
+        CHECK_SUCCESS,
         CHECK_COW_INIT,
         CHECK_COW_0_0,
         CHECK_COW_0_1,
@@ -55,6 +57,7 @@ module game_FSM(
         CHECK_COW_3_3,
         CHECK_LIFE_PART1,
         CHECK_LIFE_PART2,
+        CHECK_BULL_COW_CMPLE,
         CHECK_BULL_COW,
         SUCCESS,
         FAIL
@@ -76,8 +79,11 @@ module game_FSM(
     dff answer[16]; // to store ans
       
     dff final[8]; // final state
-    dff total_life[3]; // total number of lives/rows
-
+    dff total_life[16]; // total number of lives/rows
+    
+    dff check_bull_state[3]; // check total number of bull iterations
+    
+    beta beta;
     }
 }
     
@@ -148,7 +154,7 @@ module game_FSM(
                     answer.d = 16b0011100101010101; // BRGG
                 }   
                                       
-                else if (check_ans.q > 9){
+                else if (check_ans.q > 9) {
                     check_ans.d = 0; // reset ans to dff 0
                     answer.d = 16b1001100100110011; // RRBB
                 } 
@@ -272,10 +278,17 @@ module game_FSM(
                 state.d = state.CHECK_BULL_0;
             
             state.CHECK_BULL_0:
+                check_bull_state.d = 0;
                 if (temp_ans_bull.q[3:0] == temp_input_bull.q[3:0]) {
-                    bull_count.d = bull_count.q + 1;
                     temp_input_cow.d[3:0] = 4b0000;
                     temp_ans_cow.d[3:0] = 4b1111;
+                    if (bull_count.q == 0) {
+                        state.d = state.CHECK_BULL_PART1;
+                    }
+                    else if (bull_count.q > 0) {
+                        state.d = state.CHECK_BULL_PART2;
+                    }
+                    bull_count.d = bull_count.q + 1;
                 }
 
                 else {
@@ -286,10 +299,17 @@ module game_FSM(
                 state.d = state.CHECK_BULL_1;
         
             state.CHECK_BULL_1:
+                check_bull_state.d = 1;
                 if (temp_ans_bull.q[7:4] == temp_input_bull.q[7:4]) {
-                    bull_count.d = bull_count.q + 1;
                     temp_input_cow.d[7:4] = 4b0000;
                     temp_ans_cow.d[7:4] = 4b1111;
+                    if (bull_count.q == 0) {
+                        state.d = state.CHECK_BULL_PART1;
+                    }
+                    else if (bull_count.q > 0) {
+                        state.d = state.CHECK_BULL_PART2;
+                    }
+                    bull_count.d = bull_count.q + 1;
                 }
 
                 else {
@@ -300,10 +320,17 @@ module game_FSM(
                 state.d = state.CHECK_BULL_2;
 
             state.CHECK_BULL_2:
+                check_bull_state.d = 2;
                 if (temp_ans_bull.q[11:8] == temp_input_bull.q[11:8]) {
-                    bull_count.d = bull_count.q + 1;
                     temp_input_cow.d[11:8] = 4b0000;
                     temp_ans_cow.d[11:8] = 4b1111;
+                    if (bull_count.q == 0) {
+                        state.d = state.CHECK_BULL_PART1;
+                    }
+                    else if (bull_count.q > 0) {
+                        state.d = state.CHECK_BULL_PART2;
+                    }
+                    bull_count.d = bull_count.q + 1;
                 }
 
                 else {
@@ -314,10 +341,17 @@ module game_FSM(
                 state.d = state.CHECK_BULL_3;
         
             state.CHECK_BULL_3:
+                check_bull_state.d = 3;
                 if (temp_ans_bull.q[15:12] == temp_input_bull.q[15:12]) {
-                    bull_count.d = bull_count.q + 1;
                     temp_input_cow.d[15:12] = 4b0000;
                     temp_ans_cow.d[15:12] = 4b1111;
+                    if (bull_count.q == 0) {
+                        state.d = state.CHECK_BULL_PART1;
+                    }
+                    else if (bull_count.q > 0) {
+                        state.d = state.CHECK_BULL_PART2;
+                    }
+                    bull_count.d = bull_count.q + 1;
                 }
 
                 else {
@@ -327,6 +361,44 @@ module game_FSM(
 
                 state.d = state.CHECK_SUCCESS;
         
+            state.CHECK_BULL_PART1:
+                asel = 3b001;
+                bsel = 3b001;
+                alufn = 6b000000;
+                demux = 2b10;
+        
+                if (check_bull_state.q == 0) {
+                    state.d = state.CHECK_BULL_1;
+                }
+                else if (check_bull_state.q == 1) {
+                    state.d = state.CHECK_BULL_2;
+                }
+                else if (check_bull_state.q == 2) {
+                    state.d = state.CHECK_BULL_3;
+                }
+                else if (check_bull_state.q == 3) {
+                    state.d = state.CHECK_SUCCESS;
+                }
+        
+            state.CHECK_BULL_PART2:
+                asel = 3b011;
+                bsel = 3b001;
+                alufn = 6b000000;
+                demux = 2b10;
+        
+                if (check_bull_state.q == 0) {
+                    state.d = state.CHECK_BULL_1;
+                }
+                else if (check_bull_state.q == 1) {
+                    state.d = state.CHECK_BULL_2;
+                }
+                else if (check_bull_state.q == 2) {
+                    state.d = state.CHECK_BULL_3;
+                }
+                else if (check_bull_state.q == 3) {
+                    state.d = state.CHECK_SUCCESS;
+                }       
+                
             state.CHECK_SUCCESS:
                 check_row.d = check_row.q + 1;
                 state.d = state.CHECK_BULL_COW;
@@ -488,23 +560,40 @@ module game_FSM(
             state.CHECK_COW_3_3:
                 if (temp_input_cow.q[15:12] == temp_ans_cow.q[15:12]) {
                     cow_count.d = cow_count.q + 1;
+                    // state.d = state.CHECK_BULL_COW_CMPLE;
                     state.d = state.START;
                 }
 
                 else {
+                    // state.d = state.CHECK_BULL_COW_CMPLE;
                     state.d = state.START;
                 }
         
+        /* 
+            state.CHECK_BULL_COW_CMPLE:
+                beta.registerbullpluscow.d = cow_count.q + bull_count.q;
+                asel = 3b111;
+                bsel = 3b111;
+                demux = 2b11;
+                alufn = 6b110101;
+                if (beta.registerbullpluscow.q == 1) {
+                    state.d = state.START;
+                }
+        */
+        
             state.CHECK_BULL_COW:
+                // if (beta.registerbull.q == 4) {
                 if (bull_count.q == 4) {
                     state.d = state.SUCCESS;
                     cow_count.d = 0;
                 }
                 
+                // else if (beta.registerbull.q < 4 & check_row.q == 7) {
                 else if (bull_count.q < 4 & check_row.q == 7) {
                     state.d = state.FAIL;
                 }
                 
+                // else if (beta.registerbull.q < 4 & check_row.q < 7) {
                 else if (bull_count.q < 4 & check_row.q < 7) {
                     state.d = state.CHECK_COW_INIT;
                 }
@@ -514,15 +603,15 @@ module game_FSM(
                 bsel = 3b001;
                 alufn = 6b000001;
                 demux = 2b01; // store in R1
-                total_life.q = beta.registerlife.q; // update life using beta
+                total_life.d = beta.fsmregisterlife; // update life using beta
                 state.d = state.CHECK_BULL_INIT;
-        
+         
             state.CHECK_LIFE_PART2:
                 asel = 3b010;
                 bsel = 3b001;
                 alufn = 6b000001;
                 demux = 2b01; // store in R1
-                total_life.q = beta.registerlife.q; // update life using beta
+                total_life.d = beta.fsmregisterlife; // update life using beta
                 state.d = state.CHECK_BULL_INIT;
         
             state.SUCCESS:

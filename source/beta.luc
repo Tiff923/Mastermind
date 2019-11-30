@@ -1,0 +1,216 @@
+module beta (
+    //input reset_button,
+    //input toggle_button,
+    //input enter_button,
+    
+    input clk,  // clock
+    input rst,  // reset
+    
+    output guess_out[13],
+    output check_answer_out[13],
+    
+    output led_1[8], 
+    output led_2[8], 
+    output led_3[8],
+    output led_4[8],
+    output led_5[8], 
+    output led_6[8],
+    output led_7[8], 
+    output led_8[8],
+    
+    output fsmregisterlife[16]  
+    
+  ) {
+  
+  //temp variables
+  sig inputAlu_a[16];
+  sig inputAlu_b[16];
+  sig asel[3]; 
+  sig bsel[3]; 
+  sig demux[2]; 
+  
+  
+
+  .clk(clk){
+    
+    .rst(rst){
+      //game_CU mastermind_controlunit;
+      dff registerlife[16];
+      dff registerbull[16];
+      dff registerbullpluscow[16];
+      fsm state = {
+      INIT, 
+      DEMUXZERO,
+      DEMUXONE
+      }; 
+        
+      /*
+      dff currentlife[16]; 
+      fsm state = { 
+      REMAININGLIFESEVEN,
+      REMAININGLIFENONSEVEN,
+         };  
+      */   
+     alumodule mastermind_alu;
+     //dff asel[3];
+     //dff bsel[3];
+     //dff demux[2]; 
+      
+  }
+  }
+  
+  
+    
+  always {
+    //edge detector, button conditioner 
+      
+    guess_out = 0;
+    check_answer_out = 0;
+    led_1 = 0; 
+    led_2 = 0; 
+    led_3 = 0; 
+    led_4 = 0; 
+    led_5 = 0;
+    led_6 = 0;
+    led_7 = 0; 
+    led_8 = 0; 
+    
+    
+    asel = 3b010; 
+    bsel = 3b001;
+    demux = 2b00; 
+    //demux = 2b01; 
+    //registerlife.d = 6; 
+    
+    fsmregisterlife = 0; 
+    
+    case(state.q){
+      state.INIT:
+      registerlife.d = 6; 
+      state.d = state.DEMUXONE;
+     
+      state.DEMUXONE:
+      demux = 2b01; 
+      state.d = state.DEMUXZERO; 
+        
+      state.DEMUXZERO: 
+      demux = 2b00; 
+      registerlife.d = registerlife.q; 
+      fsmregisterlife = registerlife.q; 
+      state.d = state.DEMUXZERO; 
+       
+    }
+    
+ 
+    
+    //asel.d = 0; 
+    //bsel.d = 0; 
+    //demux.d = 0; 
+    
+    led_8 = asel;
+    //led_7 = registerlife.q[7:0];            
+    
+    //pass button press signal to CU unit
+    //mastermind_controlunit.p1_button = p1_button;//need to be changed 
+    //mastermind_controlunit.p2_button = p2_button;//need to be changed 
+
+    
+    //asel mux
+    //case(mastermind_controlunit.asel){
+    case(asel){ 
+      b000  : inputAlu_a = 7;
+      b001  : inputAlu_a = 0; 
+      b010  : inputAlu_a = registerlife.q;
+      b011  : inputAlu_a = registerbull.q;
+      b111  : inputAlu_a = registerbullpluscow.q;
+      default : 
+          inputAlu_a = 0;//
+    }
+    
+    //led_7 = inputAlu_a[7:0];            
+
+    
+    //bsel mux
+    //case(mastermind_controlunit.bsel){
+    case(bsel){
+      b000  : inputAlu_b = 0;
+      b001  : inputAlu_b = 1; 
+      b010  : inputAlu_b = 2;
+      b011  : inputAlu_b = 3;
+      b111  : inputAlu_b = 4; 
+      default: 
+          inputAlu_b = 0;//
+      
+    }
+    
+    //led_7 = inputAlu_b[7:0];
+    
+    
+    //ALU
+    mastermind_alu.a = inputAlu_a;
+    mastermind_alu.b = inputAlu_b;
+    //mastermind_alu.alufn_signal = mastermind_controlunit.alufn;
+    mastermind_alu.alufn = 6b000001;
+    
+    //led_7 = mastermind_alu.alu[7:0];
+    //led_7 = demux; 
+    
+
+    
+    //demux
+    //case (mastermind_controlunit.demux){
+    case (demux){
+      b01 : registerlife.d= mastermind_alu.alu;
+      //b01 : registerlife.d= 16b110;
+      b10 : registerbull.d = mastermind_alu.alu;
+      b11 : registerbullpluscow.d = mastermind_alu.alu;
+      //default : //b00
+          //players.data = game_alu.out;//to be found 
+    }
+   
+    led_7 = registerlife.q[7:0]; 
+    
+    
+
+   /*       
+    led_1 = inputAlu_a[7:0];
+    led_2 = inputAlu_a[15:8]; 
+    
+    led_3 = inputAlu_b[7:0];
+    led_4 = inputAlu_b[15:8];  
+    
+    //led_1 = asel;
+    //led_2 = bsel;
+    //led_3 = demux;
+    
+    led_5 = registerlife.q[7:0];
+    led_6 = registerlife.q[15:8]; 
+    */
+    /*
+    case(state.q){
+      state.REMAININGLIFESEVEN:
+      asel = 3b000; 
+      currentlife.d = registerlife.q; 
+      state.d = state.REMAININGLIFENONSEVEN; 
+      
+      state.REMAININGLIFENONSEVEN:
+      if(currentlife.q > 1){
+      asel = 3b010; 
+      currentlife.d = registerlife.q;
+      state.d = state.REMAININGLIFENONSEVEN;
+        }
+      else if(currentlife.q == 1){
+      led_7 = currentlife.q[7:0]; 
+      led_8 = currentlife.q[15:8]; 
+      }      
+        
+    }  
+    */
+     /*
+    if(currentlife.q == 1){
+       led_7 = currentlife.q[7:0]; 
+       led_8 = currentlife.q[15:8]; 
+    }
+    */
+  }
+}
