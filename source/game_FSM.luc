@@ -199,7 +199,7 @@ module game_FSM(
         // led_out_1 = bull_count.q;
         led_out_2 = bull_cow_input.q[15:8];
         led_out_3 = check_row.q;
-        led_out_4 = final.q;
+        led_out_4 = final.q[7:0];
         user_input_112 = user_input_all.q; // output register value to real output
         bull_cow_112 = bull_cow_input.q; // output bull and cow value to real output
         
