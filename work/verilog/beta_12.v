@@ -7,6 +7,11 @@
 module beta_12 (
     input clk,
     input rst,
+    input fsmregisterbullpluscowcal,
+    input alufninput,
+    input demuxinput,
+    input aselinput,
+    input bselinput,
     output reg [12:0] guess_out,
     output reg [12:0] check_answer_out,
     output reg [7:0] led_1,
@@ -15,9 +20,9 @@ module beta_12 (
     output reg [7:0] led_4,
     output reg [7:0] led_5,
     output reg [7:0] led_6,
-    output reg [7:0] led_7,
-    output reg [7:0] led_8,
-    output reg [15:0] fsmregisterlife
+    output reg [15:0] fsmregisterlife,
+    output reg [15:0] fsmregisterbull,
+    output reg [15:0] fsmregisterbullpluscow
   );
   
   
@@ -32,14 +37,10 @@ module beta_12 (
   
   reg [1:0] demux;
   
+  reg [5:0] alufn;
+  
   reg [15:0] M_registerlife_d, M_registerlife_q = 1'h0;
   reg [15:0] M_registerbull_d, M_registerbull_q = 1'h0;
-  reg [15:0] M_registerbullpluscow_d, M_registerbullpluscow_q = 1'h0;
-  localparam INIT_state = 2'd0;
-  localparam DEMUXZERO_state = 2'd1;
-  localparam DEMUXONE_state = 2'd2;
-  
-  reg [1:0] M_state_d, M_state_q = INIT_state;
   wire [16-1:0] M_mastermind_alu_alu;
   wire [1-1:0] M_mastermind_alu_z;
   wire [1-1:0] M_mastermind_alu_v;
@@ -60,8 +61,6 @@ module beta_12 (
   );
   
   always @* begin
-    M_state_d = M_state_q;
-    M_registerbullpluscow_d = M_registerbullpluscow_q;
     M_registerlife_d = M_registerlife_q;
     M_registerbull_d = M_registerbull_q;
     
@@ -73,30 +72,11 @@ module beta_12 (
     led_4 = 1'h0;
     led_5 = 1'h0;
     led_6 = 1'h0;
-    led_7 = 1'h0;
-    led_8 = 1'h0;
-    asel = 3'h2;
-    bsel = 3'h1;
-    demux = 2'h0;
-    fsmregisterlife = 1'h0;
-    
-    case (M_state_q)
-      INIT_state: begin
-        M_registerlife_d = 3'h6;
-        M_state_d = DEMUXONE_state;
-      end
-      DEMUXONE_state: begin
-        demux = 2'h1;
-        M_state_d = DEMUXZERO_state;
-      end
-      DEMUXZERO_state: begin
-        demux = 2'h0;
-        M_registerlife_d = M_registerlife_q;
-        fsmregisterlife = M_registerlife_q;
-        M_state_d = DEMUXZERO_state;
-      end
-    endcase
-    led_8 = asel;
+    fsmregisterbullpluscow = 1'h0;
+    asel = aselinput;
+    bsel = bselinput;
+    demux = demuxinput;
+    alufn = alufninput;
     
     case (asel)
       3'h0: begin
@@ -112,12 +92,14 @@ module beta_12 (
         inputAlu_a = M_registerbull_q;
       end
       3'h7: begin
-        inputAlu_a = M_registerbullpluscow_q;
+        inputAlu_a = fsmregisterbullpluscowcal;
       end
       default: begin
         inputAlu_a = 1'h0;
       end
     endcase
+    fsmregisterlife = M_registerlife_q;
+    fsmregisterbull = M_registerbull_q;
     
     case (bsel)
       3'h0: begin
@@ -141,7 +123,7 @@ module beta_12 (
     endcase
     M_mastermind_alu_a = inputAlu_a;
     M_mastermind_alu_b = inputAlu_b;
-    M_mastermind_alu_alufn = 6'h01;
+    M_mastermind_alu_alufn = alufn;
     
     case (demux)
       2'h1: begin
@@ -151,23 +133,18 @@ module beta_12 (
         M_registerbull_d = M_mastermind_alu_alu;
       end
       2'h3: begin
-        M_registerbullpluscow_d = M_mastermind_alu_alu;
+        fsmregisterbullpluscow = M_mastermind_alu_alu;
       end
     endcase
-    led_7 = M_registerlife_q[0+7-:8];
   end
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
       M_registerlife_q <= 1'h0;
       M_registerbull_q <= 1'h0;
-      M_registerbullpluscow_q <= 1'h0;
-      M_state_q <= 1'h0;
     end else begin
       M_registerlife_q <= M_registerlife_d;
       M_registerbull_q <= M_registerbull_d;
-      M_registerbullpluscow_q <= M_registerbullpluscow_d;
-      M_state_q <= M_state_d;
     end
   end
   

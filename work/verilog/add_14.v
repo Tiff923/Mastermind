@@ -25,15 +25,15 @@ module add_14 (
     case (alufn[0+0-:1])
       1'h0: begin
         sum_intermediate = a + b;
-        v = (((a[15+0-:1]) & (b[15+0-:1]) & (~sum_intermediate[15+0-:1])) | ((~a[15+0-:1]) & (~b[15+0-:1]) & (sum_intermediate[15+0-:1])));
+        v = (((a[15+0-:1]) & ((^b[15+0-:1])) & (~sum_intermediate[15+0-:1])) | ((~a[15+0-:1]) & ((^~b[15+0-:1])) & (sum_intermediate[15+0-:1])));
       end
       1'h1: begin
         sum_intermediate = a - b;
-        v = (((a[15+0-:1]) & (b[15+0-:1]) & (~sum_intermediate[15+0-:1])) | ((~a[15+0-:1]) & (~b[15+0-:1]) & (sum_intermediate[15+0-:1])));
+        v = (((a[15+0-:1]) & ((^b[15+0-:1])) & (~sum_intermediate[15+0-:1])) | ((~a[15+0-:1]) & ((^~b[15+0-:1])) & (sum_intermediate[15+0-:1])));
       end
       default: begin
         sum_intermediate = a + b;
-        v = (((a[15+0-:1]) & (b[15+0-:1]) & (~sum_intermediate[15+0-:1])) | ((~a[15+0-:1]) & (~b[15+0-:1]) & (sum_intermediate[15+0-:1])));
+        v = (((a[15+0-:1]) & ((^b[15+0-:1])) & (~sum_intermediate[15+0-:1])) | ((~a[15+0-:1]) & ((^~b[15+0-:1])) & (sum_intermediate[15+0-:1])));
       end
     endcase
     out = sum_intermediate[0+15-:16];

@@ -77,10 +77,6 @@ module mojo_top_0 (
     .in(M_btn_cond_3_in),
     .out(M_btn_cond_3_out)
   );
-  wire [6-1:0] M_game_FSM_alufn;
-  wire [3-1:0] M_game_FSM_asel;
-  wire [3-1:0] M_game_FSM_bsel;
-  wire [2-1:0] M_game_FSM_demux;
   wire [8-1:0] M_game_FSM_led_out;
   wire [8-1:0] M_game_FSM_led_out_1;
   wire [8-1:0] M_game_FSM_led_out_2;
@@ -95,10 +91,6 @@ module mojo_top_0 (
     .enter(M_game_FSM_enter),
     .toggle(M_game_FSM_toggle),
     .reset(M_game_FSM_reset),
-    .alufn(M_game_FSM_alufn),
-    .asel(M_game_FSM_asel),
-    .bsel(M_game_FSM_bsel),
-    .demux(M_game_FSM_demux),
     .led_out(M_game_FSM_led_out),
     .led_out_1(M_game_FSM_led_out_1),
     .led_out_2(M_game_FSM_led_out_2),

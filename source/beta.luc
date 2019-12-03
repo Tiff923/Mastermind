@@ -1,10 +1,11 @@
 module beta (
-    //input reset_button,
-    //input toggle_button,
-    //input enter_button,
-    
     input clk,  // clock
     input rst,  // reset
+    input fsmregisterbullpluscowcal, 
+    input alufninput,
+    input demuxinput, 
+    input aselinput, 
+    input bselinput, 
     
     output guess_out[13],
     output check_answer_out[13],
@@ -15,10 +16,12 @@ module beta (
     output led_4[8],
     output led_5[8], 
     output led_6[8],
-    output led_7[8], 
-    output led_8[8],
+    // output led_7[8], 
+    // output led_8[8],
     
-    output fsmregisterlife[16]  
+    output fsmregisterlife[16],
+    output fsmregisterbull[16], 
+    output fsmregisterbullpluscow[16] 
     
   ) {
   
@@ -28,34 +31,33 @@ module beta (
   sig asel[3]; 
   sig bsel[3]; 
   sig demux[2]; 
+  sig alufn[6];
   
   
 
   .clk(clk){
     
     .rst(rst){
-      //game_CU mastermind_controlunit;
+      //game_FSM mastermind_controlunit;
       dff registerlife[16];
       dff registerbull[16];
-      dff registerbullpluscow[16];
-      fsm state = {
-      INIT, 
-      DEMUXZERO,
-      DEMUXONE
-      }; 
-        
-      /*
-      dff currentlife[16]; 
+      //dff registerbullpluscow[16];
+/*
       fsm state = { 
       REMAININGLIFESEVEN,
       REMAININGLIFENONSEVEN,
-         };  
-      */   
+      REMAININGLIFESIX, 
+      REMAININGLIFEFIVE,
+      REMAININGLIFEFOUR,
+      REMAININGLIFETHREE,
+      REMAININGLIFETWO,
+      REMAININGLIFEONE 
+      };  
+      */      
+      // dff debug_reg[8];
+      // dff debug_reg_2[8];
+       
      alumodule mastermind_alu;
-     //dff asel[3];
-     //dff bsel[3];
-     //dff demux[2]; 
-      
   }
   }
   
@@ -72,66 +74,85 @@ module beta (
     led_4 = 0; 
     led_5 = 0;
     led_6 = 0;
-    led_7 = 0; 
-    led_8 = 0; 
+    // led_7 = debug_reg.q; 
+    // led_8 = debug_reg_2.q; 
     
-    
-    asel = 3b010; 
-    bsel = 3b001;
-    demux = 2b00; 
-    //demux = 2b01; 
-    //registerlife.d = 6; 
-    
-    fsmregisterlife = 0; 
-    
-    case(state.q){
-      state.INIT:
-      registerlife.d = 6; 
-      state.d = state.DEMUXONE;
-     
-      state.DEMUXONE:
-      demux = 2b01; 
-      state.d = state.DEMUXZERO; 
-        
-      state.DEMUXZERO: 
-      demux = 2b00; 
-      registerlife.d = registerlife.q; 
-      fsmregisterlife = registerlife.q; 
-      state.d = state.DEMUXZERO; 
-       
-    }
-    
- 
-    
-    //asel.d = 0; 
-    //bsel.d = 0; 
-    //demux.d = 0; 
-    
-    led_8 = asel;
-    //led_7 = registerlife.q[7:0];            
-    
-    //pass button press signal to CU unit
-    //mastermind_controlunit.p1_button = p1_button;//need to be changed 
-    //mastermind_controlunit.p2_button = p2_button;//need to be changed 
+    fsmregisterbullpluscow = 0;
 
     
+    asel = aselinput; 
+    bsel = bselinput;
+    demux = demuxinput;  
+    alufn = alufninput;
+
+  /* for testing 
+    case(state.q){
+      state.REMAININGLIFESEVEN:
+        asel = b000; 
+        bsel = b001;
+        alufn = 6b000001;
+        demux = 2b01;
+        //currentlife.d = registerlife.q; 
+        state.d = state.REMAININGLIFESIX;
+      
+      state.REMAININGLIFESIX:
+     //  debug_reg.d = registerlife.q[7:0]; 
+     //   debug_reg.d = b1010;
+       asel = 3b010; 
+       bsel = 3b001;
+       demux = 2b01;
+       alufn = 6b000001;
+       //debug_reg.d = registerlife.q[7:0];
+       //registerlife.d = b1111;
+       state.d = state.REMAININGLIFEFIVE;
+        
+      state.REMAININGLIFEFIVE:
+       // debug_reg.d = registerlife.q[7:0];
+        asel = 3b010; 
+        bsel = 3b001;
+        demux = 2b01;
+        alufn = 6b000001;
+     // debug_reg.d = registerlife.q[7:0];
+        state.d = state.REMAININGLIFEFOUR;
+      
+      state.REMAININGLIFEFOUR:
+        debug_reg.d = registerlife.q[7:0];
+    //  asel = 3b010; 
+      //debug_reg.d = registerlife.q[7:0];
+    //  state.d = state.REMAININGLIFETHREE;
+        
+      state.REMAININGLIFETHREE:
+      asel = 3b010; 
+      //debug_reg.d = registerlife.q[7:0];
+      state.d = state.REMAININGLIFEFIVE;
+        
+      state.REMAININGLIFETWO:
+      asel = 3b010; 
+      //debug_reg.d = registerlife.q[7:0];
+      state.d = state.REMAININGLIFETWO;
+        
+      state.REMAININGLIFETWO:
+      asel = 3b010; 
+      //debug_reg.d = registerlife.q[7:0];
+      state.d = state.REMAININGLIFEONE;        
+        
+    }  */ 
+    
     //asel mux
-    //case(mastermind_controlunit.asel){
     case(asel){ 
       b000  : inputAlu_a = 7;
       b001  : inputAlu_a = 0; 
       b010  : inputAlu_a = registerlife.q;
       b011  : inputAlu_a = registerbull.q;
-      b111  : inputAlu_a = registerbullpluscow.q;
+      b111  : inputAlu_a = fsmregisterbullpluscowcal;
       default : 
           inputAlu_a = 0;//
-    }
-    
-    //led_7 = inputAlu_a[7:0];            
-
+    }     
+          
+    fsmregisterlife = registerlife.q;
+    fsmregisterbull = registerbull.q;
     
     //bsel mux
-    //case(mastermind_controlunit.bsel){
     case(bsel){
       b000  : inputAlu_b = 0;
       b001  : inputAlu_b = 1; 
@@ -143,74 +164,24 @@ module beta (
       
     }
     
-    //led_7 = inputAlu_b[7:0];
-    
     
     //ALU
     mastermind_alu.a = inputAlu_a;
     mastermind_alu.b = inputAlu_b;
-    //mastermind_alu.alufn_signal = mastermind_controlunit.alufn;
-    mastermind_alu.alufn = 6b000001;
-    
-    //led_7 = mastermind_alu.alu[7:0];
-    //led_7 = demux; 
-    
-
+    mastermind_alu.alufn = alufn;
     
     //demux
     //case (mastermind_controlunit.demux){
     case (demux){
-      b01 : registerlife.d= mastermind_alu.alu;
+      b01 : registerlife.d = mastermind_alu.alu;
       //b01 : registerlife.d= 16b110;
       b10 : registerbull.d = mastermind_alu.alu;
-      b11 : registerbullpluscow.d = mastermind_alu.alu;
-      //default : //b00
-          //players.data = game_alu.out;//to be found 
+      b11 : fsmregisterbullpluscow = mastermind_alu.alu;
     }
-   
-    led_7 = registerlife.q[7:0]; 
-    
     
 
-   /*       
-    led_1 = inputAlu_a[7:0];
-    led_2 = inputAlu_a[15:8]; 
-    
-    led_3 = inputAlu_b[7:0];
-    led_4 = inputAlu_b[15:8];  
-    
-    //led_1 = asel;
-    //led_2 = bsel;
-    //led_3 = demux;
-    
-    led_5 = registerlife.q[7:0];
-    led_6 = registerlife.q[15:8]; 
-    */
-    /*
-    case(state.q){
-      state.REMAININGLIFESEVEN:
-      asel = 3b000; 
-      currentlife.d = registerlife.q; 
-      state.d = state.REMAININGLIFENONSEVEN; 
-      
-      state.REMAININGLIFENONSEVEN:
-      if(currentlife.q > 1){
-      asel = 3b010; 
-      currentlife.d = registerlife.q;
-      state.d = state.REMAININGLIFENONSEVEN;
-        }
-      else if(currentlife.q == 1){
-      led_7 = currentlife.q[7:0]; 
-      led_8 = currentlife.q[15:8]; 
-      }      
-        
-    }  
-    */
-     /*
-    if(currentlife.q == 1){
-       led_7 = currentlife.q[7:0]; 
-       led_8 = currentlife.q[15:8]; 
-    }
-    */
+   
+ 
+   
   }
 }
