@@ -17,7 +17,21 @@ module mojo_top (
     output io_sel [4],      // Digit select on IO Shield
     
     input io_button [5],    // 5 buttons on IO Shield
-    input io_dip [3][8]     // DIP switches on IO Shield
+    input io_dip [3][8],     // DIP switches on IO Shield
+
+    // arcade buttons
+    /*input button_1,
+    input button_4,
+    input button_3,*/
+        
+   output outled1,         // LED Strip Bot
+    output outled2,         
+    output outled3,         
+    output outled4,         
+    output outled5,
+    output outled6,
+    output outled7,
+    output outled8
   ) {
   
   sig rst;                  // reset signal
@@ -27,16 +41,37 @@ module mojo_top (
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
     
+    // edge detector for io buttons
+    edge_detector io_edge_dt_btn_1 (#RISE(1), #FALL(0));
+    edge_detector io_edge_dt_btn_2 (#RISE(1), #FALL(0));
+    edge_detector io_edge_dt_btn_3 (#RISE(1), #FALL(0));
+    /*
+    // edge detector for arcade buttons
     edge_detector edge_dt_btn_1 (#RISE(1), #FALL(0));
     edge_detector edge_dt_btn_2 (#RISE(1), #FALL(0));
     edge_detector edge_dt_btn_3 (#RISE(1), #FALL(0));
-    
+    */
+    // button conditioner for io buttons
+    button_conditioner io_btn_cond_1;
+    button_conditioner io_btn_cond_2;
+    button_conditioner io_btn_cond_3;
+/*   
+   // button conditioner for arcade buttons
     button_conditioner btn_cond_1;
     button_conditioner btn_cond_2;
     button_conditioner btn_cond_3;
-    
+    */
     .rst(rst){
-    game_FSM game_FSM;
+      game_FSM game_FSM;
+      ws2812b ledout1;
+      ws2812b ledout2;
+      ws2812b ledout3;
+      ws2812b ledout4;
+      ws2812b ledout5;
+      ws2812b ledout6;
+      ws2812b ledout7;
+      ws2812b ledout8; 
+
     
     }
   }
@@ -53,22 +88,42 @@ module mojo_top (
     io_led = 3x{{8h00}};    // turn LEDs off
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
+            game_FSM.enter = io_edge_dt_btn_1.out;
+            game_FSM.toggle = io_edge_dt_btn_2.out;
+            game_FSM.reset = io_edge_dt_btn_3.out;    
     
-    io_led[0] = game_FSM.led_out;
-    io_led[1] = game_FSM.led_out_1;
-    io_led[2] = game_FSM.led_out_2;
-    
-    btn_cond_1.in = io_button[1];
-    btn_cond_2.in = io_button[4];
-    btn_cond_3.in = io_button[3];
+    // io buttons
+    io_btn_cond_1.in = io_button[1];
+    io_btn_cond_2.in = io_button[4];
+    io_btn_cond_3.in = io_button[3];
+    io_edge_dt_btn_1.in = io_btn_cond_1.out;
+    io_edge_dt_btn_2.in = io_btn_cond_2.out;
+    io_edge_dt_btn_3.in = io_btn_cond_3.out;
+    /*
+    // arcade buttons
+    btn_cond_1.in = button_1;
+    btn_cond_2.in = button_4;
+    btn_cond_3.in = button_3;
     edge_dt_btn_1.in = btn_cond_1.out;
     edge_dt_btn_2.in = btn_cond_2.out;
-    edge_dt_btn_3.in = btn_cond_3.out;
-    
-    game_FSM.enter = edge_dt_btn_1.out;
-    game_FSM.toggle = edge_dt_btn_2.out;
-    game_FSM.reset = edge_dt_btn_3.out;
-    
+    edge_dt_btn_3.in = btn_cond_3.out;*/
+
+    case(io_dip[0][1]){ // debug switch for button input
+        /*0: // if debug false, use arcade buttons
+            game_FSM.enter = edge_dt_btn_1.out;
+            game_FSM.toggle = edge_dt_btn_2.out;
+            game_FSM.reset = edge_dt_btn_3.out;*/
+        1: // if debug true, use io buttons
+            game_FSM.enter = io_edge_dt_btn_1.out;
+            game_FSM.toggle = io_edge_dt_btn_2.out;
+            game_FSM.reset = io_edge_dt_btn_3.out;
+        /*default: // default use arcade buttons
+            game_FSM.enter = edge_dt_btn_1.out;
+            game_FSM.toggle = edge_dt_btn_2.out;
+            game_FSM.reset = edge_dt_btn_3.out;*/
+
+    }
+
     case(io_dip[0][0]) { // to debug
         0:
         io_led[0] = game_FSM.led_out;
@@ -80,6 +135,65 @@ module mojo_top (
         io_led[1] = game_FSM.led_out_3;
         io_led[2] = game_FSM.led_out_4;
     }
+
+
+    
+      
+    ledout1.update=1;
+    // ledout1.color= {b1101, b1101, b0111, b0000, b1001, b0011, b0101, b1001};
+    
+    ledout1.color = {game_FSM.bull_cow_112[3:0], game_FSM.bull_cow_112[7:4], game_FSM.bull_cow_112[11:8], game_FSM.bull_cow_112[15:12], game_FSM.user_input_112[3:0], game_FSM.user_input_112[7:4], game_FSM.user_input_112[11:8], game_FSM.user_input_112[15:12]}; 
+
+    outled1=ledout1.led;
+    
+    ledout2.update=1;
+    // ledout2.color = {b1101, b1101, b0111, b0000, b1001, b0011, b0101, b1001};
+
+    ledout2.color = {game_FSM.bull_cow_112[19:16], game_FSM.bull_cow_112[23:20],game_FSM. bull_cow_112[27:24], game_FSM.bull_cow_112[31:28], game_FSM.user_input_112[19:16], game_FSM.user_input_112[23:20], game_FSM.user_input_112[27:24], game_FSM.user_input_112[31:28]}; 
+
+    outled2=ledout2.led;
+    
+    ledout3.update=1;
+    // ledout3.color = {b1101, b1101, b0111, b0000, b1001, b0011, b0101, b1001};
+
+    ledout3.color = {game_FSM.bull_cow_112[35:32], game_FSM.bull_cow_112[39:36],game_FSM. bull_cow_112[43:40], game_FSM.bull_cow_112[47:44], game_FSM.user_input_112[35:32], game_FSM.user_input_112[39:36], game_FSM.user_input_112[43:40], game_FSM.user_input_112[47:44]}; 
+
+    outled3=ledout3.led;
+    
+    ledout4.update=1;
+    // ledout4.color = {b1101, b1101, b0111, b0000, b1001, b0011, b0101, b1001};
+
+    ledout4.color = {game_FSM.bull_cow_112[51:48], game_FSM.bull_cow_112[55:52],game_FSM. bull_cow_112[59:56], game_FSM.bull_cow_112[63:60], game_FSM.user_input_112[51:48], game_FSM.user_input_112[55:52], game_FSM.user_input_112[59:56], game_FSM.user_input_112[63:60]}; 
+
+    outled4=ledout4.led;
+    
+    ledout5.update=1;
+    // ledout5.color = {b1101, b1101, b0111, b0000, b1001, b0011, b0101, b1001};
+
+    ledout5.color = {game_FSM.bull_cow_112[67:64], game_FSM.bull_cow_112[71:68],game_FSM. bull_cow_112[75:72], game_FSM.bull_cow_112[79:76], game_FSM.user_input_112[67:64], game_FSM.user_input_112[71:68], game_FSM.user_input_112[75:72], game_FSM.user_input_112[79:76]}; 
+
+    outled5=ledout5.led;
+    
+    ledout6.update=1;
+    // ledout6.color = {b1101, b1101, b0111, b0000, b1001, b0011, b0101, b1001};
+
+    ledout6.color = {game_FSM.bull_cow_112[83:80], game_FSM.bull_cow_112[87:84],game_FSM. bull_cow_112[91:88], game_FSM.bull_cow_112[95:92], game_FSM.user_input_112[83:80], game_FSM.user_input_112[87:84], game_FSM.user_input_112[91:88], game_FSM.user_input_112[95:92]}; 
+
+    outled6=ledout6.led;
+    
+    ledout7.update=1;
+    // ledout7.color = {b1101, b1101, b0111, b0000, b1001, b0011, b0101, b1001};
+
+    ledout7.color = {game_FSM.bull_cow_112[99:96], game_FSM.bull_cow_112[103:100],game_FSM. bull_cow_112[107:104], game_FSM.bull_cow_112[111:108], game_FSM.user_input_112[99:96], game_FSM.user_input_112[103:100], game_FSM.user_input_112[107:104], game_FSM.user_input_112[111:108]}; 
+
+    outled7=ledout7.led;
+    
+    ledout8.update=1;
+    // ledout8.color = {b1101, b1101, b0111, b0000, b1001, b0011, b0101, b1001};
+ 
+    ledout8.color = {game_FSM.pass_fail[3:0], game_FSM.pass_fail[7:4], game_FSM.pass_fail[11:8] , game_FSM.pass_fail[15:12], game_FSM.final_answer[15:12], game_FSM.final_answer[11:8], game_FSM.final_answer[7:4], game_FSM.final_answer[3:0]}; 
+
+    outled8=ledout8.led;
     
     
   }

@@ -4,7 +4,7 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module boolean_16 (
+module shift_25 (
     input clk,
     input rst,
     input [5:0] alufn,
@@ -16,20 +16,19 @@ module boolean_16 (
   
   
   always @* begin
-    out = 1'h0;
     
-    case (alufn[0+3-:4])
-      4'h8: begin
-        out = a & b;
+    case (alufn[0+1-:2])
+      2'h0: begin
+        out = a << b;
       end
-      4'he: begin
-        out = a | b;
+      2'h1: begin
+        out = a >> b;
       end
-      4'h6: begin
-        out = a ^ b;
+      2'h3: begin
+        out = $signed(a) >>> b;
       end
-      4'ha: begin
-        out = a;
+      default: begin
+        out = a << b;
       end
     endcase
   end

@@ -5,17 +5,17 @@ module game_FSM(
     input enter,
     input toggle,
     input reset,
-    /*
-    output alufn[6],
-    output asel[3],
-    output bsel[3],
-    output demux[2],
-    */
+
     output led_out[8],
     output led_out_1[8],
     output led_out_2[8],
     output led_out_3[8],
-    output led_out_4[8]
+    output led_out_4[8],
+
+    output user_input_112[112],
+    output bull_cow_112[112],
+    output final_answer[16],
+    output pass_fail[16]
     
 ) {
 
@@ -27,8 +27,11 @@ module game_FSM(
         START,
         IDLE,
         STATE_RED,
+        STATE_RED1,
         STATE_GREEN,
+        STATE_GREEN1,
         STATE_BLUE,
+        STATE_BLUE1,
         CHECK_STATES,
         CHECK_BULL_INIT,
         CHECK_BULL_0,
@@ -68,16 +71,16 @@ module game_FSM(
         CHECK_BULL_COW_CMPLE,
         CHECK_BULL_COW_CMPLE_2,
         CHECK_BULL,
-        // CHECK_BULL_COW,
+        CHECK_BULL_COW,
         SUCCESS,
         FAIL
     };
 
-    dff check_state [3]; // check whether enter 4 times
-    dff check_row [3]; // check whether 7 rows
+    dff check_state[3]; // check whether enter 4 times
+    dff check_row[3]; // check whether 7 rows
     dff user_input [16]; // store inputs from user
-    // dff user_input_all[112]; // store all inputs from user
-    // dff bull_cow_input[112]; // register to store bull and cows to output
+    dff user_input_all[112]; // store all inputs from user
+    dff bull_cow_input[112]; // register to store bull and cows to output
 
     dff temp_ans_bull[16]; // temporary register to hold answer
     dff temp_input_bull[16]; // temporary register to hold user input
@@ -89,25 +92,59 @@ module game_FSM(
     
     dff check_ans[4]; // to rotate between ans
     dff answer[16]; // to store ans
-      
-    dff final[8]; // final state
+    dff led_reg[8]; // to store led when toggle
+    dff final[16]; // final state
     dff total_life[16]; // total number of lives/rows
     dff reg_bull_count[16]; // register to store total number of bull count from alu
     
     dff check_bull_state[3]; // check total number of bull iterations
     
-    //dff user_input_all_index[112]; // register to store index of user_input_all
-    //dff bull_cow_input_index[112]; // register to store bull and cows to output
-    dff debug_reg[8];
+    dff debug_reg[8]; // to debug
       
+    // dff for user inputs to be displayed
+    dff user_input_0_0[4];
+    dff user_input_0_1[4];
+    dff user_input_0_2[4];
+    dff user_input_0_3[4];
+    dff user_input_1_0[4];
+    dff user_input_1_1[4];
+    dff user_input_1_2[4];
+    dff user_input_1_3[4];
+    dff user_input_2_0[4];
+    dff user_input_2_1[4];
+    dff user_input_2_2[4];
+    dff user_input_2_3[4];
+    dff user_input_3_0[4];
+    dff user_input_3_1[4];
+    dff user_input_3_2[4];
+    dff user_input_3_3[4];
+    dff user_input_4_0[4];
+    dff user_input_4_1[4];
+    dff user_input_4_2[4];
+    dff user_input_4_3[4];
+    dff user_input_5_0[4];
+    dff user_input_5_1[4];
+    dff user_input_5_2[4];
+    dff user_input_5_3[4];
+    dff user_input_6_0[4];
+    dff user_input_6_1[4];
+    dff user_input_6_2[4];
+    dff user_input_6_3[4];
+      
+    dff pointer[5];
+
+    // dff for bull + cow display
+    dff bull_cow_0[16];
+    dff bull_cow_1[16];
+    dff bull_cow_2[16];
+    dff bull_cow_3[16];
+    dff bull_cow_4[16];
+    dff bull_cow_5[16];
+    dff bull_cow_6[16];  
+
     beta beta;
     }
 }
-    
-//sig start_index[112];
-//sig end_index[112];
-//sig start_index_bc[112];
-//sig end_index_bc[112];
   
       always {
         beta.fsmregisterbullpluscowcal = 0;
@@ -115,28 +152,103 @@ module game_FSM(
         beta.bselinput = 0;
         beta.demuxinput = 0;
         beta.alufninput = 0;
-    
-        led_out = 0;
-        led_out_1 = reg_bull_count.q[7:0];
+        final_answer = 0;
+        pass_fail = 0;
+        user_input_all.d = c{
+            user_input_6_3.q,
+            user_input_6_2.q,
+            user_input_6_1.q,
+            user_input_6_0.q,
+            user_input_5_3.q,
+            user_input_5_2.q,
+            user_input_5_1.q,
+            user_input_5_0.q,
+            user_input_4_3.q,
+            user_input_4_2.q,
+            user_input_4_1.q,
+            user_input_4_0.q,
+            user_input_3_3.q,
+            user_input_3_2.q,
+            user_input_3_1.q,
+            user_input_3_0.q,
+            user_input_2_3.q,
+            user_input_2_2.q,
+            user_input_2_1.q,
+            user_input_2_0.q,
+            user_input_1_3.q,
+            user_input_1_2.q,
+            user_input_1_1.q,
+            user_input_1_0.q,
+            user_input_0_3.q,
+            user_input_0_2.q,
+            user_input_0_1.q,
+            user_input_0_0.q 
+        };
+        bull_cow_input.d = c{
+            bull_cow_6.q,
+            bull_cow_5.q,
+            bull_cow_4.q,
+            bull_cow_3.q,
+            bull_cow_2.q,
+            bull_cow_1.q,
+            bull_cow_0.q
+        };  
+        led_out = led_reg.q;
+        led_out_1 = bull_cow_input.q[7:0];
         // led_out_2 = user_input.q[15:8];
         // led_out_1 = bull_count.q;
-        led_out_2 = total_life.q[7:0];
+        led_out_2 = bull_cow_input.q[15:8];
         led_out_3 = check_row.q;
         led_out_4 = final.q;
+        user_input_112 = user_input_all.q; // output register value to real output
+        bull_cow_112 = bull_cow_input.q; // output bull and cow value to real output
         
         case (state.q) {
             state.INIT_ANS:
                 check_ans.d = 0;
+
                 state.d = state.INIT;
-                // user_input_all.d = 0;
-                // bull_cow_input.d = 0;
-                // user_input_all_index.d = 0;
-                // bull_cow_input_index.d = 0;
         
             state.INIT:
+                pointer.d = 0;
                 total_life.d = 7;
                 check_row.d = 0;
                 final.d = 0;
+                user_input_0_0.d = 0;
+                user_input_0_1.d = 0;
+                user_input_0_2.d = 0;
+                user_input_0_3.d = 0;
+                user_input_1_0.d = 0;
+                user_input_1_1.d = 0;
+                user_input_1_2.d = 0;
+                user_input_1_3.d = 0;
+                user_input_2_0.d = 0;
+                user_input_2_1.d = 0;
+                user_input_2_2.d = 0;
+                user_input_2_3.d = 0;
+                user_input_3_0.d = 0;
+                user_input_3_1.d = 0;
+                user_input_3_2.d = 0;
+                user_input_3_3.d = 0;
+                user_input_4_0.d = 0;
+                user_input_4_1.d = 0;
+                user_input_4_2.d = 0;
+                user_input_4_3.d = 0;
+                user_input_5_0.d = 0;
+                user_input_5_1.d = 0;
+                user_input_5_2.d = 0;
+                user_input_5_3.d = 0;
+                user_input_6_0.d = 0;
+                user_input_6_1.d = 0;
+                user_input_6_2.d = 0;
+                user_input_6_3.d = 0;
+                bull_cow_0.d = 0;
+                bull_cow_1.d = 0;
+                bull_cow_2.d = 0;
+                bull_cow_3.d = 0;
+                bull_cow_4.d = 0;
+                bull_cow_5.d = 0;
+                bull_cow_6.d = 0;
                 state.d = state.START;
         
             state.START:
@@ -202,11 +314,123 @@ module game_FSM(
                 }
                 
             state.STATE_RED:
-                led_out = 4b1001;
-                // start_index =  user_input_all_index.q;
-                // end_index = user_input_all_index.q + 3;
-                // user_input_all.d[end_index:start_index] = 4b1001;
+                led_reg.d = 4b1001;
 
+                if (pointer.q == 0) {
+                    user_input_0_0.d = 4b1001;
+                }
+
+                else if (pointer.q == 1) {
+                    user_input_0_1.d = 4b1001;
+                }
+
+                else if (pointer.q == 2) {
+                    user_input_0_2.d = 4b1001;
+                }
+
+                else if (pointer.q == 3) {
+                    user_input_0_3.d = 4b1001;
+                }
+
+                else if (pointer.q == 4) {
+                    user_input_1_0.d = 4b1001;
+                }
+
+                else if (pointer.q == 5) {
+                    user_input_1_1.d = 4b1001;
+                }
+
+                else if (pointer.q == 6) {
+                    user_input_1_2.d = 4b1001;
+                }
+
+                else if (pointer.q == 7) {
+                    user_input_1_3.d = 4b1001;
+                }
+
+                else if (pointer.q == 8) {
+                    user_input_2_0.d = 4b1001;
+                }
+
+                else if (pointer.q == 9) {
+                    user_input_2_1.d = 4b1001;
+                }
+
+                else if (pointer.q == 10) {
+                    user_input_2_2.d = 4b1001;
+                }
+
+                else if (pointer.q == 11) {
+                    user_input_2_3.d = 4b1001;
+                }
+
+                else if (pointer.q == 12) {
+                    user_input_3_0.d = 4b1001;
+                }
+
+                else if (pointer.q == 13) {
+                    user_input_3_1.d = 4b1001;
+                }
+
+                else if (pointer.q == 14) {
+                    user_input_3_2.d = 4b1001;
+                }
+
+                else if (pointer.q == 15) {
+                    user_input_3_3.d = 4b1001;
+                }
+
+                else if (pointer.q == 16) {
+                    user_input_4_0.d = 4b1001;
+                }
+
+                else if (pointer.q == 17) {
+                    user_input_4_1.d = 4b1001;
+                }
+
+                else if (pointer.q == 18) {
+                    user_input_4_2.d = 4b1001;
+                }
+
+                else if (pointer.q == 19) {
+                    user_input_4_3.d = 4b1001;
+                }
+
+                else if (pointer.q == 20) {
+                    user_input_5_0.d = 4b1001;
+                }
+
+                else if (pointer.q == 21) {
+                    user_input_5_1.d = 4b1001;
+                }
+
+                else if (pointer.q == 22) {
+                    user_input_5_2.d = 4b1001;
+                }
+
+                else if (pointer.q == 23) {
+                    user_input_5_3.d = 4b1001;
+                }
+
+                else if (pointer.q == 24) {
+                    user_input_6_0.d = 4b1001;
+                }
+
+                else if (pointer.q == 25) {
+                    user_input_6_1.d = 4b1001;
+                }
+
+                else if (pointer.q == 26) {
+                    user_input_6_2.d = 4b1001;
+                }
+
+                else if (pointer.q == 27) {
+                    user_input_6_3.d = 4b1001;
+                }
+
+                state.d = state.STATE_RED1;
+
+            state.STATE_RED1:
                 if (toggle) {
                     state.d = state.STATE_GREEN;
                 }
@@ -216,7 +440,8 @@ module game_FSM(
                 }
 
                 else if (enter) {
-                    //user_input_all_index.d = user_input_all_index.q + 4; // add index + 4 so can store next values to correct index in user_input_all
+                    pointer.d = pointer.q + 1;
+
                     if (check_state.q == 0) {
                         user_input.d[15:12] = 4b1001;
                     }
@@ -234,11 +459,122 @@ module game_FSM(
                     }
             
             state.STATE_GREEN:
-                led_out = 4b0101;
-                //start_index =  user_input_all_index.q;
-                // end_index = user_input_all_index.q + 3;
-                //user_input_all.d[end_index:start_index] = 4b0101;
+                led_reg.d = 4b0101;
 
+                if (pointer.q == 0) {
+                    user_input_0_0.d = 4b0101;
+                }
+
+                else if (pointer.q == 1) {
+                    user_input_0_1.d = 4b0101;
+                }
+
+                else if (pointer.q == 2) {
+                    user_input_0_2.d = 4b0101;
+                }
+
+                else if (pointer.q == 3) {
+                    user_input_0_3.d = 4b0101;
+                }
+
+                else if (pointer.q == 4) {
+                    user_input_1_0.d = 4b0101;
+                }
+
+                else if (pointer.q == 5) {
+                    user_input_1_1.d = 4b0101;
+                }
+
+                else if (pointer.q == 6) {
+                    user_input_1_2.d = 4b0101;
+                }
+
+                else if (pointer.q == 7) {
+                    user_input_1_3.d = 4b0101;
+                }
+
+                else if (pointer.q == 8) {
+                    user_input_2_0.d = 4b0101;
+                }
+
+                else if (pointer.q == 9) {
+                    user_input_2_1.d = 4b0101;
+                }
+
+                else if (pointer.q == 10) {
+                    user_input_2_2.d = 4b0101;
+                }
+
+                else if (pointer.q == 11) {
+                    user_input_2_3.d = 4b0101;
+                }
+
+                else if (pointer.q == 12) {
+                    user_input_3_0.d = 4b0101;
+                }
+
+                else if (pointer.q == 13) {
+                    user_input_3_1.d = 4b0101;
+                }
+
+                else if (pointer.q == 14) {
+                    user_input_3_2.d = 4b0101;
+                }
+
+                else if (pointer.q == 15) {
+                    user_input_3_3.d = 4b0101;
+                }
+
+                else if (pointer.q == 16) {
+                    user_input_4_0.d = 4b0101;
+                }
+
+                else if (pointer.q == 17) {
+                    user_input_4_1.d = 4b0101;
+                }
+
+                else if (pointer.q == 18) {
+                    user_input_4_2.d = 4b0101;
+                }
+
+                else if (pointer.q == 19) {
+                    user_input_4_3.d = 4b0101;
+                }
+
+                else if (pointer.q == 20) {
+                    user_input_5_0.d = 4b0101;
+                }
+
+                else if (pointer.q == 21) {
+                    user_input_5_1.d = 4b0101;
+                }
+
+                else if (pointer.q == 22) {
+                    user_input_5_2.d = 4b0101;
+                }
+
+                else if (pointer.q == 23) {
+                    user_input_5_3.d = 4b0101;
+                }
+
+                else if (pointer.q == 24) {
+                    user_input_6_0.d = 4b0101;
+                }
+
+                else if (pointer.q == 25) {
+                    user_input_6_1.d = 4b0101;
+                }
+
+                else if (pointer.q == 26) {
+                    user_input_6_2.d = 4b0101;
+                }
+
+                else if (pointer.q == 27) {
+                    user_input_6_3.d = 4b0101;
+                }
+                state.d = state.STATE_GREEN1;
+
+            state.STATE_GREEN1:
                 if (toggle) {
                     state.d = state.STATE_BLUE;
                 }
@@ -248,7 +584,8 @@ module game_FSM(
                 }
 
                 else if (enter) {
-                    //user_input_all_index.d = user_input_all_index.q + 4; // add index + 4 so can store next values to correct index in user_input_all
+                    pointer.d = pointer.q + 1;
+
                     if (check_state.q == 0) {
                         user_input.d[15:12] = 4b0101;
                     }
@@ -267,11 +604,123 @@ module game_FSM(
                     }
             
             state.STATE_BLUE:
-                led_out = 4b0011;
-                //start_index =  user_input_all_index.q;
-                // end_index = user_input_all_index.q + 3;
-                //user_input_all.d[end_index:start_index] = 4b0011;
+                led_reg.d = 4b0011;
 
+                if (pointer.q == 0) {
+                    user_input_0_0.d = 4b0011;
+                }
+
+                else if (pointer.q == 1) {
+                    user_input_0_1.d = 4b0011;
+                }
+
+                else if (pointer.q == 2) {
+                    user_input_0_2.d = 4b0011;
+                }
+
+                else if (pointer.q == 3) {
+                    user_input_0_3.d = 4b0011;
+                }
+
+                else if (pointer.q == 4) {
+                    user_input_1_0.d = 4b0011;
+                }
+
+                else if (pointer.q == 5) {
+                    user_input_1_1.d = 4b0011;
+                }
+
+                else if (pointer.q == 6) {
+                    user_input_1_2.d = 4b0011;
+                }
+
+                else if (pointer.q == 7) {
+                    user_input_1_3.d = 4b0011;
+                }
+
+                else if (pointer.q == 8) {
+                    user_input_2_0.d = 4b0011;
+                }
+
+                else if (pointer.q == 9) {
+                    user_input_2_1.d = 4b0011;
+                }
+
+                else if (pointer.q == 10) {
+                    user_input_2_2.d = 4b0011;
+                }
+
+                else if (pointer.q == 11) {
+                    user_input_2_3.d = 4b0011;
+                }
+
+                else if (pointer.q == 12) {
+                    user_input_3_0.d = 4b0011;
+                }
+
+                else if (pointer.q == 13) {
+                    user_input_3_1.d = 4b0011;
+                }
+
+                else if (pointer.q == 14) {
+                    user_input_3_2.d = 4b0011;
+                }
+
+                else if (pointer.q == 15) {
+                    user_input_3_3.d = 4b0011;
+                }
+
+                else if (pointer.q == 16) {
+                    user_input_4_0.d = 4b0011;
+                }
+
+                else if (pointer.q == 17) {
+                    user_input_4_1.d = 4b0011;
+                }
+
+                else if (pointer.q == 18) {
+                    user_input_4_2.d = 4b0011;
+                }
+
+                else if (pointer.q == 19) {
+                    user_input_4_3.d = 4b0011;
+                }
+
+                else if (pointer.q == 20) {
+                    user_input_5_0.d = 4b0011;
+                }
+
+                else if (pointer.q == 21) {
+                    user_input_5_1.d = 4b0011;
+                }
+
+                else if (pointer.q == 22) {
+                    user_input_5_2.d = 4b0011;
+                }
+
+                else if (pointer.q == 23) {
+                    user_input_5_3.d = 4b0011;
+                }
+
+                else if (pointer.q == 24) {
+                    user_input_6_0.d = 4b0011;
+                }
+
+                else if (pointer.q == 25) {
+                    user_input_6_1.d = 4b0011;
+                }
+
+                else if (pointer.q == 26) {
+                    user_input_6_2.d = 4b0011;
+                }
+
+                else if (pointer.q == 27) {
+                    user_input_6_3.d = 4b0011;
+                }
+
+                state.d = state.STATE_BLUE1;
+            
+            state.STATE_BLUE1:
                 if (toggle) {
                     state.d = state.STATE_RED;
                 }
@@ -281,7 +730,8 @@ module game_FSM(
                 }
 
                 else if (enter) {
-                    //user_input_all_index.d = user_input_all_index.q + 4; // add index + 4 so can store next values to correct index in user_input_all
+                    pointer.d = pointer.q + 1;
+
                     if (check_state.q == 0) {
                         user_input.d[15:12] = 4b0011;
                     }
@@ -607,7 +1057,7 @@ module game_FSM(
                 if (temp_input_cow.q[15:12] == temp_ans_cow.q[3:0]) {
                     cow_count.d = cow_count.q + 1;
                     temp_ans_cow.d[3:0] = 4b1111;
-                    state.d = state.CHECK_BULL_COW_CMPLE;
+                    state.d = state.CHECK_BULL_COW;
                 }
 
                 else {
@@ -618,7 +1068,7 @@ module game_FSM(
                 if (temp_input_cow.q[15:12] == temp_ans_cow.q[7:4]) {
                     cow_count.d = cow_count.q + 1;
                     temp_ans_cow.d[7:4] = 4b1111;
-                    state.d = state.CHECK_BULL_COW_CMPLE;
+                    state.d = state.CHECK_BULL_COW;
                 }
 
                 else {
@@ -629,7 +1079,7 @@ module game_FSM(
                 if (temp_input_cow.q[15:12] == temp_ans_cow.q[11:8]) {
                     cow_count.d = cow_count.q + 1;
                     temp_ans_cow.d[11:8] = 4b1111;
-                    state.d = state.CHECK_BULL_COW_CMPLE;
+                    state.d = state.CHECK_BULL_COW;
                 }
 
                 else {
@@ -640,20 +1090,461 @@ module game_FSM(
                 if (temp_input_cow.q[15:12] == temp_ans_cow.q[15:12]) {
                     cow_count.d = cow_count.q + 1;
                     temp_ans_cow.d[15:12] = 4b1111;
-                    state.d = state.CHECK_BULL_COW_CMPLE;
+                    state.d = state.CHECK_BULL_COW;
                     // state.d = state.START;
                 }
 
                 else {
-                    state.d = state.CHECK_BULL_COW_CMPLE;
+                    state.d = state.CHECK_BULL_COW;
                     // state.d = state.START;
                 }
 
+            state.CHECK_BULL_COW:
+                if (check_row.q == 1) {
+                    if (bull_count.q == 0 && cow_count.q == 0) {
+                        bull_cow_0.d = 16b0;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 1) {
+                        bull_cow_0.d = 16b0000000000000111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 2) {
+                        bull_cow_0.d = 16b0000000001110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 3) {
+                        bull_cow_0.d = 16b0000011101110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 4) {
+                        bull_cow_0.d = 16b0111011101110111;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 0) {
+                        bull_cow_0.d = 16b0000000000001101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 1) {
+                        bull_cow_0.d = 16b0000000001111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 2) {
+                        bull_cow_0.d = 16b0000011101111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 3) {
+                        bull_cow_0.d = 16b0111011101111101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 0) {
+                        bull_cow_0.d = 16b0000000011011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 1) {
+                        bull_cow_0.d = 16b0000011111011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 2) {
+                        bull_cow_0.d = 16b0111011111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 0) {
+                        bull_cow_0.d = 16b0000110111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 1) {
+                        bull_cow_0.d = 16b0111110111011101;
+                    }
+
+                    else if (bull_count.q == 4 && cow_count.q == 0) {
+                        bull_cow_0.d = 16b1101110111011101;
+                    }
+
+                }
+
+                if (check_row.q == 2) {
+                    if (bull_count.q == 0 && cow_count.q == 0) {
+                        bull_cow_1.d = 16b0;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 1) {
+                        bull_cow_1.d = 16b0000000000000111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 2) {
+                        bull_cow_1.d = 16b0000000001110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 3) {
+                        bull_cow_1.d = 16b0000011101110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 4) {
+                        bull_cow_1.d = 16b0111011101110111;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 0) {
+                        bull_cow_1.d = 16b0000000000001101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 1) {
+                        bull_cow_1.d = 16b0000000001111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 2) {
+                        bull_cow_1.d = 16b0000011101111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 3) {
+                        bull_cow_1.d = 16b0111011101111101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 0) {
+                        bull_cow_1.d = 16b0000000011011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 1) {
+                        bull_cow_1.d = 16b0000011111011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 2) {
+                        bull_cow_1.d = 16b0111011111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 0) {
+                        bull_cow_1.d = 16b0000110111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 1) {
+                        bull_cow_1.d = 16b0111110111011101;
+                    }
+
+                    else if (bull_count.q == 4 && cow_count.q == 0) {
+                        bull_cow_1.d = 16b1101110111011101;
+                    }
+
+                }
+
+                if (check_row.q == 3) {
+                    if (bull_count.q == 0 && cow_count.q == 0) {
+                        bull_cow_2.d = 16b0;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 1) {
+                        bull_cow_2.d = 16b0000000000000111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 2) {
+                        bull_cow_2.d = 16b0000000001110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 3) {
+                        bull_cow_2.d = 16b0000011101110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 4) {
+                        bull_cow_2.d = 16b0111011101110111;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 0) {
+                        bull_cow_2.d = 16b0000000000001101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 1) {
+                        bull_cow_2.d = 16b0000000001111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 2) {
+                        bull_cow_2.d = 16b0000011101111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 3) {
+                        bull_cow_2.d = 16b0111011101111101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 0) {
+                        bull_cow_2.d = 16b0000000011011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 1) {
+                        bull_cow_2.d = 16b0000011111011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 2) {
+                        bull_cow_2.d = 16b0111011111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 0) {
+                        bull_cow_2.d = 16b0000110111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 1) {
+                        bull_cow_2.d = 16b0111110111011101;
+                    }
+
+                    else if (bull_count.q == 4 && cow_count.q == 0) {
+                        bull_cow_2.d = 16b1101110111011101;
+                    }
+
+                }
+
+                if (check_row.q == 4) {
+                    if (bull_count.q == 0 && cow_count.q == 0) {
+                        bull_cow_3.d = 16b0;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 1) {
+                        bull_cow_3.d = 16b0000000000000111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 2) {
+                        bull_cow_3.d = 16b0000000001110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 3) {
+                        bull_cow_3.d = 16b0000011101110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 4) {
+                        bull_cow_3.d = 16b0111011101110111;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 0) {
+                        bull_cow_3.d = 16b0000000000001101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 1) {
+                        bull_cow_3.d = 16b0000000001111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 2) {
+                        bull_cow_3.d = 16b0000011101111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 3) {
+                        bull_cow_3.d = 16b0111011101111101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 0) {
+                        bull_cow_3.d = 16b0000000011011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 1) {
+                        bull_cow_3.d = 16b0000011111011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 2) {
+                        bull_cow_3.d = 16b0111011111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 0) {
+                        bull_cow_3.d = 16b0000110111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 1) {
+                        bull_cow_3.d = 16b0111110111011101;
+                    }
+
+                    else if (bull_count.q == 4 && cow_count.q == 0) {
+                        bull_cow_3.d = 16b1101110111011101;
+                    }
+
+                }
+
+                if (check_row.q == 5) {
+                    if (bull_count.q == 0 && cow_count.q == 0) {
+                        bull_cow_4.d = 16b0;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 1) {
+                        bull_cow_4.d = 16b0000000000000111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 2) {
+                        bull_cow_4.d = 16b0000000001110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 3) {
+                        bull_cow_4.d = 16b0000011101110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 4) {
+                        bull_cow_4.d = 16b0111011101110111;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 0) {
+                        bull_cow_4.d = 16b0000000000001101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 1) {
+                        bull_cow_4.d = 16b0000000001111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 2) {
+                        bull_cow_4.d = 16b0000011101111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 3) {
+                        bull_cow_4.d = 16b0111011101111101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 0) {
+                        bull_cow_4.d = 16b0000000011011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 1) {
+                        bull_cow_4.d = 16b0000011111011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 2) {
+                        bull_cow_4.d = 16b0111011111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 0) {
+                        bull_cow_4.d = 16b0000110111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 1) {
+                        bull_cow_4.d = 16b0111110111011101;
+                    }
+
+                    else if (bull_count.q == 4 && cow_count.q == 0) {
+                        bull_cow_4.d = 16b1101110111011101;
+                    }
+
+                }
+
+                if (check_row.q == 6) {
+                    if (bull_count.q == 0 && cow_count.q == 0) {
+                        bull_cow_5.d = 16b0;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 1) {
+                        bull_cow_5.d = 16b0000000000000111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 2) {
+                        bull_cow_5.d = 16b0000000001110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 3) {
+                        bull_cow_5.d = 16b0000011101110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 4) {
+                        bull_cow_5.d = 16b0111011101110111;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 0) {
+                        bull_cow_5.d = 16b0000000000001101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 1) {
+                        bull_cow_5.d = 16b0000000001111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 2) {
+                        bull_cow_5.d = 16b0000011101111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 3) {
+                        bull_cow_5.d = 16b0111011101111101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 0) {
+                        bull_cow_5.d = 16b0000000011011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 1) {
+                        bull_cow_5.d = 16b0000011111011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 2) {
+                        bull_cow_5.d = 16b0111011111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 0) {
+                        bull_cow_5.d = 16b0000110111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 1) {
+                        bull_cow_5.d = 16b0111110111011101;
+                    }
+
+                    else if (bull_count.q == 4 && cow_count.q == 0) {
+                        bull_cow_5.d = 16b1101110111011101;
+                    }
+
+                }
+
+                if (check_row.q == 7) {
+                    if (bull_count.q == 0 && cow_count.q == 0) {
+                        bull_cow_6.d = 16b0;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 1) {
+                        bull_cow_6.d = 16b0000000000000111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 2) {
+                        bull_cow_6.d = 16b0000000001110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 3) {
+                        bull_cow_6.d = 16b0000011101110111;
+                    }
+
+                    else if (bull_count.q == 0 && cow_count.q == 4) {
+                        bull_cow_6.d = 16b0111011101110111;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 0) {
+                        bull_cow_6.d = 16b0000000000001101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 1) {
+                        bull_cow_6.d = 16b0000000001111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 2) {
+                        bull_cow_6.d = 16b0000011101111101;
+                    }
+
+                    else if (bull_count.q == 1 && cow_count.q == 3) {
+                        bull_cow_6.d = 16b0111011101111101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 0) {
+                        bull_cow_6.d = 16b0000000011011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 1) {
+                        bull_cow_6.d = 16b0000011111011101;
+                    }
+
+                    else if (bull_count.q == 2 && cow_count.q == 2) {
+                        bull_cow_6.d = 16b0111011111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 0) {
+                        bull_cow_6.d = 16b0000110111011101;
+                    }
+
+                    else if (bull_count.q == 3 && cow_count.q == 1) {
+                        bull_cow_6.d = 16b0111110111011101;
+                    }
+
+                    else if (bull_count.q == 4 && cow_count.q == 0) {
+                        bull_cow_6.d = 16b1101110111011101;
+                    }
+
+                }
+                 
+                state.d = state.CHECK_BULL_COW_CMPLE;
+
+
             state.CHECK_BULL_COW_CMPLE:
-                // start_index_bc = bull_cow_input_index.q;
-                // end_index_bc = bull_cow_input_index.q + 15;
-                // bull_cow_input.d[end_index_bc:start_index_bc] = 
-                // debug_reg.d = cow_count.q + bull_count.q;
                 beta.fsmregisterbullpluscowcal = cow_count.q + bull_count.q;
                 beta.aselinput = 3b111;
                 beta.bselinput = 3b111;
@@ -709,16 +1600,20 @@ module game_FSM(
                 state.d = state.CHECK_BULL_INIT;
         
             state.SUCCESS:
-                final.d = 8b11111111;
-                
+                final.d = 16b0101010101010101;
+                pass_fail = final.q;
+                final_answer = answer.q; // output final ans value to real output
+
                 if (reset) {
                     check_ans.d = check_ans.q + 1;
                     state.d = state.INIT;
                 }
 
             state.FAIL:
-                final.d = 8b10101010;
-                
+                final.d = 16b1001100110011001;
+                pass_fail = final.q;
+                final_answer = answer.q; // output final ans value to real output
+
                 if (reset) {
                     check_ans.d = check_ans.q + 1;
                     state.d = state.INIT;

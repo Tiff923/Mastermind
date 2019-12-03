@@ -21,7 +21,15 @@ module mojo_top_0 (
     output reg [7:0] io_seg,
     output reg [3:0] io_sel,
     input [4:0] io_button,
-    input [23:0] io_dip
+    input [23:0] io_dip,
+    output reg outled1,
+    output reg outled2,
+    output reg outled3,
+    output reg outled4,
+    output reg outled5,
+    output reg outled6,
+    output reg outled7,
+    output reg outled8
   );
   
   
@@ -35,53 +43,57 @@ module mojo_top_0 (
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
-  wire [1-1:0] M_edge_dt_btn_1_out;
-  reg [1-1:0] M_edge_dt_btn_1_in;
-  edge_detector_2 edge_dt_btn_1 (
+  wire [1-1:0] M_io_edge_dt_btn_1_out;
+  reg [1-1:0] M_io_edge_dt_btn_1_in;
+  edge_detector_2 io_edge_dt_btn_1 (
     .clk(clk),
-    .in(M_edge_dt_btn_1_in),
-    .out(M_edge_dt_btn_1_out)
+    .in(M_io_edge_dt_btn_1_in),
+    .out(M_io_edge_dt_btn_1_out)
   );
-  wire [1-1:0] M_edge_dt_btn_2_out;
-  reg [1-1:0] M_edge_dt_btn_2_in;
-  edge_detector_2 edge_dt_btn_2 (
+  wire [1-1:0] M_io_edge_dt_btn_2_out;
+  reg [1-1:0] M_io_edge_dt_btn_2_in;
+  edge_detector_2 io_edge_dt_btn_2 (
     .clk(clk),
-    .in(M_edge_dt_btn_2_in),
-    .out(M_edge_dt_btn_2_out)
+    .in(M_io_edge_dt_btn_2_in),
+    .out(M_io_edge_dt_btn_2_out)
   );
-  wire [1-1:0] M_edge_dt_btn_3_out;
-  reg [1-1:0] M_edge_dt_btn_3_in;
-  edge_detector_2 edge_dt_btn_3 (
+  wire [1-1:0] M_io_edge_dt_btn_3_out;
+  reg [1-1:0] M_io_edge_dt_btn_3_in;
+  edge_detector_2 io_edge_dt_btn_3 (
     .clk(clk),
-    .in(M_edge_dt_btn_3_in),
-    .out(M_edge_dt_btn_3_out)
+    .in(M_io_edge_dt_btn_3_in),
+    .out(M_io_edge_dt_btn_3_out)
   );
-  wire [1-1:0] M_btn_cond_1_out;
-  reg [1-1:0] M_btn_cond_1_in;
-  button_conditioner_5 btn_cond_1 (
+  wire [1-1:0] M_io_btn_cond_1_out;
+  reg [1-1:0] M_io_btn_cond_1_in;
+  button_conditioner_5 io_btn_cond_1 (
     .clk(clk),
-    .in(M_btn_cond_1_in),
-    .out(M_btn_cond_1_out)
+    .in(M_io_btn_cond_1_in),
+    .out(M_io_btn_cond_1_out)
   );
-  wire [1-1:0] M_btn_cond_2_out;
-  reg [1-1:0] M_btn_cond_2_in;
-  button_conditioner_5 btn_cond_2 (
+  wire [1-1:0] M_io_btn_cond_2_out;
+  reg [1-1:0] M_io_btn_cond_2_in;
+  button_conditioner_5 io_btn_cond_2 (
     .clk(clk),
-    .in(M_btn_cond_2_in),
-    .out(M_btn_cond_2_out)
+    .in(M_io_btn_cond_2_in),
+    .out(M_io_btn_cond_2_out)
   );
-  wire [1-1:0] M_btn_cond_3_out;
-  reg [1-1:0] M_btn_cond_3_in;
-  button_conditioner_5 btn_cond_3 (
+  wire [1-1:0] M_io_btn_cond_3_out;
+  reg [1-1:0] M_io_btn_cond_3_in;
+  button_conditioner_5 io_btn_cond_3 (
     .clk(clk),
-    .in(M_btn_cond_3_in),
-    .out(M_btn_cond_3_out)
+    .in(M_io_btn_cond_3_in),
+    .out(M_io_btn_cond_3_out)
   );
   wire [8-1:0] M_game_FSM_led_out;
   wire [8-1:0] M_game_FSM_led_out_1;
   wire [8-1:0] M_game_FSM_led_out_2;
   wire [8-1:0] M_game_FSM_led_out_3;
   wire [8-1:0] M_game_FSM_led_out_4;
+  wire [112-1:0] M_game_FSM_user_input_112;
+  wire [112-1:0] M_game_FSM_bull_cow_112;
+  wire [16-1:0] M_game_FSM_final_answer;
+  wire [16-1:0] M_game_FSM_pass_fail;
   reg [1-1:0] M_game_FSM_enter;
   reg [1-1:0] M_game_FSM_toggle;
   reg [1-1:0] M_game_FSM_reset;
@@ -95,7 +107,91 @@ module mojo_top_0 (
     .led_out_1(M_game_FSM_led_out_1),
     .led_out_2(M_game_FSM_led_out_2),
     .led_out_3(M_game_FSM_led_out_3),
-    .led_out_4(M_game_FSM_led_out_4)
+    .led_out_4(M_game_FSM_led_out_4),
+    .user_input_112(M_game_FSM_user_input_112),
+    .bull_cow_112(M_game_FSM_bull_cow_112),
+    .final_answer(M_game_FSM_final_answer),
+    .pass_fail(M_game_FSM_pass_fail)
+  );
+  wire [1-1:0] M_ledout1_led;
+  reg [32-1:0] M_ledout1_color;
+  reg [1-1:0] M_ledout1_update;
+  ws2812b_9 ledout1 (
+    .clk(clk),
+    .rst(rst),
+    .color(M_ledout1_color),
+    .update(M_ledout1_update),
+    .led(M_ledout1_led)
+  );
+  wire [1-1:0] M_ledout2_led;
+  reg [32-1:0] M_ledout2_color;
+  reg [1-1:0] M_ledout2_update;
+  ws2812b_9 ledout2 (
+    .clk(clk),
+    .rst(rst),
+    .color(M_ledout2_color),
+    .update(M_ledout2_update),
+    .led(M_ledout2_led)
+  );
+  wire [1-1:0] M_ledout3_led;
+  reg [32-1:0] M_ledout3_color;
+  reg [1-1:0] M_ledout3_update;
+  ws2812b_9 ledout3 (
+    .clk(clk),
+    .rst(rst),
+    .color(M_ledout3_color),
+    .update(M_ledout3_update),
+    .led(M_ledout3_led)
+  );
+  wire [1-1:0] M_ledout4_led;
+  reg [32-1:0] M_ledout4_color;
+  reg [1-1:0] M_ledout4_update;
+  ws2812b_9 ledout4 (
+    .clk(clk),
+    .rst(rst),
+    .color(M_ledout4_color),
+    .update(M_ledout4_update),
+    .led(M_ledout4_led)
+  );
+  wire [1-1:0] M_ledout5_led;
+  reg [32-1:0] M_ledout5_color;
+  reg [1-1:0] M_ledout5_update;
+  ws2812b_9 ledout5 (
+    .clk(clk),
+    .rst(rst),
+    .color(M_ledout5_color),
+    .update(M_ledout5_update),
+    .led(M_ledout5_led)
+  );
+  wire [1-1:0] M_ledout6_led;
+  reg [32-1:0] M_ledout6_color;
+  reg [1-1:0] M_ledout6_update;
+  ws2812b_9 ledout6 (
+    .clk(clk),
+    .rst(rst),
+    .color(M_ledout6_color),
+    .update(M_ledout6_update),
+    .led(M_ledout6_led)
+  );
+  wire [1-1:0] M_ledout7_led;
+  reg [32-1:0] M_ledout7_color;
+  reg [1-1:0] M_ledout7_update;
+  ws2812b_9 ledout7 (
+    .clk(clk),
+    .rst(rst),
+    .color(M_ledout7_color),
+    .update(M_ledout7_update),
+    .led(M_ledout7_led)
+  );
+  wire [1-1:0] M_ledout8_led;
+  reg [32-1:0] M_ledout8_color;
+  reg [1-1:0] M_ledout8_update;
+  ws2812b_9 ledout8 (
+    .clk(clk),
+    .rst(rst),
+    .color(M_ledout8_color),
+    .update(M_ledout8_update),
+    .led(M_ledout8_led)
   );
   
   always @* begin
@@ -108,18 +204,23 @@ module mojo_top_0 (
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
-    io_led[0+7-:8] = M_game_FSM_led_out;
-    io_led[8+7-:8] = M_game_FSM_led_out_1;
-    io_led[16+7-:8] = M_game_FSM_led_out_2;
-    M_btn_cond_1_in = io_button[1+0-:1];
-    M_btn_cond_2_in = io_button[4+0-:1];
-    M_btn_cond_3_in = io_button[3+0-:1];
-    M_edge_dt_btn_1_in = M_btn_cond_1_out;
-    M_edge_dt_btn_2_in = M_btn_cond_2_out;
-    M_edge_dt_btn_3_in = M_btn_cond_3_out;
-    M_game_FSM_enter = M_edge_dt_btn_1_out;
-    M_game_FSM_toggle = M_edge_dt_btn_2_out;
-    M_game_FSM_reset = M_edge_dt_btn_3_out;
+    M_game_FSM_enter = M_io_edge_dt_btn_1_out;
+    M_game_FSM_toggle = M_io_edge_dt_btn_2_out;
+    M_game_FSM_reset = M_io_edge_dt_btn_3_out;
+    M_io_btn_cond_1_in = io_button[1+0-:1];
+    M_io_btn_cond_2_in = io_button[4+0-:1];
+    M_io_btn_cond_3_in = io_button[3+0-:1];
+    M_io_edge_dt_btn_1_in = M_io_btn_cond_1_out;
+    M_io_edge_dt_btn_2_in = M_io_btn_cond_2_out;
+    M_io_edge_dt_btn_3_in = M_io_btn_cond_3_out;
+    
+    case (io_dip[0+1+0-:1])
+      1'h1: begin
+        M_game_FSM_enter = M_io_edge_dt_btn_1_out;
+        M_game_FSM_toggle = M_io_edge_dt_btn_2_out;
+        M_game_FSM_reset = M_io_edge_dt_btn_3_out;
+      end
+    endcase
     
     case (io_dip[0+0+0-:1])
       1'h0: begin
@@ -133,5 +234,29 @@ module mojo_top_0 (
         io_led[16+7-:8] = M_game_FSM_led_out_4;
       end
     endcase
+    M_ledout1_update = 1'h1;
+    M_ledout1_color = {M_game_FSM_bull_cow_112[0+3-:4], M_game_FSM_bull_cow_112[4+3-:4], M_game_FSM_bull_cow_112[8+3-:4], M_game_FSM_bull_cow_112[12+3-:4], M_game_FSM_user_input_112[0+3-:4], M_game_FSM_user_input_112[4+3-:4], M_game_FSM_user_input_112[8+3-:4], M_game_FSM_user_input_112[12+3-:4]};
+    outled1 = M_ledout1_led;
+    M_ledout2_update = 1'h1;
+    M_ledout2_color = {M_game_FSM_bull_cow_112[16+3-:4], M_game_FSM_bull_cow_112[20+3-:4], M_game_FSM_bull_cow_112[24+3-:4], M_game_FSM_bull_cow_112[28+3-:4], M_game_FSM_user_input_112[16+3-:4], M_game_FSM_user_input_112[20+3-:4], M_game_FSM_user_input_112[24+3-:4], M_game_FSM_user_input_112[28+3-:4]};
+    outled2 = M_ledout2_led;
+    M_ledout3_update = 1'h1;
+    M_ledout3_color = {M_game_FSM_bull_cow_112[32+3-:4], M_game_FSM_bull_cow_112[36+3-:4], M_game_FSM_bull_cow_112[40+3-:4], M_game_FSM_bull_cow_112[44+3-:4], M_game_FSM_user_input_112[32+3-:4], M_game_FSM_user_input_112[36+3-:4], M_game_FSM_user_input_112[40+3-:4], M_game_FSM_user_input_112[44+3-:4]};
+    outled3 = M_ledout3_led;
+    M_ledout4_update = 1'h1;
+    M_ledout4_color = {M_game_FSM_bull_cow_112[48+3-:4], M_game_FSM_bull_cow_112[52+3-:4], M_game_FSM_bull_cow_112[56+3-:4], M_game_FSM_bull_cow_112[60+3-:4], M_game_FSM_user_input_112[48+3-:4], M_game_FSM_user_input_112[52+3-:4], M_game_FSM_user_input_112[56+3-:4], M_game_FSM_user_input_112[60+3-:4]};
+    outled4 = M_ledout4_led;
+    M_ledout5_update = 1'h1;
+    M_ledout5_color = {M_game_FSM_bull_cow_112[64+3-:4], M_game_FSM_bull_cow_112[68+3-:4], M_game_FSM_bull_cow_112[72+3-:4], M_game_FSM_bull_cow_112[76+3-:4], M_game_FSM_user_input_112[64+3-:4], M_game_FSM_user_input_112[68+3-:4], M_game_FSM_user_input_112[72+3-:4], M_game_FSM_user_input_112[76+3-:4]};
+    outled5 = M_ledout5_led;
+    M_ledout6_update = 1'h1;
+    M_ledout6_color = {M_game_FSM_bull_cow_112[80+3-:4], M_game_FSM_bull_cow_112[84+3-:4], M_game_FSM_bull_cow_112[88+3-:4], M_game_FSM_bull_cow_112[92+3-:4], M_game_FSM_user_input_112[80+3-:4], M_game_FSM_user_input_112[84+3-:4], M_game_FSM_user_input_112[88+3-:4], M_game_FSM_user_input_112[92+3-:4]};
+    outled6 = M_ledout6_led;
+    M_ledout7_update = 1'h1;
+    M_ledout7_color = {M_game_FSM_bull_cow_112[96+3-:4], M_game_FSM_bull_cow_112[100+3-:4], M_game_FSM_bull_cow_112[104+3-:4], M_game_FSM_bull_cow_112[108+3-:4], M_game_FSM_user_input_112[96+3-:4], M_game_FSM_user_input_112[100+3-:4], M_game_FSM_user_input_112[104+3-:4], M_game_FSM_user_input_112[108+3-:4]};
+    outled7 = M_ledout7_led;
+    M_ledout8_update = 1'h1;
+    M_ledout8_color = {M_game_FSM_pass_fail[0+3-:4], M_game_FSM_pass_fail[4+3-:4], M_game_FSM_pass_fail[8+3-:4], M_game_FSM_pass_fail[12+3-:4], M_game_FSM_final_answer[12+3-:4], M_game_FSM_final_answer[8+3-:4], M_game_FSM_final_answer[4+3-:4], M_game_FSM_final_answer[0+3-:4]};
+    outled8 = M_ledout8_led;
   end
 endmodule

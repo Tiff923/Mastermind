@@ -2,6 +2,22 @@
 <DARoots Version="1" Minor="26">
   <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/constraint/led.ucf">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../constraint/led.ucf"/>
+        <Attr Name="ImportTime" Val="1575358740"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/constrs_1/imports/constraint/buttons.ucf">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../constraint/buttons.ucf"/>
+        <Attr Name="ImportTime" Val="1575358801"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/constrs_1/imports/constraint/io_shield.ucf">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../constraint/io_shield.ucf"/>

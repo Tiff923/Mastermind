@@ -1,0 +1,137 @@
+module ws2812b #(
+    LED_COUNT = 8 : LED_COUNT > 0,
+    GROUP_COUNT = 2 : GROUP_COUNT > 0
+  )(
+    input clk,  // clock
+    input rst,  // reset
+    input color[8][4], //9 led, 4 bit is color state, NOT GROUP COUNT
+  //  output pixel[$clog2(PIXEL_COUNT)],
+    output led,
+    input update //Always 1, it alwats writing 
+  ) {
+  
+  const PIXEL_COUNT = LED_COUNT * GROUP_COUNT;
+  
+  .clk(clk) {
+    .rst(rst) {
+      fsm state = {SEND_PIXEL, RESET};
+      dff pixel_ctr[$clog2(PIXEL_COUNT)];
+      dff led_ctr[$clog2(LED_COUNT)];
+      dff current_group_led_ctr[$clog2(GROUP_COUNT)];
+      dff bit_ctr[5];
+      dff ctr[6];
+      dff rst_ctr [$clog2(2500)];
+ 
+    }
+  }
+  
+  /*
+  const COLORS = {24b111111110000000000000000, 24b000000000000000011111111, 24b000000001111111100000000,
+                  24b111111110000000000000000, 24b000000000000000011111111, 24b000000001111111100000000,
+                  24b111111110000000000000000, 24b000000000000000011111111, 24b000000001111111100000000}; //BRG
+  */
+    
+ 
+  const BLUE = 24b111111110000000000000000;
+  const GREEN = 24b000000000000000011111111;
+  const RED = 24b000000001111111100000000;
+  const PINK = 24hC9ff84;
+  const TURQUOISE = 24h0b0207;
+  const WHITE = 24b111111111111111111111111;
+  
+  const PADDED_BLUE = {24b0, BLUE};
+  const PADDED_GREEN = {24b0, GREEN};
+  const PADDED_RED = {24b0, RED};
+  const PADDED_PINK = {24b0, PINK};
+  const PADDED_TURQUOISE = {24b0, TURQUOISE};
+  const PADDED_WHITE = {24b0, WHITE};
+  const PADDED_CYAN = {24b0, 24b111111110000000011111111};
+
+    
+  sig bits[24];
+  sig group_bits[GROUP_COUNT][24];
+  
+  always {
+    led = 0;
+    
+ //    bits = c{color[0], color[1],color[2], color[3], color[4], color[5], color[6], color[7],
+ //      color[8], color[9], color[10], color[11], color[12], color[13], color[14], color[15],
+ //      color[16], color[17], color[18], color[19], color[20], color[21], color[22], color[23]};
+    
+   // pixel = pixel_ctr.q;
+    
+    /*
+    case (color[pixel_ctr.q]){
+      b0000: bits = 24b0;
+      b0001: bits = RED;
+      b0010: bits = GREEN;
+      b0011: bits = PINK;
+      b0100: bits = TURQUOISE;
+      b0101: bits = BLUE;
+      default: bits = WHITE;
+    }*/
+    case (color[led_ctr.q]){
+      b1001: group_bits = PADDED_RED;
+      b0101: group_bits = PADDED_GREEN;
+      b0011: group_bits = PADDED_BLUE;
+      b1101: group_bits = PADDED_PINK;
+      b0111: group_bits = PADDED_TURQUOISE;
+      b0001: group_bits = PADDED_CYAN;
+      b0000: group_bits = {24b0, 24b0};
+      default: group_bits = PADDED_WHITE;
+    }
+   
+    // if (led_ctr.q == 1){
+     // debug.d = b1111;
+   // }
+    
+ //  group_bits = {RED, 24b0};
+   bits = group_bits[current_group_led_ctr.q];
+  
+    
+    
+    
+    case (state.q) {
+      state.SEND_PIXEL:
+        if (bits[bit_ctr.q])
+          led = ctr.q < 45;
+        else
+          led = ctr.q < 17;
+        
+        ctr.d = ctr.q + 1;
+        if (ctr.q == 62){
+          ctr.d = 0;
+          
+          bit_ctr.d = bit_ctr.q + 1;
+          if (bit_ctr.q == 23) {
+            bit_ctr.d = 0;
+            pixel_ctr.d = pixel_ctr.q + 1;
+            
+            current_group_led_ctr.d = current_group_led_ctr.q + 1;
+            
+            if (current_group_led_ctr.q == (GROUP_COUNT - 1)){
+                current_group_led_ctr.d = 0;
+                led_ctr.d = led_ctr.q + 1;
+            }
+            
+              
+            if (pixel_ctr.q == PIXEL_COUNT-1) {
+              pixel_ctr.d = 0;
+              led_ctr.d = 0;
+              state.d = state.RESET;
+            }
+          }
+        }
+      
+      state.RESET:
+        if (&rst_ctr.q) {
+          if (update) {
+            rst_ctr.d = 0;
+            state.d = state.SEND_PIXEL;
+          }
+        } else {
+          rst_ctr.d = rst_ctr.q + 1;
+        }
+    }
+  }
+}

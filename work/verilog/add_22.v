@@ -4,7 +4,7 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module add_14 (
+module add_22 (
     input clk,
     input rst,
     input [5:0] alufn,

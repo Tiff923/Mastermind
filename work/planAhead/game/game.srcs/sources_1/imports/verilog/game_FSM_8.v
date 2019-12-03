@@ -14,7 +14,11 @@ module game_FSM_8 (
     output reg [7:0] led_out_1,
     output reg [7:0] led_out_2,
     output reg [7:0] led_out_3,
-    output reg [7:0] led_out_4
+    output reg [7:0] led_out_4,
+    output reg [111:0] user_input_112,
+    output reg [111:0] bull_cow_112,
+    output reg [15:0] final_answer,
+    output reg [15:0] pass_fail
   );
   
   
@@ -24,54 +28,60 @@ module game_FSM_8 (
   localparam START_state = 6'd2;
   localparam IDLE_state = 6'd3;
   localparam STATE_RED_state = 6'd4;
-  localparam STATE_GREEN_state = 6'd5;
-  localparam STATE_BLUE_state = 6'd6;
-  localparam CHECK_STATES_state = 6'd7;
-  localparam CHECK_BULL_INIT_state = 6'd8;
-  localparam CHECK_BULL_0_state = 6'd9;
-  localparam CHECK_BULL_0_1_state = 6'd10;
-  localparam CHECK_BULL_1_state = 6'd11;
-  localparam CHECK_BULL_1_1_state = 6'd12;
-  localparam CHECK_BULL_2_state = 6'd13;
-  localparam CHECK_BULL_2_1_state = 6'd14;
-  localparam CHECK_BULL_3_state = 6'd15;
-  localparam CHECK_BULL_3_1_state = 6'd16;
-  localparam CHECK_BULL_PART1_state = 6'd17;
-  localparam CHECK_BULL_PART1_2_state = 6'd18;
-  localparam CHECK_BULL_PART2_state = 6'd19;
-  localparam CHECK_BULL_PART2_2_state = 6'd20;
-  localparam CHECK_SUCCESS_state = 6'd21;
-  localparam CHECK_COW_INIT_state = 6'd22;
-  localparam CHECK_COW_0_0_state = 6'd23;
-  localparam CHECK_COW_0_1_state = 6'd24;
-  localparam CHECK_COW_0_2_state = 6'd25;
-  localparam CHECK_COW_0_3_state = 6'd26;
-  localparam CHECK_COW_1_0_state = 6'd27;
-  localparam CHECK_COW_1_1_state = 6'd28;
-  localparam CHECK_COW_1_2_state = 6'd29;
-  localparam CHECK_COW_1_3_state = 6'd30;
-  localparam CHECK_COW_2_0_state = 6'd31;
-  localparam CHECK_COW_2_1_state = 6'd32;
-  localparam CHECK_COW_2_2_state = 6'd33;
-  localparam CHECK_COW_2_3_state = 6'd34;
-  localparam CHECK_COW_3_0_state = 6'd35;
-  localparam CHECK_COW_3_1_state = 6'd36;
-  localparam CHECK_COW_3_2_state = 6'd37;
-  localparam CHECK_COW_3_3_state = 6'd38;
-  localparam CHECK_LIFE_PART1_state = 6'd39;
-  localparam CHECK_LIFE_PART1_2_state = 6'd40;
-  localparam CHECK_LIFE_PART2_state = 6'd41;
-  localparam CHECK_LIFE_PART2_2_state = 6'd42;
-  localparam CHECK_BULL_COW_CMPLE_state = 6'd43;
-  localparam CHECK_BULL_COW_CMPLE_2_state = 6'd44;
-  localparam CHECK_BULL_state = 6'd45;
-  localparam SUCCESS_state = 6'd46;
-  localparam FAIL_state = 6'd47;
+  localparam STATE_RED1_state = 6'd5;
+  localparam STATE_GREEN_state = 6'd6;
+  localparam STATE_GREEN1_state = 6'd7;
+  localparam STATE_BLUE_state = 6'd8;
+  localparam STATE_BLUE1_state = 6'd9;
+  localparam CHECK_STATES_state = 6'd10;
+  localparam CHECK_BULL_INIT_state = 6'd11;
+  localparam CHECK_BULL_0_state = 6'd12;
+  localparam CHECK_BULL_0_1_state = 6'd13;
+  localparam CHECK_BULL_1_state = 6'd14;
+  localparam CHECK_BULL_1_1_state = 6'd15;
+  localparam CHECK_BULL_2_state = 6'd16;
+  localparam CHECK_BULL_2_1_state = 6'd17;
+  localparam CHECK_BULL_3_state = 6'd18;
+  localparam CHECK_BULL_3_1_state = 6'd19;
+  localparam CHECK_BULL_PART1_state = 6'd20;
+  localparam CHECK_BULL_PART1_2_state = 6'd21;
+  localparam CHECK_BULL_PART2_state = 6'd22;
+  localparam CHECK_BULL_PART2_2_state = 6'd23;
+  localparam CHECK_SUCCESS_state = 6'd24;
+  localparam CHECK_COW_INIT_state = 6'd25;
+  localparam CHECK_COW_0_0_state = 6'd26;
+  localparam CHECK_COW_0_1_state = 6'd27;
+  localparam CHECK_COW_0_2_state = 6'd28;
+  localparam CHECK_COW_0_3_state = 6'd29;
+  localparam CHECK_COW_1_0_state = 6'd30;
+  localparam CHECK_COW_1_1_state = 6'd31;
+  localparam CHECK_COW_1_2_state = 6'd32;
+  localparam CHECK_COW_1_3_state = 6'd33;
+  localparam CHECK_COW_2_0_state = 6'd34;
+  localparam CHECK_COW_2_1_state = 6'd35;
+  localparam CHECK_COW_2_2_state = 6'd36;
+  localparam CHECK_COW_2_3_state = 6'd37;
+  localparam CHECK_COW_3_0_state = 6'd38;
+  localparam CHECK_COW_3_1_state = 6'd39;
+  localparam CHECK_COW_3_2_state = 6'd40;
+  localparam CHECK_COW_3_3_state = 6'd41;
+  localparam CHECK_LIFE_PART1_state = 6'd42;
+  localparam CHECK_LIFE_PART1_2_state = 6'd43;
+  localparam CHECK_LIFE_PART2_state = 6'd44;
+  localparam CHECK_LIFE_PART2_2_state = 6'd45;
+  localparam CHECK_BULL_COW_CMPLE_state = 6'd46;
+  localparam CHECK_BULL_COW_CMPLE_2_state = 6'd47;
+  localparam CHECK_BULL_state = 6'd48;
+  localparam CHECK_BULL_COW_state = 6'd49;
+  localparam SUCCESS_state = 6'd50;
+  localparam FAIL_state = 6'd51;
   
   reg [5:0] M_state_d, M_state_q = INIT_ANS_state;
   reg [2:0] M_check_state_d, M_check_state_q = 1'h0;
   reg [2:0] M_check_row_d, M_check_row_q = 1'h0;
   reg [15:0] M_user_input_d, M_user_input_q = 1'h0;
+  reg [111:0] M_user_input_all_d, M_user_input_all_q = 1'h0;
+  reg [111:0] M_bull_cow_input_d, M_bull_cow_input_q = 1'h0;
   reg [15:0] M_temp_ans_bull_d, M_temp_ans_bull_q = 1'h0;
   reg [15:0] M_temp_input_bull_d, M_temp_input_bull_q = 1'h0;
   reg [2:0] M_bull_count_d, M_bull_count_q = 1'h0;
@@ -80,11 +90,48 @@ module game_FSM_8 (
   reg [2:0] M_cow_count_d, M_cow_count_q = 1'h0;
   reg [3:0] M_check_ans_d, M_check_ans_q = 1'h0;
   reg [15:0] M_answer_d, M_answer_q = 1'h0;
-  reg [7:0] M_final_d, M_final_q = 1'h0;
+  reg [7:0] M_led_reg_d, M_led_reg_q = 1'h0;
+  reg [15:0] M_final_d, M_final_q = 1'h0;
   reg [15:0] M_total_life_d, M_total_life_q = 1'h0;
   reg [15:0] M_reg_bull_count_d, M_reg_bull_count_q = 1'h0;
   reg [2:0] M_check_bull_state_d, M_check_bull_state_q = 1'h0;
   reg [7:0] M_debug_reg_d, M_debug_reg_q = 1'h0;
+  reg [3:0] M_user_input_0_0_d, M_user_input_0_0_q = 1'h0;
+  reg [3:0] M_user_input_0_1_d, M_user_input_0_1_q = 1'h0;
+  reg [3:0] M_user_input_0_2_d, M_user_input_0_2_q = 1'h0;
+  reg [3:0] M_user_input_0_3_d, M_user_input_0_3_q = 1'h0;
+  reg [3:0] M_user_input_1_0_d, M_user_input_1_0_q = 1'h0;
+  reg [3:0] M_user_input_1_1_d, M_user_input_1_1_q = 1'h0;
+  reg [3:0] M_user_input_1_2_d, M_user_input_1_2_q = 1'h0;
+  reg [3:0] M_user_input_1_3_d, M_user_input_1_3_q = 1'h0;
+  reg [3:0] M_user_input_2_0_d, M_user_input_2_0_q = 1'h0;
+  reg [3:0] M_user_input_2_1_d, M_user_input_2_1_q = 1'h0;
+  reg [3:0] M_user_input_2_2_d, M_user_input_2_2_q = 1'h0;
+  reg [3:0] M_user_input_2_3_d, M_user_input_2_3_q = 1'h0;
+  reg [3:0] M_user_input_3_0_d, M_user_input_3_0_q = 1'h0;
+  reg [3:0] M_user_input_3_1_d, M_user_input_3_1_q = 1'h0;
+  reg [3:0] M_user_input_3_2_d, M_user_input_3_2_q = 1'h0;
+  reg [3:0] M_user_input_3_3_d, M_user_input_3_3_q = 1'h0;
+  reg [3:0] M_user_input_4_0_d, M_user_input_4_0_q = 1'h0;
+  reg [3:0] M_user_input_4_1_d, M_user_input_4_1_q = 1'h0;
+  reg [3:0] M_user_input_4_2_d, M_user_input_4_2_q = 1'h0;
+  reg [3:0] M_user_input_4_3_d, M_user_input_4_3_q = 1'h0;
+  reg [3:0] M_user_input_5_0_d, M_user_input_5_0_q = 1'h0;
+  reg [3:0] M_user_input_5_1_d, M_user_input_5_1_q = 1'h0;
+  reg [3:0] M_user_input_5_2_d, M_user_input_5_2_q = 1'h0;
+  reg [3:0] M_user_input_5_3_d, M_user_input_5_3_q = 1'h0;
+  reg [3:0] M_user_input_6_0_d, M_user_input_6_0_q = 1'h0;
+  reg [3:0] M_user_input_6_1_d, M_user_input_6_1_q = 1'h0;
+  reg [3:0] M_user_input_6_2_d, M_user_input_6_2_q = 1'h0;
+  reg [3:0] M_user_input_6_3_d, M_user_input_6_3_q = 1'h0;
+  reg [4:0] M_pointer_d, M_pointer_q = 1'h0;
+  reg [15:0] M_bull_cow_0_d, M_bull_cow_0_q = 1'h0;
+  reg [15:0] M_bull_cow_1_d, M_bull_cow_1_q = 1'h0;
+  reg [15:0] M_bull_cow_2_d, M_bull_cow_2_q = 1'h0;
+  reg [15:0] M_bull_cow_3_d, M_bull_cow_3_q = 1'h0;
+  reg [15:0] M_bull_cow_4_d, M_bull_cow_4_q = 1'h0;
+  reg [15:0] M_bull_cow_5_d, M_bull_cow_5_q = 1'h0;
+  reg [15:0] M_bull_cow_6_d, M_bull_cow_6_q = 1'h0;
   wire [13-1:0] M_beta_guess_out;
   wire [13-1:0] M_beta_check_answer_out;
   wire [8-1:0] M_beta_led_1;
@@ -101,7 +148,7 @@ module game_FSM_8 (
   reg [1-1:0] M_beta_demuxinput;
   reg [1-1:0] M_beta_aselinput;
   reg [1-1:0] M_beta_bselinput;
-  beta_12 beta (
+  beta_20 beta (
     .clk(clk),
     .rst(rst),
     .fsmregisterbullpluscowcal(M_beta_fsmregisterbullpluscowcal),
@@ -124,20 +171,59 @@ module game_FSM_8 (
   
   always @* begin
     M_state_d = M_state_q;
-    M_final_d = M_final_q;
-    M_check_ans_d = M_check_ans_q;
-    M_temp_input_bull_d = M_temp_input_bull_q;
-    M_answer_d = M_answer_q;
-    M_bull_count_d = M_bull_count_q;
-    M_cow_count_d = M_cow_count_q;
-    M_user_input_d = M_user_input_q;
-    M_temp_ans_cow_d = M_temp_ans_cow_q;
     M_temp_input_cow_d = M_temp_input_cow_q;
-    M_temp_ans_bull_d = M_temp_ans_bull_q;
     M_reg_bull_count_d = M_reg_bull_count_q;
-    M_check_row_d = M_check_row_q;
-    M_total_life_d = M_total_life_q;
     M_check_bull_state_d = M_check_bull_state_q;
+    M_user_input_4_3_d = M_user_input_4_3_q;
+    M_user_input_3_0_d = M_user_input_3_0_q;
+    M_final_d = M_final_q;
+    M_user_input_4_2_d = M_user_input_4_2_q;
+    M_check_ans_d = M_check_ans_q;
+    M_user_input_4_1_d = M_user_input_4_1_q;
+    M_user_input_4_0_d = M_user_input_4_0_q;
+    M_user_input_3_3_d = M_user_input_3_3_q;
+    M_user_input_3_1_d = M_user_input_3_1_q;
+    M_temp_input_bull_d = M_temp_input_bull_q;
+    M_user_input_3_2_d = M_user_input_3_2_q;
+    M_answer_d = M_answer_q;
+    M_user_input_6_0_d = M_user_input_6_0_q;
+    M_user_input_6_1_d = M_user_input_6_1_q;
+    M_check_row_d = M_check_row_q;
+    M_pointer_d = M_pointer_q;
+    M_user_input_5_2_d = M_user_input_5_2_q;
+    M_user_input_5_1_d = M_user_input_5_1_q;
+    M_user_input_5_0_d = M_user_input_5_0_q;
+    M_bull_cow_4_d = M_bull_cow_4_q;
+    M_bull_cow_5_d = M_bull_cow_5_q;
+    M_bull_cow_6_d = M_bull_cow_6_q;
+    M_user_input_5_3_d = M_user_input_5_3_q;
+    M_bull_cow_0_d = M_bull_cow_0_q;
+    M_bull_cow_1_d = M_bull_cow_1_q;
+    M_bull_cow_2_d = M_bull_cow_2_q;
+    M_bull_cow_3_d = M_bull_cow_3_q;
+    M_user_input_6_2_d = M_user_input_6_2_q;
+    M_user_input_6_3_d = M_user_input_6_3_q;
+    M_cow_count_d = M_cow_count_q;
+    M_led_reg_d = M_led_reg_q;
+    M_user_input_d = M_user_input_q;
+    M_bull_cow_input_d = M_bull_cow_input_q;
+    M_user_input_all_d = M_user_input_all_q;
+    M_total_life_d = M_total_life_q;
+    M_user_input_2_1_d = M_user_input_2_1_q;
+    M_user_input_2_0_d = M_user_input_2_0_q;
+    M_user_input_2_3_d = M_user_input_2_3_q;
+    M_user_input_2_2_d = M_user_input_2_2_q;
+    M_bull_count_d = M_bull_count_q;
+    M_user_input_1_1_d = M_user_input_1_1_q;
+    M_user_input_1_2_d = M_user_input_1_2_q;
+    M_user_input_1_0_d = M_user_input_1_0_q;
+    M_temp_ans_cow_d = M_temp_ans_cow_q;
+    M_temp_ans_bull_d = M_temp_ans_bull_q;
+    M_user_input_1_3_d = M_user_input_1_3_q;
+    M_user_input_0_2_d = M_user_input_0_2_q;
+    M_user_input_0_3_d = M_user_input_0_3_q;
+    M_user_input_0_0_d = M_user_input_0_0_q;
+    M_user_input_0_1_d = M_user_input_0_1_q;
     M_check_state_d = M_check_state_q;
     
     M_beta_fsmregisterbullpluscowcal = 1'h0;
@@ -145,11 +231,17 @@ module game_FSM_8 (
     M_beta_bselinput = 1'h0;
     M_beta_demuxinput = 1'h0;
     M_beta_alufninput = 1'h0;
-    led_out = 1'h0;
-    led_out_1 = M_reg_bull_count_q[0+7-:8];
-    led_out_2 = M_total_life_q[0+7-:8];
+    final_answer = 1'h0;
+    pass_fail = 1'h0;
+    M_user_input_all_d = {M_user_input_6_3_q, M_user_input_6_2_q, M_user_input_6_1_q, M_user_input_6_0_q, M_user_input_5_3_q, M_user_input_5_2_q, M_user_input_5_1_q, M_user_input_5_0_q, M_user_input_4_3_q, M_user_input_4_2_q, M_user_input_4_1_q, M_user_input_4_0_q, M_user_input_3_3_q, M_user_input_3_2_q, M_user_input_3_1_q, M_user_input_3_0_q, M_user_input_2_3_q, M_user_input_2_2_q, M_user_input_2_1_q, M_user_input_2_0_q, M_user_input_1_3_q, M_user_input_1_2_q, M_user_input_1_1_q, M_user_input_1_0_q, M_user_input_0_3_q, M_user_input_0_2_q, M_user_input_0_1_q, M_user_input_0_0_q};
+    M_bull_cow_input_d = {M_bull_cow_6_q, M_bull_cow_5_q, M_bull_cow_4_q, M_bull_cow_3_q, M_bull_cow_2_q, M_bull_cow_1_q, M_bull_cow_0_q};
+    led_out = M_led_reg_q;
+    led_out_1 = M_bull_cow_input_q[0+7-:8];
+    led_out_2 = M_bull_cow_input_q[8+7-:8];
     led_out_3 = M_check_row_q;
     led_out_4 = M_final_q;
+    user_input_112 = M_user_input_all_q;
+    bull_cow_112 = M_bull_cow_input_q;
     
     case (M_state_q)
       INIT_ANS_state: begin
@@ -157,9 +249,45 @@ module game_FSM_8 (
         M_state_d = INIT_state;
       end
       INIT_state: begin
+        M_pointer_d = 1'h0;
         M_total_life_d = 3'h7;
         M_check_row_d = 1'h0;
         M_final_d = 1'h0;
+        M_user_input_0_0_d = 1'h0;
+        M_user_input_0_1_d = 1'h0;
+        M_user_input_0_2_d = 1'h0;
+        M_user_input_0_3_d = 1'h0;
+        M_user_input_1_0_d = 1'h0;
+        M_user_input_1_1_d = 1'h0;
+        M_user_input_1_2_d = 1'h0;
+        M_user_input_1_3_d = 1'h0;
+        M_user_input_2_0_d = 1'h0;
+        M_user_input_2_1_d = 1'h0;
+        M_user_input_2_2_d = 1'h0;
+        M_user_input_2_3_d = 1'h0;
+        M_user_input_3_0_d = 1'h0;
+        M_user_input_3_1_d = 1'h0;
+        M_user_input_3_2_d = 1'h0;
+        M_user_input_3_3_d = 1'h0;
+        M_user_input_4_0_d = 1'h0;
+        M_user_input_4_1_d = 1'h0;
+        M_user_input_4_2_d = 1'h0;
+        M_user_input_4_3_d = 1'h0;
+        M_user_input_5_0_d = 1'h0;
+        M_user_input_5_1_d = 1'h0;
+        M_user_input_5_2_d = 1'h0;
+        M_user_input_5_3_d = 1'h0;
+        M_user_input_6_0_d = 1'h0;
+        M_user_input_6_1_d = 1'h0;
+        M_user_input_6_2_d = 1'h0;
+        M_user_input_6_3_d = 1'h0;
+        M_bull_cow_0_d = 1'h0;
+        M_bull_cow_1_d = 1'h0;
+        M_bull_cow_2_d = 1'h0;
+        M_bull_cow_3_d = 1'h0;
+        M_bull_cow_4_d = 1'h0;
+        M_bull_cow_5_d = 1'h0;
+        M_bull_cow_6_d = 1'h0;
         M_state_d = START_state;
       end
       START_state: begin
@@ -222,7 +350,121 @@ module game_FSM_8 (
         end
       end
       STATE_RED_state: begin
-        led_out = 4'h9;
+        M_led_reg_d = 4'h9;
+        if (M_pointer_q == 1'h0) begin
+          M_user_input_0_0_d = 4'h9;
+        end else begin
+          if (M_pointer_q == 1'h1) begin
+            M_user_input_0_1_d = 4'h9;
+          end else begin
+            if (M_pointer_q == 2'h2) begin
+              M_user_input_0_2_d = 4'h9;
+            end else begin
+              if (M_pointer_q == 2'h3) begin
+                M_user_input_0_3_d = 4'h9;
+              end else begin
+                if (M_pointer_q == 3'h4) begin
+                  M_user_input_1_0_d = 4'h9;
+                end else begin
+                  if (M_pointer_q == 3'h5) begin
+                    M_user_input_1_1_d = 4'h9;
+                  end else begin
+                    if (M_pointer_q == 3'h6) begin
+                      M_user_input_1_2_d = 4'h9;
+                    end else begin
+                      if (M_pointer_q == 3'h7) begin
+                        M_user_input_1_3_d = 4'h9;
+                      end else begin
+                        if (M_pointer_q == 4'h8) begin
+                          M_user_input_2_0_d = 4'h9;
+                        end else begin
+                          if (M_pointer_q == 4'h9) begin
+                            M_user_input_2_1_d = 4'h9;
+                          end else begin
+                            if (M_pointer_q == 4'ha) begin
+                              M_user_input_2_2_d = 4'h9;
+                            end else begin
+                              if (M_pointer_q == 4'hb) begin
+                                M_user_input_2_3_d = 4'h9;
+                              end else begin
+                                if (M_pointer_q == 4'hc) begin
+                                  M_user_input_3_0_d = 4'h9;
+                                end else begin
+                                  if (M_pointer_q == 4'hd) begin
+                                    M_user_input_3_1_d = 4'h9;
+                                  end else begin
+                                    if (M_pointer_q == 4'he) begin
+                                      M_user_input_3_2_d = 4'h9;
+                                    end else begin
+                                      if (M_pointer_q == 4'hf) begin
+                                        M_user_input_3_3_d = 4'h9;
+                                      end else begin
+                                        if (M_pointer_q == 5'h10) begin
+                                          M_user_input_4_0_d = 4'h9;
+                                        end else begin
+                                          if (M_pointer_q == 5'h11) begin
+                                            M_user_input_4_1_d = 4'h9;
+                                          end else begin
+                                            if (M_pointer_q == 5'h12) begin
+                                              M_user_input_4_2_d = 4'h9;
+                                            end else begin
+                                              if (M_pointer_q == 5'h13) begin
+                                                M_user_input_4_3_d = 4'h9;
+                                              end else begin
+                                                if (M_pointer_q == 5'h14) begin
+                                                  M_user_input_5_0_d = 4'h9;
+                                                end else begin
+                                                  if (M_pointer_q == 5'h15) begin
+                                                    M_user_input_5_1_d = 4'h9;
+                                                  end else begin
+                                                    if (M_pointer_q == 5'h16) begin
+                                                      M_user_input_5_2_d = 4'h9;
+                                                    end else begin
+                                                      if (M_pointer_q == 5'h17) begin
+                                                        M_user_input_5_3_d = 4'h9;
+                                                      end else begin
+                                                        if (M_pointer_q == 5'h18) begin
+                                                          M_user_input_6_0_d = 4'h9;
+                                                        end else begin
+                                                          if (M_pointer_q == 5'h19) begin
+                                                            M_user_input_6_1_d = 4'h9;
+                                                          end else begin
+                                                            if (M_pointer_q == 5'h1a) begin
+                                                              M_user_input_6_2_d = 4'h9;
+                                                            end else begin
+                                                              if (M_pointer_q == 5'h1b) begin
+                                                                M_user_input_6_3_d = 4'h9;
+                                                              end
+                                                            end
+                                                          end
+                                                        end
+                                                      end
+                                                    end
+                                                  end
+                                                end
+                                              end
+                                            end
+                                          end
+                                        end
+                                      end
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        M_state_d = STATE_RED1_state;
+      end
+      STATE_RED1_state: begin
         if (toggle) begin
           M_state_d = STATE_GREEN_state;
         end else begin
@@ -230,6 +472,7 @@ module game_FSM_8 (
             M_state_d = INIT_state;
           end else begin
             if (enter) begin
+              M_pointer_d = M_pointer_q + 1'h1;
               if (M_check_state_q == 1'h0) begin
                 M_user_input_d[12+3-:4] = 4'h9;
               end else begin
@@ -252,7 +495,121 @@ module game_FSM_8 (
         end
       end
       STATE_GREEN_state: begin
-        led_out = 4'h5;
+        M_led_reg_d = 4'h5;
+        if (M_pointer_q == 1'h0) begin
+          M_user_input_0_0_d = 4'h5;
+        end else begin
+          if (M_pointer_q == 1'h1) begin
+            M_user_input_0_1_d = 4'h5;
+          end else begin
+            if (M_pointer_q == 2'h2) begin
+              M_user_input_0_2_d = 4'h5;
+            end else begin
+              if (M_pointer_q == 2'h3) begin
+                M_user_input_0_3_d = 4'h5;
+              end else begin
+                if (M_pointer_q == 3'h4) begin
+                  M_user_input_1_0_d = 4'h5;
+                end else begin
+                  if (M_pointer_q == 3'h5) begin
+                    M_user_input_1_1_d = 4'h5;
+                  end else begin
+                    if (M_pointer_q == 3'h6) begin
+                      M_user_input_1_2_d = 4'h5;
+                    end else begin
+                      if (M_pointer_q == 3'h7) begin
+                        M_user_input_1_3_d = 4'h5;
+                      end else begin
+                        if (M_pointer_q == 4'h8) begin
+                          M_user_input_2_0_d = 4'h5;
+                        end else begin
+                          if (M_pointer_q == 4'h9) begin
+                            M_user_input_2_1_d = 4'h5;
+                          end else begin
+                            if (M_pointer_q == 4'ha) begin
+                              M_user_input_2_2_d = 4'h5;
+                            end else begin
+                              if (M_pointer_q == 4'hb) begin
+                                M_user_input_2_3_d = 4'h5;
+                              end else begin
+                                if (M_pointer_q == 4'hc) begin
+                                  M_user_input_3_0_d = 4'h5;
+                                end else begin
+                                  if (M_pointer_q == 4'hd) begin
+                                    M_user_input_3_1_d = 4'h5;
+                                  end else begin
+                                    if (M_pointer_q == 4'he) begin
+                                      M_user_input_3_2_d = 4'h5;
+                                    end else begin
+                                      if (M_pointer_q == 4'hf) begin
+                                        M_user_input_3_3_d = 4'h5;
+                                      end else begin
+                                        if (M_pointer_q == 5'h10) begin
+                                          M_user_input_4_0_d = 4'h5;
+                                        end else begin
+                                          if (M_pointer_q == 5'h11) begin
+                                            M_user_input_4_1_d = 4'h5;
+                                          end else begin
+                                            if (M_pointer_q == 5'h12) begin
+                                              M_user_input_4_2_d = 4'h5;
+                                            end else begin
+                                              if (M_pointer_q == 5'h13) begin
+                                                M_user_input_4_3_d = 4'h5;
+                                              end else begin
+                                                if (M_pointer_q == 5'h14) begin
+                                                  M_user_input_5_0_d = 4'h5;
+                                                end else begin
+                                                  if (M_pointer_q == 5'h15) begin
+                                                    M_user_input_5_1_d = 4'h5;
+                                                  end else begin
+                                                    if (M_pointer_q == 5'h16) begin
+                                                      M_user_input_5_2_d = 4'h5;
+                                                    end else begin
+                                                      if (M_pointer_q == 5'h17) begin
+                                                        M_user_input_5_3_d = 4'h5;
+                                                      end else begin
+                                                        if (M_pointer_q == 5'h18) begin
+                                                          M_user_input_6_0_d = 4'h5;
+                                                        end else begin
+                                                          if (M_pointer_q == 5'h19) begin
+                                                            M_user_input_6_1_d = 4'h5;
+                                                          end else begin
+                                                            if (M_pointer_q == 5'h1a) begin
+                                                              M_user_input_6_2_d = 4'h5;
+                                                            end else begin
+                                                              if (M_pointer_q == 5'h1b) begin
+                                                                M_user_input_6_3_d = 4'h5;
+                                                              end
+                                                            end
+                                                          end
+                                                        end
+                                                      end
+                                                    end
+                                                  end
+                                                end
+                                              end
+                                            end
+                                          end
+                                        end
+                                      end
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        M_state_d = STATE_GREEN1_state;
+      end
+      STATE_GREEN1_state: begin
         if (toggle) begin
           M_state_d = STATE_BLUE_state;
         end else begin
@@ -260,6 +617,7 @@ module game_FSM_8 (
             M_state_d = INIT_state;
           end else begin
             if (enter) begin
+              M_pointer_d = M_pointer_q + 1'h1;
               if (M_check_state_q == 1'h0) begin
                 M_user_input_d[12+3-:4] = 4'h5;
               end else begin
@@ -282,7 +640,121 @@ module game_FSM_8 (
         end
       end
       STATE_BLUE_state: begin
-        led_out = 4'h3;
+        M_led_reg_d = 4'h3;
+        if (M_pointer_q == 1'h0) begin
+          M_user_input_0_0_d = 4'h3;
+        end else begin
+          if (M_pointer_q == 1'h1) begin
+            M_user_input_0_1_d = 4'h3;
+          end else begin
+            if (M_pointer_q == 2'h2) begin
+              M_user_input_0_2_d = 4'h3;
+            end else begin
+              if (M_pointer_q == 2'h3) begin
+                M_user_input_0_3_d = 4'h3;
+              end else begin
+                if (M_pointer_q == 3'h4) begin
+                  M_user_input_1_0_d = 4'h3;
+                end else begin
+                  if (M_pointer_q == 3'h5) begin
+                    M_user_input_1_1_d = 4'h3;
+                  end else begin
+                    if (M_pointer_q == 3'h6) begin
+                      M_user_input_1_2_d = 4'h3;
+                    end else begin
+                      if (M_pointer_q == 3'h7) begin
+                        M_user_input_1_3_d = 4'h3;
+                      end else begin
+                        if (M_pointer_q == 4'h8) begin
+                          M_user_input_2_0_d = 4'h3;
+                        end else begin
+                          if (M_pointer_q == 4'h9) begin
+                            M_user_input_2_1_d = 4'h3;
+                          end else begin
+                            if (M_pointer_q == 4'ha) begin
+                              M_user_input_2_2_d = 4'h3;
+                            end else begin
+                              if (M_pointer_q == 4'hb) begin
+                                M_user_input_2_3_d = 4'h3;
+                              end else begin
+                                if (M_pointer_q == 4'hc) begin
+                                  M_user_input_3_0_d = 4'h3;
+                                end else begin
+                                  if (M_pointer_q == 4'hd) begin
+                                    M_user_input_3_1_d = 4'h3;
+                                  end else begin
+                                    if (M_pointer_q == 4'he) begin
+                                      M_user_input_3_2_d = 4'h3;
+                                    end else begin
+                                      if (M_pointer_q == 4'hf) begin
+                                        M_user_input_3_3_d = 4'h3;
+                                      end else begin
+                                        if (M_pointer_q == 5'h10) begin
+                                          M_user_input_4_0_d = 4'h3;
+                                        end else begin
+                                          if (M_pointer_q == 5'h11) begin
+                                            M_user_input_4_1_d = 4'h3;
+                                          end else begin
+                                            if (M_pointer_q == 5'h12) begin
+                                              M_user_input_4_2_d = 4'h3;
+                                            end else begin
+                                              if (M_pointer_q == 5'h13) begin
+                                                M_user_input_4_3_d = 4'h3;
+                                              end else begin
+                                                if (M_pointer_q == 5'h14) begin
+                                                  M_user_input_5_0_d = 4'h3;
+                                                end else begin
+                                                  if (M_pointer_q == 5'h15) begin
+                                                    M_user_input_5_1_d = 4'h3;
+                                                  end else begin
+                                                    if (M_pointer_q == 5'h16) begin
+                                                      M_user_input_5_2_d = 4'h3;
+                                                    end else begin
+                                                      if (M_pointer_q == 5'h17) begin
+                                                        M_user_input_5_3_d = 4'h3;
+                                                      end else begin
+                                                        if (M_pointer_q == 5'h18) begin
+                                                          M_user_input_6_0_d = 4'h3;
+                                                        end else begin
+                                                          if (M_pointer_q == 5'h19) begin
+                                                            M_user_input_6_1_d = 4'h3;
+                                                          end else begin
+                                                            if (M_pointer_q == 5'h1a) begin
+                                                              M_user_input_6_2_d = 4'h3;
+                                                            end else begin
+                                                              if (M_pointer_q == 5'h1b) begin
+                                                                M_user_input_6_3_d = 4'h3;
+                                                              end
+                                                            end
+                                                          end
+                                                        end
+                                                      end
+                                                    end
+                                                  end
+                                                end
+                                              end
+                                            end
+                                          end
+                                        end
+                                      end
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        M_state_d = STATE_BLUE1_state;
+      end
+      STATE_BLUE1_state: begin
         if (toggle) begin
           M_state_d = STATE_RED_state;
         end else begin
@@ -290,6 +762,7 @@ module game_FSM_8 (
             M_state_d = INIT_state;
           end else begin
             if (enter) begin
+              M_pointer_d = M_pointer_q + 1'h1;
               if (M_check_state_q == 1'h0) begin
                 M_user_input_d[12+3-:4] = 4'h3;
               end else begin
@@ -582,7 +1055,7 @@ module game_FSM_8 (
         if (M_temp_input_cow_q[12+3-:4] == M_temp_ans_cow_q[0+3-:4]) begin
           M_cow_count_d = M_cow_count_q + 1'h1;
           M_temp_ans_cow_d[0+3-:4] = 4'hf;
-          M_state_d = CHECK_BULL_COW_CMPLE_state;
+          M_state_d = CHECK_BULL_COW_state;
         end else begin
           M_state_d = CHECK_COW_3_1_state;
         end
@@ -591,7 +1064,7 @@ module game_FSM_8 (
         if (M_temp_input_cow_q[12+3-:4] == M_temp_ans_cow_q[4+3-:4]) begin
           M_cow_count_d = M_cow_count_q + 1'h1;
           M_temp_ans_cow_d[4+3-:4] = 4'hf;
-          M_state_d = CHECK_BULL_COW_CMPLE_state;
+          M_state_d = CHECK_BULL_COW_state;
         end else begin
           M_state_d = CHECK_COW_3_2_state;
         end
@@ -600,7 +1073,7 @@ module game_FSM_8 (
         if (M_temp_input_cow_q[12+3-:4] == M_temp_ans_cow_q[8+3-:4]) begin
           M_cow_count_d = M_cow_count_q + 1'h1;
           M_temp_ans_cow_d[8+3-:4] = 4'hf;
-          M_state_d = CHECK_BULL_COW_CMPLE_state;
+          M_state_d = CHECK_BULL_COW_state;
         end else begin
           M_state_d = CHECK_COW_3_3_state;
         end
@@ -609,10 +1082,440 @@ module game_FSM_8 (
         if (M_temp_input_cow_q[12+3-:4] == M_temp_ans_cow_q[12+3-:4]) begin
           M_cow_count_d = M_cow_count_q + 1'h1;
           M_temp_ans_cow_d[12+3-:4] = 4'hf;
-          M_state_d = CHECK_BULL_COW_CMPLE_state;
+          M_state_d = CHECK_BULL_COW_state;
         end else begin
-          M_state_d = CHECK_BULL_COW_CMPLE_state;
+          M_state_d = CHECK_BULL_COW_state;
         end
+      end
+      CHECK_BULL_COW_state: begin
+        if (M_check_row_q == 1'h1) begin
+          if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h0) begin
+            M_bull_cow_0_d = 16'h0000;
+          end else begin
+            if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h1) begin
+              M_bull_cow_0_d = 16'h0007;
+            end else begin
+              if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h2) begin
+                M_bull_cow_0_d = 16'h0077;
+              end else begin
+                if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h3) begin
+                  M_bull_cow_0_d = 16'h0777;
+                end else begin
+                  if (M_bull_count_q == 1'h0 && M_cow_count_q == 3'h4) begin
+                    M_bull_cow_0_d = 16'h7777;
+                  end else begin
+                    if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h0) begin
+                      M_bull_cow_0_d = 16'h000d;
+                    end else begin
+                      if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h1) begin
+                        M_bull_cow_0_d = 16'h007d;
+                      end else begin
+                        if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h2) begin
+                          M_bull_cow_0_d = 16'h077d;
+                        end else begin
+                          if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h3) begin
+                            M_bull_cow_0_d = 16'h777d;
+                          end else begin
+                            if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h0) begin
+                              M_bull_cow_0_d = 16'h00dd;
+                            end else begin
+                              if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h1) begin
+                                M_bull_cow_0_d = 16'h07dd;
+                              end else begin
+                                if (M_bull_count_q == 2'h2 && M_cow_count_q == 2'h2) begin
+                                  M_bull_cow_0_d = 16'h77dd;
+                                end else begin
+                                  if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h0) begin
+                                    M_bull_cow_0_d = 16'h0ddd;
+                                  end else begin
+                                    if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h1) begin
+                                      M_bull_cow_0_d = 16'h7ddd;
+                                    end else begin
+                                      if (M_bull_count_q == 3'h4 && M_cow_count_q == 1'h0) begin
+                                        M_bull_cow_0_d = 16'hdddd;
+                                      end
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        if (M_check_row_q == 2'h2) begin
+          if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h0) begin
+            M_bull_cow_1_d = 16'h0000;
+          end else begin
+            if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h1) begin
+              M_bull_cow_1_d = 16'h0007;
+            end else begin
+              if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h2) begin
+                M_bull_cow_1_d = 16'h0077;
+              end else begin
+                if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h3) begin
+                  M_bull_cow_1_d = 16'h0777;
+                end else begin
+                  if (M_bull_count_q == 1'h0 && M_cow_count_q == 3'h4) begin
+                    M_bull_cow_1_d = 16'h7777;
+                  end else begin
+                    if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h0) begin
+                      M_bull_cow_1_d = 16'h000d;
+                    end else begin
+                      if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h1) begin
+                        M_bull_cow_1_d = 16'h007d;
+                      end else begin
+                        if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h2) begin
+                          M_bull_cow_1_d = 16'h077d;
+                        end else begin
+                          if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h3) begin
+                            M_bull_cow_1_d = 16'h777d;
+                          end else begin
+                            if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h0) begin
+                              M_bull_cow_1_d = 16'h00dd;
+                            end else begin
+                              if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h1) begin
+                                M_bull_cow_1_d = 16'h07dd;
+                              end else begin
+                                if (M_bull_count_q == 2'h2 && M_cow_count_q == 2'h2) begin
+                                  M_bull_cow_1_d = 16'h77dd;
+                                end else begin
+                                  if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h0) begin
+                                    M_bull_cow_1_d = 16'h0ddd;
+                                  end else begin
+                                    if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h1) begin
+                                      M_bull_cow_1_d = 16'h7ddd;
+                                    end else begin
+                                      if (M_bull_count_q == 3'h4 && M_cow_count_q == 1'h0) begin
+                                        M_bull_cow_1_d = 16'hdddd;
+                                      end
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        if (M_check_row_q == 2'h3) begin
+          if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h0) begin
+            M_bull_cow_2_d = 16'h0000;
+          end else begin
+            if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h1) begin
+              M_bull_cow_2_d = 16'h0007;
+            end else begin
+              if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h2) begin
+                M_bull_cow_2_d = 16'h0077;
+              end else begin
+                if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h3) begin
+                  M_bull_cow_2_d = 16'h0777;
+                end else begin
+                  if (M_bull_count_q == 1'h0 && M_cow_count_q == 3'h4) begin
+                    M_bull_cow_2_d = 16'h7777;
+                  end else begin
+                    if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h0) begin
+                      M_bull_cow_2_d = 16'h000d;
+                    end else begin
+                      if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h1) begin
+                        M_bull_cow_2_d = 16'h007d;
+                      end else begin
+                        if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h2) begin
+                          M_bull_cow_2_d = 16'h077d;
+                        end else begin
+                          if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h3) begin
+                            M_bull_cow_2_d = 16'h777d;
+                          end else begin
+                            if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h0) begin
+                              M_bull_cow_2_d = 16'h00dd;
+                            end else begin
+                              if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h1) begin
+                                M_bull_cow_2_d = 16'h07dd;
+                              end else begin
+                                if (M_bull_count_q == 2'h2 && M_cow_count_q == 2'h2) begin
+                                  M_bull_cow_2_d = 16'h77dd;
+                                end else begin
+                                  if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h0) begin
+                                    M_bull_cow_2_d = 16'h0ddd;
+                                  end else begin
+                                    if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h1) begin
+                                      M_bull_cow_2_d = 16'h7ddd;
+                                    end else begin
+                                      if (M_bull_count_q == 3'h4 && M_cow_count_q == 1'h0) begin
+                                        M_bull_cow_2_d = 16'hdddd;
+                                      end
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        if (M_check_row_q == 3'h4) begin
+          if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h0) begin
+            M_bull_cow_3_d = 16'h0000;
+          end else begin
+            if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h1) begin
+              M_bull_cow_3_d = 16'h0007;
+            end else begin
+              if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h2) begin
+                M_bull_cow_3_d = 16'h0077;
+              end else begin
+                if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h3) begin
+                  M_bull_cow_3_d = 16'h0777;
+                end else begin
+                  if (M_bull_count_q == 1'h0 && M_cow_count_q == 3'h4) begin
+                    M_bull_cow_3_d = 16'h7777;
+                  end else begin
+                    if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h0) begin
+                      M_bull_cow_3_d = 16'h000d;
+                    end else begin
+                      if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h1) begin
+                        M_bull_cow_3_d = 16'h007d;
+                      end else begin
+                        if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h2) begin
+                          M_bull_cow_3_d = 16'h077d;
+                        end else begin
+                          if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h3) begin
+                            M_bull_cow_3_d = 16'h777d;
+                          end else begin
+                            if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h0) begin
+                              M_bull_cow_3_d = 16'h00dd;
+                            end else begin
+                              if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h1) begin
+                                M_bull_cow_3_d = 16'h07dd;
+                              end else begin
+                                if (M_bull_count_q == 2'h2 && M_cow_count_q == 2'h2) begin
+                                  M_bull_cow_3_d = 16'h77dd;
+                                end else begin
+                                  if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h0) begin
+                                    M_bull_cow_3_d = 16'h0ddd;
+                                  end else begin
+                                    if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h1) begin
+                                      M_bull_cow_3_d = 16'h7ddd;
+                                    end else begin
+                                      if (M_bull_count_q == 3'h4 && M_cow_count_q == 1'h0) begin
+                                        M_bull_cow_3_d = 16'hdddd;
+                                      end
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        if (M_check_row_q == 3'h5) begin
+          if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h0) begin
+            M_bull_cow_4_d = 16'h0000;
+          end else begin
+            if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h1) begin
+              M_bull_cow_4_d = 16'h0007;
+            end else begin
+              if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h2) begin
+                M_bull_cow_4_d = 16'h0077;
+              end else begin
+                if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h3) begin
+                  M_bull_cow_4_d = 16'h0777;
+                end else begin
+                  if (M_bull_count_q == 1'h0 && M_cow_count_q == 3'h4) begin
+                    M_bull_cow_4_d = 16'h7777;
+                  end else begin
+                    if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h0) begin
+                      M_bull_cow_4_d = 16'h000d;
+                    end else begin
+                      if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h1) begin
+                        M_bull_cow_4_d = 16'h007d;
+                      end else begin
+                        if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h2) begin
+                          M_bull_cow_4_d = 16'h077d;
+                        end else begin
+                          if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h3) begin
+                            M_bull_cow_4_d = 16'h777d;
+                          end else begin
+                            if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h0) begin
+                              M_bull_cow_4_d = 16'h00dd;
+                            end else begin
+                              if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h1) begin
+                                M_bull_cow_4_d = 16'h07dd;
+                              end else begin
+                                if (M_bull_count_q == 2'h2 && M_cow_count_q == 2'h2) begin
+                                  M_bull_cow_4_d = 16'h77dd;
+                                end else begin
+                                  if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h0) begin
+                                    M_bull_cow_4_d = 16'h0ddd;
+                                  end else begin
+                                    if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h1) begin
+                                      M_bull_cow_4_d = 16'h7ddd;
+                                    end else begin
+                                      if (M_bull_count_q == 3'h4 && M_cow_count_q == 1'h0) begin
+                                        M_bull_cow_4_d = 16'hdddd;
+                                      end
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        if (M_check_row_q == 3'h6) begin
+          if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h0) begin
+            M_bull_cow_5_d = 16'h0000;
+          end else begin
+            if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h1) begin
+              M_bull_cow_5_d = 16'h0007;
+            end else begin
+              if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h2) begin
+                M_bull_cow_5_d = 16'h0077;
+              end else begin
+                if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h3) begin
+                  M_bull_cow_5_d = 16'h0777;
+                end else begin
+                  if (M_bull_count_q == 1'h0 && M_cow_count_q == 3'h4) begin
+                    M_bull_cow_5_d = 16'h7777;
+                  end else begin
+                    if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h0) begin
+                      M_bull_cow_5_d = 16'h000d;
+                    end else begin
+                      if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h1) begin
+                        M_bull_cow_5_d = 16'h007d;
+                      end else begin
+                        if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h2) begin
+                          M_bull_cow_5_d = 16'h077d;
+                        end else begin
+                          if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h3) begin
+                            M_bull_cow_5_d = 16'h777d;
+                          end else begin
+                            if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h0) begin
+                              M_bull_cow_5_d = 16'h00dd;
+                            end else begin
+                              if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h1) begin
+                                M_bull_cow_5_d = 16'h07dd;
+                              end else begin
+                                if (M_bull_count_q == 2'h2 && M_cow_count_q == 2'h2) begin
+                                  M_bull_cow_5_d = 16'h77dd;
+                                end else begin
+                                  if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h0) begin
+                                    M_bull_cow_5_d = 16'h0ddd;
+                                  end else begin
+                                    if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h1) begin
+                                      M_bull_cow_5_d = 16'h7ddd;
+                                    end else begin
+                                      if (M_bull_count_q == 3'h4 && M_cow_count_q == 1'h0) begin
+                                        M_bull_cow_5_d = 16'hdddd;
+                                      end
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        if (M_check_row_q == 3'h7) begin
+          if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h0) begin
+            M_bull_cow_6_d = 16'h0000;
+          end else begin
+            if (M_bull_count_q == 1'h0 && M_cow_count_q == 1'h1) begin
+              M_bull_cow_6_d = 16'h0007;
+            end else begin
+              if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h2) begin
+                M_bull_cow_6_d = 16'h0077;
+              end else begin
+                if (M_bull_count_q == 1'h0 && M_cow_count_q == 2'h3) begin
+                  M_bull_cow_6_d = 16'h0777;
+                end else begin
+                  if (M_bull_count_q == 1'h0 && M_cow_count_q == 3'h4) begin
+                    M_bull_cow_6_d = 16'h7777;
+                  end else begin
+                    if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h0) begin
+                      M_bull_cow_6_d = 16'h000d;
+                    end else begin
+                      if (M_bull_count_q == 1'h1 && M_cow_count_q == 1'h1) begin
+                        M_bull_cow_6_d = 16'h007d;
+                      end else begin
+                        if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h2) begin
+                          M_bull_cow_6_d = 16'h077d;
+                        end else begin
+                          if (M_bull_count_q == 1'h1 && M_cow_count_q == 2'h3) begin
+                            M_bull_cow_6_d = 16'h777d;
+                          end else begin
+                            if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h0) begin
+                              M_bull_cow_6_d = 16'h00dd;
+                            end else begin
+                              if (M_bull_count_q == 2'h2 && M_cow_count_q == 1'h1) begin
+                                M_bull_cow_6_d = 16'h07dd;
+                              end else begin
+                                if (M_bull_count_q == 2'h2 && M_cow_count_q == 2'h2) begin
+                                  M_bull_cow_6_d = 16'h77dd;
+                                end else begin
+                                  if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h0) begin
+                                    M_bull_cow_6_d = 16'h0ddd;
+                                  end else begin
+                                    if (M_bull_count_q == 2'h3 && M_cow_count_q == 1'h1) begin
+                                      M_bull_cow_6_d = 16'h7ddd;
+                                    end else begin
+                                      if (M_bull_count_q == 3'h4 && M_cow_count_q == 1'h0) begin
+                                        M_bull_cow_6_d = 16'hdddd;
+                                      end
+                                    end
+                                  end
+                                end
+                              end
+                            end
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        M_state_d = CHECK_BULL_COW_CMPLE_state;
       end
       CHECK_BULL_COW_CMPLE_state: begin
         M_beta_fsmregisterbullpluscowcal = M_cow_count_q + M_bull_count_q;
@@ -664,14 +1567,18 @@ module game_FSM_8 (
         M_state_d = CHECK_BULL_INIT_state;
       end
       SUCCESS_state: begin
-        M_final_d = 8'hff;
+        M_final_d = 16'h5555;
+        pass_fail = M_final_q;
+        final_answer = M_answer_q;
         if (reset) begin
           M_check_ans_d = M_check_ans_q + 1'h1;
           M_state_d = INIT_state;
         end
       end
       FAIL_state: begin
-        M_final_d = 8'haa;
+        M_final_d = 16'h9999;
+        pass_fail = M_final_q;
+        final_answer = M_answer_q;
         if (reset) begin
           M_check_ans_d = M_check_ans_q + 1'h1;
           M_state_d = INIT_state;
@@ -685,6 +1592,8 @@ module game_FSM_8 (
       M_check_state_q <= 1'h0;
       M_check_row_q <= 1'h0;
       M_user_input_q <= 1'h0;
+      M_user_input_all_q <= 1'h0;
+      M_bull_cow_input_q <= 1'h0;
       M_temp_ans_bull_q <= 1'h0;
       M_temp_input_bull_q <= 1'h0;
       M_bull_count_q <= 1'h0;
@@ -693,16 +1602,55 @@ module game_FSM_8 (
       M_cow_count_q <= 1'h0;
       M_check_ans_q <= 1'h0;
       M_answer_q <= 1'h0;
+      M_led_reg_q <= 1'h0;
       M_final_q <= 1'h0;
       M_total_life_q <= 1'h0;
       M_reg_bull_count_q <= 1'h0;
       M_check_bull_state_q <= 1'h0;
       M_debug_reg_q <= 1'h0;
+      M_user_input_0_0_q <= 1'h0;
+      M_user_input_0_1_q <= 1'h0;
+      M_user_input_0_2_q <= 1'h0;
+      M_user_input_0_3_q <= 1'h0;
+      M_user_input_1_0_q <= 1'h0;
+      M_user_input_1_1_q <= 1'h0;
+      M_user_input_1_2_q <= 1'h0;
+      M_user_input_1_3_q <= 1'h0;
+      M_user_input_2_0_q <= 1'h0;
+      M_user_input_2_1_q <= 1'h0;
+      M_user_input_2_2_q <= 1'h0;
+      M_user_input_2_3_q <= 1'h0;
+      M_user_input_3_0_q <= 1'h0;
+      M_user_input_3_1_q <= 1'h0;
+      M_user_input_3_2_q <= 1'h0;
+      M_user_input_3_3_q <= 1'h0;
+      M_user_input_4_0_q <= 1'h0;
+      M_user_input_4_1_q <= 1'h0;
+      M_user_input_4_2_q <= 1'h0;
+      M_user_input_4_3_q <= 1'h0;
+      M_user_input_5_0_q <= 1'h0;
+      M_user_input_5_1_q <= 1'h0;
+      M_user_input_5_2_q <= 1'h0;
+      M_user_input_5_3_q <= 1'h0;
+      M_user_input_6_0_q <= 1'h0;
+      M_user_input_6_1_q <= 1'h0;
+      M_user_input_6_2_q <= 1'h0;
+      M_user_input_6_3_q <= 1'h0;
+      M_pointer_q <= 1'h0;
+      M_bull_cow_0_q <= 1'h0;
+      M_bull_cow_1_q <= 1'h0;
+      M_bull_cow_2_q <= 1'h0;
+      M_bull_cow_3_q <= 1'h0;
+      M_bull_cow_4_q <= 1'h0;
+      M_bull_cow_5_q <= 1'h0;
+      M_bull_cow_6_q <= 1'h0;
       M_state_q <= 1'h0;
     end else begin
       M_check_state_q <= M_check_state_d;
       M_check_row_q <= M_check_row_d;
       M_user_input_q <= M_user_input_d;
+      M_user_input_all_q <= M_user_input_all_d;
+      M_bull_cow_input_q <= M_bull_cow_input_d;
       M_temp_ans_bull_q <= M_temp_ans_bull_d;
       M_temp_input_bull_q <= M_temp_input_bull_d;
       M_bull_count_q <= M_bull_count_d;
@@ -711,11 +1659,48 @@ module game_FSM_8 (
       M_cow_count_q <= M_cow_count_d;
       M_check_ans_q <= M_check_ans_d;
       M_answer_q <= M_answer_d;
+      M_led_reg_q <= M_led_reg_d;
       M_final_q <= M_final_d;
       M_total_life_q <= M_total_life_d;
       M_reg_bull_count_q <= M_reg_bull_count_d;
       M_check_bull_state_q <= M_check_bull_state_d;
       M_debug_reg_q <= M_debug_reg_d;
+      M_user_input_0_0_q <= M_user_input_0_0_d;
+      M_user_input_0_1_q <= M_user_input_0_1_d;
+      M_user_input_0_2_q <= M_user_input_0_2_d;
+      M_user_input_0_3_q <= M_user_input_0_3_d;
+      M_user_input_1_0_q <= M_user_input_1_0_d;
+      M_user_input_1_1_q <= M_user_input_1_1_d;
+      M_user_input_1_2_q <= M_user_input_1_2_d;
+      M_user_input_1_3_q <= M_user_input_1_3_d;
+      M_user_input_2_0_q <= M_user_input_2_0_d;
+      M_user_input_2_1_q <= M_user_input_2_1_d;
+      M_user_input_2_2_q <= M_user_input_2_2_d;
+      M_user_input_2_3_q <= M_user_input_2_3_d;
+      M_user_input_3_0_q <= M_user_input_3_0_d;
+      M_user_input_3_1_q <= M_user_input_3_1_d;
+      M_user_input_3_2_q <= M_user_input_3_2_d;
+      M_user_input_3_3_q <= M_user_input_3_3_d;
+      M_user_input_4_0_q <= M_user_input_4_0_d;
+      M_user_input_4_1_q <= M_user_input_4_1_d;
+      M_user_input_4_2_q <= M_user_input_4_2_d;
+      M_user_input_4_3_q <= M_user_input_4_3_d;
+      M_user_input_5_0_q <= M_user_input_5_0_d;
+      M_user_input_5_1_q <= M_user_input_5_1_d;
+      M_user_input_5_2_q <= M_user_input_5_2_d;
+      M_user_input_5_3_q <= M_user_input_5_3_d;
+      M_user_input_6_0_q <= M_user_input_6_0_d;
+      M_user_input_6_1_q <= M_user_input_6_1_d;
+      M_user_input_6_2_q <= M_user_input_6_2_d;
+      M_user_input_6_3_q <= M_user_input_6_3_d;
+      M_pointer_q <= M_pointer_d;
+      M_bull_cow_0_q <= M_bull_cow_0_d;
+      M_bull_cow_1_q <= M_bull_cow_1_d;
+      M_bull_cow_2_q <= M_bull_cow_2_d;
+      M_bull_cow_3_q <= M_bull_cow_3_d;
+      M_bull_cow_4_q <= M_bull_cow_4_d;
+      M_bull_cow_5_q <= M_bull_cow_5_d;
+      M_bull_cow_6_q <= M_bull_cow_6_d;
       M_state_q <= M_state_d;
     end
   end
