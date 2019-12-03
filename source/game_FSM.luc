@@ -93,7 +93,7 @@ module game_FSM(
     dff check_ans[4]; // to rotate between ans
     dff answer[16]; // to store ans
     dff led_reg[8]; // to store led when toggle
-    dff final[16]; // final state
+    dff final[8]; // final state
     dff total_life[16]; // total number of lives/rows
     dff reg_bull_count[16]; // register to store total number of bull count from alu
     
@@ -154,6 +154,7 @@ module game_FSM(
         beta.alufninput = 0;
         final_answer = 0;
         pass_fail = 0;
+        // takes in all user input so that can display at output dynamically
         user_input_all.d = c{
             user_input_6_3.q,
             user_input_6_2.q,
@@ -184,6 +185,7 @@ module game_FSM(
             user_input_0_1.q,
             user_input_0_0.q 
         };
+        // takes in number of bulls + cows so can show the output dynamically
         bull_cow_input.d = c{
             bull_cow_6.q,
             bull_cow_5.q,
@@ -193,13 +195,13 @@ module game_FSM(
             bull_cow_1.q,
             bull_cow_0.q
         };  
+
+        // testing led out using io_led
         led_out = led_reg.q;
         led_out_1 = bull_cow_input.q[7:0];
-        // led_out_2 = user_input.q[15:8];
-        // led_out_1 = bull_count.q;
         led_out_2 = bull_cow_input.q[15:8];
         led_out_3 = check_row.q;
-        led_out_4 = final.q[7:0];
+        led_out_4 = final.q;
         user_input_112 = user_input_all.q; // output register value to real output
         bull_cow_112 = bull_cow_input.q; // output bull and cow value to real output
         
@@ -256,6 +258,7 @@ module game_FSM(
                     state.d = state.INIT;
                 }   
         
+                // different answer values generated, will rotate between each value after every success/failure
                 if (check_ans.q == 0) {
                     answer.d = 16b1001100100110011; // RRBB
                 }
@@ -315,7 +318,7 @@ module game_FSM(
                 
             state.STATE_RED:
                 led_reg.d = 4b1001;
-
+                
                 if (pointer.q == 0) {
                     user_input_0_0.d = 4b1001;
                 }
@@ -775,6 +778,7 @@ module game_FSM(
                 if (temp_ans_bull.q[3:0] == temp_input_bull.q[3:0]) {
                     temp_input_cow.d[3:0] = 4b0000;
                     temp_ans_cow.d[3:0] = 4b1111;
+                    bull_count.d = bull_count.q + 1;
                     state.d = state.CHECK_BULL_0_1;
                     
                 }
@@ -786,7 +790,6 @@ module game_FSM(
                 }
         
             state.CHECK_BULL_0_1:
-                bull_count.d = bull_count.q + 1;
                 if (bull_count.q == 1) {
                     state.d = state.CHECK_BULL_PART1;
                 }
@@ -799,6 +802,7 @@ module game_FSM(
                 if (temp_ans_bull.q[7:4] == temp_input_bull.q[7:4]) {
                     temp_input_cow.d[7:4] = 4b0000;
                     temp_ans_cow.d[7:4] = 4b1111;
+                    bull_count.d = bull_count.q + 1;
                     state.d = state.CHECK_BULL_1_1;
                 }                   
 
@@ -809,7 +813,6 @@ module game_FSM(
                 }
         
             state.CHECK_BULL_1_1:
-                bull_count.d = bull_count.q + 1;
                 if (bull_count.q == 1) {
                     state.d = state.CHECK_BULL_PART1;
                 }
@@ -822,6 +825,7 @@ module game_FSM(
                 if (temp_ans_bull.q[11:8] == temp_input_bull.q[11:8]) {
                     temp_input_cow.d[11:8] = 4b0000;
                     temp_ans_cow.d[11:8] = 4b1111;
+                    bull_count.d = bull_count.q + 1;
                     state.d = state.CHECK_BULL_2_1;
                     
                 }          
@@ -833,7 +837,6 @@ module game_FSM(
                 }
         
             state.CHECK_BULL_2_1:
-                bull_count.d = bull_count.q + 1;
                 if (bull_count.q == 1) {
                     state.d = state.CHECK_BULL_PART1;
                 }
@@ -842,11 +845,11 @@ module game_FSM(
                 }
         
             state.CHECK_BULL_3:
-                check_bull_state.d = 3;
-                
+                check_bull_state.d = 3;  
                 if (temp_ans_bull.q[15:12] == temp_input_bull.q[15:12]) {
                     temp_input_cow.d[15:12] = 4b0000;
                     temp_ans_cow.d[15:12] = 4b1111;
+                    bull_count.d = bull_count.q + 1;
                     state.d = state.CHECK_BULL_3_1;
                     
                 }          
@@ -858,8 +861,6 @@ module game_FSM(
                 }
 
             state.CHECK_BULL_3_1:
-                // debug_reg.d = 8b01010101;
-                bull_count.d = bull_count.q + 1;
                 if (bull_count.q == 1) {
                     state.d = state.CHECK_BULL_PART1;
                 }
@@ -1600,7 +1601,7 @@ module game_FSM(
                 state.d = state.CHECK_BULL_INIT;
         
             state.SUCCESS:
-                final.d = 16b0101010101010101;
+                final.d = 8b11111111;
                 pass_fail = final.q;
                 final_answer = answer.q; // output final ans value to real output
 
@@ -1610,7 +1611,7 @@ module game_FSM(
                 }
 
             state.FAIL:
-                final.d = 16b1001100110011001;
+                final.d = 8b10101010;
                 pass_fail = final.q;
                 final_answer = answer.q; // output final ans value to real output
 
