@@ -71,10 +71,11 @@ module game_FSM_14 (
   localparam CHECK_LIFE_PART2_2_state = 6'd45;
   localparam CHECK_BULL_COW_CMPLE_state = 6'd46;
   localparam CHECK_BULL_COW_CMPLE_2_state = 6'd47;
-  localparam CHECK_BULL_state = 6'd48;
-  localparam CHECK_BULL_COW_state = 6'd49;
-  localparam SUCCESS_state = 6'd50;
-  localparam FAIL_state = 6'd51;
+  localparam CHECK_BULL_COW_CMPLE_3_state = 6'd48;
+  localparam CHECK_BULL_state = 6'd49;
+  localparam CHECK_BULL_COW_state = 6'd50;
+  localparam SUCCESS_state = 6'd51;
+  localparam FAIL_state = 6'd52;
   
   reg [5:0] M_state_d, M_state_q = INIT_ANS_state;
   reg [2:0] M_check_state_d, M_check_state_q = 1'h0;
@@ -95,7 +96,7 @@ module game_FSM_14 (
   reg [15:0] M_total_life_d, M_total_life_q = 1'h0;
   reg [15:0] M_reg_bull_count_d, M_reg_bull_count_q = 1'h0;
   reg [2:0] M_check_bull_state_d, M_check_bull_state_q = 1'h0;
-  reg [7:0] M_debug_reg_d, M_debug_reg_q = 1'h0;
+  reg [7:0] M_reg_bull_cow_d, M_reg_bull_cow_q = 1'h0;
   reg [3:0] M_user_input_0_0_d, M_user_input_0_0_q = 1'h0;
   reg [3:0] M_user_input_0_1_d, M_user_input_0_1_q = 1'h0;
   reg [3:0] M_user_input_0_2_d, M_user_input_0_2_q = 1'h0;
@@ -143,11 +144,11 @@ module game_FSM_14 (
   wire [16-1:0] M_beta_fsmregisterlife;
   wire [16-1:0] M_beta_fsmregisterbull;
   wire [16-1:0] M_beta_fsmregisterbullpluscow;
-  reg [1-1:0] M_beta_fsmregisterbullpluscowcal;
-  reg [1-1:0] M_beta_alufninput;
-  reg [1-1:0] M_beta_demuxinput;
-  reg [1-1:0] M_beta_aselinput;
-  reg [1-1:0] M_beta_bselinput;
+  reg [16-1:0] M_beta_fsmregisterbullpluscowcal;
+  reg [6-1:0] M_beta_alufninput;
+  reg [2-1:0] M_beta_demuxinput;
+  reg [3-1:0] M_beta_aselinput;
+  reg [3-1:0] M_beta_bselinput;
   beta_29 beta (
     .clk(clk),
     .rst(rst),
@@ -212,6 +213,7 @@ module game_FSM_14 (
     M_user_input_2_1_d = M_user_input_2_1_q;
     M_user_input_2_0_d = M_user_input_2_0_q;
     M_user_input_2_3_d = M_user_input_2_3_q;
+    M_reg_bull_cow_d = M_reg_bull_cow_q;
     M_user_input_2_2_d = M_user_input_2_2_q;
     M_bull_count_d = M_bull_count_q;
     M_user_input_1_1_d = M_user_input_1_1_q;
@@ -236,10 +238,10 @@ module game_FSM_14 (
     M_user_input_all_d = {M_user_input_6_3_q, M_user_input_6_2_q, M_user_input_6_1_q, M_user_input_6_0_q, M_user_input_5_3_q, M_user_input_5_2_q, M_user_input_5_1_q, M_user_input_5_0_q, M_user_input_4_3_q, M_user_input_4_2_q, M_user_input_4_1_q, M_user_input_4_0_q, M_user_input_3_3_q, M_user_input_3_2_q, M_user_input_3_1_q, M_user_input_3_0_q, M_user_input_2_3_q, M_user_input_2_2_q, M_user_input_2_1_q, M_user_input_2_0_q, M_user_input_1_3_q, M_user_input_1_2_q, M_user_input_1_1_q, M_user_input_1_0_q, M_user_input_0_3_q, M_user_input_0_2_q, M_user_input_0_1_q, M_user_input_0_0_q};
     M_bull_cow_input_d = {M_bull_cow_6_q, M_bull_cow_5_q, M_bull_cow_4_q, M_bull_cow_3_q, M_bull_cow_2_q, M_bull_cow_1_q, M_bull_cow_0_q};
     led_out = M_led_reg_q;
-    led_out_1 = M_bull_cow_input_q[0+7-:8];
-    led_out_2 = M_bull_cow_input_q[8+7-:8];
+    led_out_1 = M_reg_bull_cow_q;
+    led_out_2 = M_bull_count_q;
     led_out_3 = M_check_row_q;
-    led_out_4 = M_final_q;
+    led_out_4 = M_final_q[0+7-:8];
     user_input_112 = M_user_input_all_q;
     bull_cow_112 = M_bull_cow_input_q;
     
@@ -800,6 +802,8 @@ module game_FSM_14 (
       CHECK_BULL_INIT_state: begin
         M_temp_ans_bull_d = M_answer_q;
         M_temp_input_bull_d = M_user_input_q;
+        M_temp_input_cow_d = 1'h0;
+        M_temp_ans_cow_d = 1'h0;
         M_bull_count_d = 1'h0;
         M_reg_bull_count_d = 1'h0;
         M_check_bull_state_d = 1'h0;
@@ -810,6 +814,7 @@ module game_FSM_14 (
         if (M_temp_ans_bull_q[0+3-:4] == M_temp_input_bull_q[0+3-:4]) begin
           M_temp_input_cow_d[0+3-:4] = 4'h0;
           M_temp_ans_cow_d[0+3-:4] = 4'hf;
+          M_bull_count_d = M_bull_count_q + 1'h1;
           M_state_d = CHECK_BULL_0_1_state;
         end else begin
           M_temp_input_cow_d[0+3-:4] = M_temp_input_bull_q[0+3-:4];
@@ -818,7 +823,6 @@ module game_FSM_14 (
         end
       end
       CHECK_BULL_0_1_state: begin
-        M_bull_count_d = M_bull_count_q + 1'h1;
         if (M_bull_count_q == 1'h1) begin
           M_state_d = CHECK_BULL_PART1_state;
         end else begin
@@ -830,6 +834,7 @@ module game_FSM_14 (
         if (M_temp_ans_bull_q[4+3-:4] == M_temp_input_bull_q[4+3-:4]) begin
           M_temp_input_cow_d[4+3-:4] = 4'h0;
           M_temp_ans_cow_d[4+3-:4] = 4'hf;
+          M_bull_count_d = M_bull_count_q + 1'h1;
           M_state_d = CHECK_BULL_1_1_state;
         end else begin
           M_temp_input_cow_d[4+3-:4] = M_temp_input_bull_q[4+3-:4];
@@ -838,7 +843,6 @@ module game_FSM_14 (
         end
       end
       CHECK_BULL_1_1_state: begin
-        M_bull_count_d = M_bull_count_q + 1'h1;
         if (M_bull_count_q == 1'h1) begin
           M_state_d = CHECK_BULL_PART1_state;
         end else begin
@@ -850,6 +854,7 @@ module game_FSM_14 (
         if (M_temp_ans_bull_q[8+3-:4] == M_temp_input_bull_q[8+3-:4]) begin
           M_temp_input_cow_d[8+3-:4] = 4'h0;
           M_temp_ans_cow_d[8+3-:4] = 4'hf;
+          M_bull_count_d = M_bull_count_q + 1'h1;
           M_state_d = CHECK_BULL_2_1_state;
         end else begin
           M_temp_input_cow_d[8+3-:4] = M_temp_input_bull_q[8+3-:4];
@@ -858,7 +863,6 @@ module game_FSM_14 (
         end
       end
       CHECK_BULL_2_1_state: begin
-        M_bull_count_d = M_bull_count_q + 1'h1;
         if (M_bull_count_q == 1'h1) begin
           M_state_d = CHECK_BULL_PART1_state;
         end else begin
@@ -870,6 +874,7 @@ module game_FSM_14 (
         if (M_temp_ans_bull_q[12+3-:4] == M_temp_input_bull_q[12+3-:4]) begin
           M_temp_input_cow_d[12+3-:4] = 4'h0;
           M_temp_ans_cow_d[12+3-:4] = 4'hf;
+          M_bull_count_d = M_bull_count_q + 1'h1;
           M_state_d = CHECK_BULL_3_1_state;
         end else begin
           M_temp_input_cow_d[12+3-:4] = M_temp_input_bull_q[12+3-:4];
@@ -878,7 +883,6 @@ module game_FSM_14 (
         end
       end
       CHECK_BULL_3_1_state: begin
-        M_bull_count_d = M_bull_count_q + 1'h1;
         if (M_bull_count_q == 1'h1) begin
           M_state_d = CHECK_BULL_PART1_state;
         end else begin
@@ -893,7 +897,7 @@ module game_FSM_14 (
         M_state_d = CHECK_BULL_PART1_2_state;
       end
       CHECK_BULL_PART1_2_state: begin
-        M_reg_bull_count_d = M_beta_fsmregisterbull;
+        M_reg_bull_count_d = M_beta_fsmregisterbull[0+7-:8];
         if (M_check_bull_state_q == 1'h0) begin
           M_state_d = CHECK_BULL_1_state;
         end else begin
@@ -918,7 +922,7 @@ module game_FSM_14 (
         M_state_d = CHECK_BULL_PART2_2_state;
       end
       CHECK_BULL_PART2_2_state: begin
-        M_reg_bull_count_d = M_beta_fsmregisterbull;
+        M_reg_bull_count_d = M_beta_fsmregisterbull[0+7-:8];
         if (M_check_bull_state_q == 1'h0) begin
           M_state_d = CHECK_BULL_1_state;
         end else begin
@@ -934,6 +938,10 @@ module game_FSM_14 (
             end
           end
         end
+      end
+      CHECK_SUCCESS_state: begin
+        M_check_row_d = M_check_row_q + 1'h1;
+        M_state_d = CHECK_BULL_state;
       end
       CHECK_SUCCESS_state: begin
         M_check_row_d = M_check_row_q + 1'h1;
@@ -1519,26 +1527,28 @@ module game_FSM_14 (
       end
       CHECK_BULL_COW_CMPLE_state: begin
         M_beta_fsmregisterbullpluscowcal = M_cow_count_q + M_bull_count_q;
+        M_reg_bull_cow_d = M_cow_count_q + M_bull_count_q;
         M_beta_aselinput = 3'h7;
         M_beta_bselinput = 3'h7;
         M_beta_demuxinput = 2'h3;
         M_beta_alufninput = 6'h37;
-        M_state_d = CHECK_BULL_COW_CMPLE_2_state;
-      end
-      CHECK_BULL_COW_CMPLE_2_state: begin
-        if (M_beta_fsmregisterbullpluscow == 1'h0) begin
+        if (M_beta_fsmregisterbullpluscow[0+7-:8] == 1'h1) begin
           M_state_d = START_state;
+        end else begin
+          if (M_reg_bull_cow_q < 3'h4) begin
+            M_state_d = START_state;
+          end
         end
       end
       CHECK_BULL_state: begin
-        if (M_bull_count_q == 3'h4) begin
+        if (M_reg_bull_count_q == 3'h4) begin
           M_cow_count_d = 1'h0;
           M_state_d = SUCCESS_state;
         end else begin
-          if (M_bull_count_q < 3'h4 && M_check_row_q == 3'h7) begin
+          if (M_reg_bull_count_q < 3'h4 && M_check_row_q == 3'h7) begin
             M_state_d = FAIL_state;
           end else begin
-            if (M_bull_count_q < 3'h4 && M_check_row_q < 3'h7) begin
+            if (M_reg_bull_count_q < 3'h4 && M_check_row_q < 3'h7) begin
               M_state_d = CHECK_COW_INIT_state;
             end
           end
@@ -1607,7 +1617,7 @@ module game_FSM_14 (
       M_total_life_q <= 1'h0;
       M_reg_bull_count_q <= 1'h0;
       M_check_bull_state_q <= 1'h0;
-      M_debug_reg_q <= 1'h0;
+      M_reg_bull_cow_q <= 1'h0;
       M_user_input_0_0_q <= 1'h0;
       M_user_input_0_1_q <= 1'h0;
       M_user_input_0_2_q <= 1'h0;
@@ -1664,7 +1674,7 @@ module game_FSM_14 (
       M_total_life_q <= M_total_life_d;
       M_reg_bull_count_q <= M_reg_bull_count_d;
       M_check_bull_state_q <= M_check_bull_state_d;
-      M_debug_reg_q <= M_debug_reg_d;
+      M_reg_bull_cow_q <= M_reg_bull_cow_d;
       M_user_input_0_0_q <= M_user_input_0_0_d;
       M_user_input_0_1_q <= M_user_input_0_1_d;
       M_user_input_0_2_q <= M_user_input_0_2_d;

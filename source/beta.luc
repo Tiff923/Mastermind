@@ -1,11 +1,11 @@
 module beta (
     input clk,  // clock
     input rst,  // reset
-    input fsmregisterbullpluscowcal, 
-    input alufninput,
-    input demuxinput, 
-    input aselinput, 
-    input bselinput, 
+    input fsmregisterbullpluscowcal[16], 
+    input alufninput[6],
+    input demuxinput[2], 
+    input aselinput[3], 
+    input bselinput[3], 
     
     output guess_out[13],
     output check_answer_out[13],
@@ -41,7 +41,7 @@ module beta (
       //game_FSM mastermind_controlunit;
       dff registerlife[16];
       dff registerbull[16];
-      //dff registerbullpluscow[16];
+      // dff registerbullpluscow[16];
 /*
       fsm state = { 
       REMAININGLIFESEVEN,

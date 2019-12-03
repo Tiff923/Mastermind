@@ -14,85 +14,28 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 60: Assignment to <arg fmt="%s" index="1">M_mastermind_alu_n</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="295" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 88: case condition never applies
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 160: Assignment to <arg fmt="%s" index="1">M_beta_guess_out</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="295" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 91: case condition never applies
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 161: Assignment to <arg fmt="%s" index="1">M_beta_check_answer_out</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="295" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 94: case condition never applies
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 162: Assignment to <arg fmt="%s" index="1">M_beta_led_1</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="295" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 111: case condition never applies
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 163: Assignment to <arg fmt="%s" index="1">M_beta_led_2</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="295" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 114: case condition never applies
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 164: Assignment to <arg fmt="%s" index="1">M_beta_led_3</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="295" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 117: case condition never applies
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 165: Assignment to <arg fmt="%s" index="1">M_beta_led_4</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="295" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 132: case condition never applies
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 166: Assignment to <arg fmt="%s" index="1">M_beta_led_5</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="295" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 135: case condition never applies
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 159: Assignment to <arg fmt="%s" index="1">M_beta_guess_out</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 160: Assignment to <arg fmt="%s" index="1">M_beta_check_answer_out</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 161: Assignment to <arg fmt="%s" index="1">M_beta_led_1</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 162: Assignment to <arg fmt="%s" index="1">M_beta_led_2</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 163: Assignment to <arg fmt="%s" index="1">M_beta_led_3</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 164: Assignment to <arg fmt="%s" index="1">M_beta_led_4</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 165: Assignment to <arg fmt="%s" index="1">M_beta_led_5</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 166: Assignment to <arg fmt="%s" index="1">M_beta_led_6</arg> ignored, since the identifier is never used
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 242: Result of <arg fmt="%d" index="1">16</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">8</arg>-bit target.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 892: Result of <arg fmt="%d" index="1">2</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 914: Result of <arg fmt="%d" index="1">2</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 917: Result of <arg fmt="%d" index="1">2</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1521: Result of <arg fmt="%d" index="1">3</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1522: Result of <arg fmt="%d" index="1">3</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1523: Result of <arg fmt="%d" index="1">3</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1524: Result of <arg fmt="%d" index="1">2</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1525: Result of <arg fmt="%d" index="1">6</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1559: Result of <arg fmt="%d" index="1">2</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1590: Assignment to <arg fmt="%s" index="1">M_debug_reg_q</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 167: Assignment to <arg fmt="%s" index="1">M_beta_led_6</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">io_button&lt;0:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -122,34 +65,28 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">avr_rx_busy</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">151</arg>: Output port &lt;<arg fmt="%s" index="3">guess_out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">152</arg>: Output port &lt;<arg fmt="%s" index="3">guess_out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">151</arg>: Output port &lt;<arg fmt="%s" index="3">check_answer_out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">152</arg>: Output port &lt;<arg fmt="%s" index="3">check_answer_out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">151</arg>: Output port &lt;<arg fmt="%s" index="3">led_1</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">152</arg>: Output port &lt;<arg fmt="%s" index="3">led_1</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">151</arg>: Output port &lt;<arg fmt="%s" index="3">led_2</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">152</arg>: Output port &lt;<arg fmt="%s" index="3">led_2</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">151</arg>: Output port &lt;<arg fmt="%s" index="3">led_3</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">152</arg>: Output port &lt;<arg fmt="%s" index="3">led_3</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">151</arg>: Output port &lt;<arg fmt="%s" index="3">led_4</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">152</arg>: Output port &lt;<arg fmt="%s" index="3">led_4</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">151</arg>: Output port &lt;<arg fmt="%s" index="3">led_5</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">152</arg>: Output port &lt;<arg fmt="%s" index="3">led_5</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">151</arg>: Output port &lt;<arg fmt="%s" index="3">led_6</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
-</msg>
-
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">151</arg>: Output port &lt;<arg fmt="%s" index="3">fsmregisterbull</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">fsmregisterbullpluscowcal</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v</arg>&quot; line <arg fmt="%s" index="2">152</arg>: Output port &lt;<arg fmt="%s" index="3">led_6</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">beta</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v</arg>&quot; line <arg fmt="%s" index="2">51</arg>: Output port &lt;<arg fmt="%s" index="3">z</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">mastermind_alu</arg>&gt; is unconnected or connected to loadless signal.
@@ -203,7 +140,22 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rst</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
+<msg type="info" file="Xst" num="3218" delta="new" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_inputAlu_b</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
 <msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">M_check_bull_state_q_2</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_cow_q_4</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_cow_q_5</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_cow_q_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_cow_q_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_led_reg_q_4</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -230,58 +182,28 @@
 <msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_final_q_13</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_count_q_8</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_1</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_count_q_9</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_2</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_count_q_10</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_3</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_count_q_11</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_4</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_count_q_12</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_5</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_count_q_13</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_count_q_14</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_7</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_8</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_9</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_10</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_11</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_12</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_13</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_14</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_registerbull_q_15</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">out_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">compare_32</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="2973" delta="new" >All outputs of instance &lt;<arg fmt="%s" index="1">mastermind_alu/compare</arg>&gt; of block &lt;<arg fmt="%s" index="2">compare_32</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">beta_29</arg>&gt;. Underlying logic will be removed.
+<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_reg_bull_count_q_15</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_FSM_14</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_final_q_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_final_q_6&gt; &lt;M_final_q_10&gt; &lt;M_final_q_14&gt; </arg>
@@ -290,7 +212,70 @@
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_final_q_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_final_q_7&gt; &lt;M_final_q_11&gt; &lt;M_final_q_15&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_registerlife_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">beta_29</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">11 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_registerlife_q_5&gt; &lt;M_registerlife_q_6&gt; &lt;M_registerlife_q_7&gt; &lt;M_registerlife_q_8&gt; &lt;M_registerlife_q_9&gt; &lt;M_registerlife_q_10&gt; &lt;M_registerlife_q_11&gt; &lt;M_registerlife_q_12&gt; &lt;M_registerlife_q_13&gt; &lt;M_registerlife_q_14&gt; &lt;M_registerlife_q_15&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_6_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_6_q_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_4_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_4_q_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_0_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_0_q_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_2_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_2_q_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_6_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_6_q_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_4_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_4_q_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_final_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_final_q_4&gt; &lt;M_final_q_8&gt; &lt;M_final_q_12&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_0_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_0_q_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_2_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_2_q_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_1_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_1_q_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_2_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_2_q_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_0_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_0_q_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_2_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_2_q_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_3_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_3_q_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_5_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_5_q_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_3_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_3_q_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_1_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_1_q_10&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_4_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_4_q_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_3_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_3_q_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_5_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_5_q_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_3_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_3_q_14&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_1_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_1_q_14&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_5_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_5_q_2&gt; </arg>
@@ -305,79 +290,13 @@
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_5_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_5_q_6&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_final_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_final_q_4&gt; &lt;M_final_q_8&gt; &lt;M_final_q_12&gt; </arg>
-</msg>
-
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_6_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_6_q_6&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_6_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_6_q_10&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_0_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_0_q_2&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_4_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_4_q_10&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_2_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_2_q_10&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_6_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_6_q_14&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_4_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_4_q_14&gt; </arg>
-</msg>
-
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_1_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_1_q_2&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_0_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_0_q_10&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_2_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_2_q_14&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_0_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_0_q_6&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_0_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_0_q_14&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_2_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_2_q_2&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_1_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_1_q_6&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_3_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_3_q_2&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_2_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_2_q_6&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_3_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_3_q_6&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_5_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_5_q_10&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_3_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_3_q_10&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_1_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_1_q_10&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_5_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_5_q_14&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_3_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_3_q_14&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_1_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_1_q_14&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_4_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_4_q_2&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_bull_cow_input_q_60</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_bull_cow_input_q_62&gt; </arg>
@@ -470,9 +389,6 @@
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_temp_ans_bull_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_FSM_14</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_temp_ans_bull_q_4&gt; &lt;M_temp_ans_bull_q_8&gt; &lt;M_temp_ans_bull_q_12&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_registerlife_q_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">beta_29</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_registerlife_q_2&gt; </arg>
-</msg>
-
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">ledout8/M_state_q</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;ledout7/M_state_q&gt; &lt;ledout6/M_state_q&gt; &lt;ledout5/M_state_q&gt; &lt;ledout4/M_state_q&gt; &lt;ledout3/M_state_q&gt; &lt;ledout2/M_state_q&gt; &lt;ledout1/M_state_q&gt; </arg>
 </msg>
 
@@ -533,9 +449,6 @@
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">ledout8/M_rst_ctr_q_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;ledout7/M_rst_ctr_q_9&gt; &lt;ledout6/M_rst_ctr_q_9&gt; &lt;ledout5/M_rst_ctr_q_9&gt; &lt;ledout4/M_rst_ctr_q_9&gt; &lt;ledout3/M_rst_ctr_q_9&gt; &lt;ledout2/M_rst_ctr_q_9&gt; &lt;ledout1/M_rst_ctr_q_9&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">game_FSM/M_total_life_q_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;game_FSM/M_total_life_q_1&gt; </arg>
-</msg>
-
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">ledout8/M_bit_ctr_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;ledout7/M_bit_ctr_q_0&gt; &lt;ledout6/M_bit_ctr_q_0&gt; &lt;ledout5/M_bit_ctr_q_0&gt; &lt;ledout4/M_bit_ctr_q_0&gt; &lt;ledout3/M_bit_ctr_q_0&gt; &lt;ledout2/M_bit_ctr_q_0&gt; &lt;ledout1/M_bit_ctr_q_0&gt; </arg>
 </msg>
 
@@ -560,13 +473,10 @@
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">ledout8/M_led_ctr_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">15 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;ledout8/M_pixel_ctr_q_1&gt; &lt;ledout7/M_led_ctr_q_0&gt; &lt;ledout7/M_pixel_ctr_q_1&gt; &lt;ledout6/M_led_ctr_q_0&gt; &lt;ledout6/M_pixel_ctr_q_1&gt; &lt;ledout5/M_led_ctr_q_0&gt; &lt;ledout5/M_pixel_ctr_q_1&gt; &lt;ledout4/M_led_ctr_q_0&gt; &lt;ledout4/M_pixel_ctr_q_1&gt; &lt;ledout3/M_led_ctr_q_0&gt; &lt;ledout3/M_pixel_ctr_q_1&gt; &lt;ledout2/M_led_ctr_q_0&gt; &lt;ledout2/M_pixel_ctr_q_1&gt; &lt;ledout1/M_led_ctr_q_0&gt; &lt;ledout1/M_pixel_ctr_q_1&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">game_FSM/M_total_life_q_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">12 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;game_FSM/M_total_life_q_14&gt; &lt;game_FSM/M_total_life_q_13&gt; &lt;game_FSM/M_total_life_q_12&gt; &lt;game_FSM/M_total_life_q_11&gt; &lt;game_FSM/M_total_life_q_10&gt; &lt;game_FSM/M_total_life_q_9&gt; &lt;game_FSM/M_total_life_q_8&gt; &lt;game_FSM/M_total_life_q_7&gt; &lt;game_FSM/M_total_life_q_6&gt; &lt;game_FSM/M_total_life_q_5&gt; &lt;game_FSM/M_total_life_q_4&gt; &lt;game_FSM/M_total_life_q_3&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">game_FSM/beta/M_registerlife_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;game_FSM/beta/M_registerlife_q_3&gt; &lt;game_FSM/beta/M_registerlife_q_0&gt; </arg>
-</msg>
-
 <msg type="info" file="Xst" num="741" delta="new" >HDL ADVISOR - A <arg fmt="%d" index="1">4</arg>-bit shift register was found for signal &lt;<arg fmt="%s" index="2">reset_cond/M_stage_q_3</arg>&gt; and currently occupies <arg fmt="%d" index="3">4</arg> logic cells (<arg fmt="%d" index="4">2</arg> slices). Removing the set/reset logic would take advantage of SRL<arg fmt="%d" index="5">32</arg> (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
+</msg>
+
+<msg type="info" file="Xst" num="2169" delta="new" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 </msg>
 
 </messages>
