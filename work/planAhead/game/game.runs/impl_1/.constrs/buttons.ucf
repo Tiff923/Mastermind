@@ -1,3 +1,9 @@
-NET "button_1" LOC = P58 | IOSTANDARD = LVTTL | PULLDOWN;
-NET "button_4" LOC = P67 | IOSTANDARD = LVTTL | PULLDOWN;
-NET "button_3" LOC = P75 | IOSTANDARD = LVTTL | PULLDOWN;
+NET "button_1" LOC = P17;
+NET "button_1" IOSTANDARD = LVTTL;
+NET "button_1" PULLDOWN;
+NET "button_4" LOC = P15;
+NET "button_4" IOSTANDARD = LVTTL;
+NET "button_4" PULLDOWN;
+NET "button_3" LOC = P12;
+NET "button_3" IOSTANDARD = LVTTL;
+NET "button_3" PULLDOWN;

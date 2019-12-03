@@ -9,7 +9,7 @@
      LED_COUNT = 8
      GROUP_COUNT = 2
 */
-module ws2812b_9 (
+module ws2812b_15 (
     input clk,
     input rst,
     input [31:0] color,

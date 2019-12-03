@@ -4,7 +4,7 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module game_FSM_8 (
+module game_FSM_14 (
     input clk,
     input rst,
     input enter,
@@ -148,7 +148,7 @@ module game_FSM_8 (
   reg [1-1:0] M_beta_demuxinput;
   reg [1-1:0] M_beta_aselinput;
   reg [1-1:0] M_beta_bselinput;
-  beta_20 beta (
+  beta_29 beta (
     .clk(clk),
     .rst(rst),
     .fsmregisterbullpluscowcal(M_beta_fsmregisterbullpluscowcal),

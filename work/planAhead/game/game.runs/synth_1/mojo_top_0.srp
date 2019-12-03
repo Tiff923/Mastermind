@@ -3,7 +3,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: mojo_top_0.prj
 
@@ -53,30 +53,30 @@ Netlist Hierarchy                  : rebuilt
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/shift_25.v" into library work
-Parsing module <shift_25>.
-Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/compare_23.v" into library work
-Parsing module <compare_23>.
-Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/boolean_24.v" into library work
-Parsing module <boolean_24>.
-Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/add_22.v" into library work
-Parsing module <add_22>.
-Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/alumodule_21.v" into library work
-Parsing module <alumodule_21>.
-Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/pipeline_17.v" into library work
-Parsing module <pipeline_17>.
-Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" into library work
-Parsing module <beta_20>.
-Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/ws2812b_9.v" into library work
-Parsing module <ws2812b_9>.
+Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/shift_34.v" into library work
+Parsing module <shift_34>.
+Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/compare_32.v" into library work
+Parsing module <compare_32>.
+Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/boolean_33.v" into library work
+Parsing module <boolean_33>.
+Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/add_31.v" into library work
+Parsing module <add_31>.
+Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/alumodule_30.v" into library work
+Parsing module <alumodule_30>.
+Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/pipeline_23.v" into library work
+Parsing module <pipeline_23>.
+Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" into library work
+Parsing module <beta_29>.
+Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/ws2812b_15.v" into library work
+Parsing module <ws2812b_15>.
 Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/reset_conditioner_1.v" into library work
 Parsing module <reset_conditioner_1>.
-Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" into library work
-Parsing module <game_FSM_8>.
+Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" into library work
+Parsing module <game_FSM_14>.
 Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/edge_detector_2.v" into library work
 Parsing module <edge_detector_2>.
-Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/button_conditioner_5.v" into library work
-Parsing module <button_conditioner_5>.
+Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/button_conditioner_8.v" into library work
+Parsing module <button_conditioner_8>.
 Analyzing Verilog file "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
 Parsing module <mojo_top_0>.
 
@@ -90,55 +90,55 @@ Elaborating module <reset_conditioner_1>.
 
 Elaborating module <edge_detector_2>.
 
-Elaborating module <button_conditioner_5>.
+Elaborating module <button_conditioner_8>.
 
-Elaborating module <pipeline_17>.
+Elaborating module <pipeline_23>.
 
-Elaborating module <game_FSM_8>.
+Elaborating module <game_FSM_14>.
 
-Elaborating module <beta_20>.
+Elaborating module <beta_29>.
 
-Elaborating module <alumodule_21>.
+Elaborating module <alumodule_30>.
 
-Elaborating module <add_22>.
+Elaborating module <add_31>.
 
-Elaborating module <compare_23>.
+Elaborating module <compare_32>.
 
-Elaborating module <boolean_24>.
+Elaborating module <boolean_33>.
 
-Elaborating module <shift_25>.
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 58: Assignment to M_mastermind_alu_z ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 59: Assignment to M_mastermind_alu_v ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 60: Assignment to M_mastermind_alu_n ignored, since the identifier is never used
-WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 88: case condition never applies
-WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 91: case condition never applies
-WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 94: case condition never applies
-WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 111: case condition never applies
-WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 114: case condition never applies
-WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 117: case condition never applies
-WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 132: case condition never applies
-WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" Line 135: case condition never applies
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 159: Assignment to M_beta_guess_out ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 160: Assignment to M_beta_check_answer_out ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 161: Assignment to M_beta_led_1 ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 162: Assignment to M_beta_led_2 ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 163: Assignment to M_beta_led_3 ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 164: Assignment to M_beta_led_4 ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 165: Assignment to M_beta_led_5 ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 166: Assignment to M_beta_led_6 ignored, since the identifier is never used
-WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 242: Result of 16-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 892: Result of 2-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 914: Result of 2-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 917: Result of 2-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 1521: Result of 3-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 1522: Result of 3-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 1523: Result of 3-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 1524: Result of 2-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 1525: Result of 6-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 1559: Result of 2-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" Line 1590: Assignment to M_debug_reg_q ignored, since the identifier is never used
+Elaborating module <shift_34>.
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 58: Assignment to M_mastermind_alu_z ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 59: Assignment to M_mastermind_alu_v ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 60: Assignment to M_mastermind_alu_n ignored, since the identifier is never used
+WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 88: case condition never applies
+WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 91: case condition never applies
+WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 94: case condition never applies
+WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 111: case condition never applies
+WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 114: case condition never applies
+WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 117: case condition never applies
+WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 132: case condition never applies
+WARNING:HDLCompiler:295 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" Line 135: case condition never applies
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 159: Assignment to M_beta_guess_out ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 160: Assignment to M_beta_check_answer_out ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 161: Assignment to M_beta_led_1 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 162: Assignment to M_beta_led_2 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 163: Assignment to M_beta_led_3 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 164: Assignment to M_beta_led_4 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 165: Assignment to M_beta_led_5 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 166: Assignment to M_beta_led_6 ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 242: Result of 16-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 892: Result of 2-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 914: Result of 2-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 917: Result of 2-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1521: Result of 3-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1522: Result of 3-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1523: Result of 3-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1524: Result of 2-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1525: Result of 6-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:413 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1559: Result of 2-bit expression is truncated to fit in 1-bit target.
+WARNING:HDLCompiler:1127 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" Line 1590: Assignment to M_debug_reg_q ignored, since the identifier is never used
 
-Elaborating module <ws2812b_9>.
+Elaborating module <ws2812b_15>.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -148,21 +148,21 @@ Synthesizing Unit <mojo_top_0>.
     Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/mojo_top_0.v".
 WARNING:Xst:647 - Input <io_button<0:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <io_button<2:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <io_dip<23:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <io_dip<23:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <cclk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_ss> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_mosi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit tristate buffer for signal <spi_miso> created at line 197
-    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 197
-    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 197
-    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 197
-    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 197
-    Found 1-bit tristate buffer for signal <avr_rx> created at line 197
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 242
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 242
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 242
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 242
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 242
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 242
     Summary:
-	inferred  16 Multiplexer(s).
+	inferred  19 Multiplexer(s).
 	inferred   6 Tristate(s).
 Unit <mojo_top_0> synthesized.
 
@@ -180,33 +180,33 @@ Synthesizing Unit <edge_detector_2>.
 	inferred   1 D-type flip-flop(s).
 Unit <edge_detector_2> synthesized.
 
-Synthesizing Unit <button_conditioner_5>.
-    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/button_conditioner_5.v".
+Synthesizing Unit <button_conditioner_8>.
+    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/button_conditioner_8.v".
     Found 20-bit register for signal <M_ctr_q>.
     Found 20-bit adder for signal <M_ctr_q[19]_GND_4_o_add_2_OUT> created at line 39.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  20 D-type flip-flop(s).
-Unit <button_conditioner_5> synthesized.
+Unit <button_conditioner_8> synthesized.
 
-Synthesizing Unit <pipeline_17>.
-    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/pipeline_17.v".
+Synthesizing Unit <pipeline_23>.
+    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/pipeline_23.v".
     Found 2-bit register for signal <M_pipe_q>.
     Summary:
 	inferred   2 D-type flip-flop(s).
-Unit <pipeline_17> synthesized.
+Unit <pipeline_23> synthesized.
 
-Synthesizing Unit <game_FSM_8>.
-    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v".
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" line 151: Output port <guess_out> of the instance <beta> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" line 151: Output port <check_answer_out> of the instance <beta> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" line 151: Output port <led_1> of the instance <beta> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" line 151: Output port <led_2> of the instance <beta> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" line 151: Output port <led_3> of the instance <beta> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" line 151: Output port <led_4> of the instance <beta> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" line 151: Output port <led_5> of the instance <beta> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" line 151: Output port <led_6> of the instance <beta> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_8.v" line 151: Output port <fsmregisterbull> of the instance <beta> is unconnected or connected to loadless signal.
+Synthesizing Unit <game_FSM_14>.
+    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v".
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" line 151: Output port <guess_out> of the instance <beta> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" line 151: Output port <check_answer_out> of the instance <beta> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" line 151: Output port <led_1> of the instance <beta> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" line 151: Output port <led_2> of the instance <beta> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" line 151: Output port <led_3> of the instance <beta> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" line 151: Output port <led_4> of the instance <beta> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" line 151: Output port <led_5> of the instance <beta> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" line 151: Output port <led_6> of the instance <beta> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/game_FSM_14.v" line 151: Output port <fsmregisterbull> of the instance <beta> is unconnected or connected to loadless signal.
     Found 3-bit register for signal <M_check_row_q>.
     Found 16-bit register for signal <M_user_input_q>.
     Found 112-bit register for signal <M_user_input_all_q>.
@@ -312,29 +312,29 @@ INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game desi
 	inferred  24 Comparator(s).
 	inferred 274 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
-Unit <game_FSM_8> synthesized.
+Unit <game_FSM_14> synthesized.
 
-Synthesizing Unit <beta_20>.
-    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v".
+Synthesizing Unit <beta_29>.
+    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v".
 WARNING:Xst:647 - Input <fsmregisterbullpluscowcal> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" line 51: Output port <z> of the instance <mastermind_alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" line 51: Output port <v> of the instance <mastermind_alu> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_20.v" line 51: Output port <n> of the instance <mastermind_alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" line 51: Output port <z> of the instance <mastermind_alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" line 51: Output port <v> of the instance <mastermind_alu> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/beta_29.v" line 51: Output port <n> of the instance <mastermind_alu> is unconnected or connected to loadless signal.
     Found 16-bit register for signal <M_registerbull_q>.
     Found 16-bit register for signal <M_registerlife_q>.
     Summary:
 	inferred  32 D-type flip-flop(s).
-Unit <beta_20> synthesized.
+Unit <beta_29> synthesized.
 
-Synthesizing Unit <alumodule_21>.
-    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/alumodule_21.v".
+Synthesizing Unit <alumodule_30>.
+    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/alumodule_30.v".
     Found 16-bit 4-to-1 multiplexer for signal <alu> created at line 96.
     Summary:
 	inferred   1 Multiplexer(s).
-Unit <alumodule_21> synthesized.
+Unit <alumodule_30> synthesized.
 
-Synthesizing Unit <add_22>.
-    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/add_22.v".
+Synthesizing Unit <add_31>.
+    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/add_31.v".
 WARNING:Xst:647 - Input <alufn<5:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -343,10 +343,10 @@ WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and lef
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred   2 Multiplexer(s).
-Unit <add_22> synthesized.
+Unit <add_31> synthesized.
 
-Synthesizing Unit <compare_23>.
-    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/compare_23.v".
+Synthesizing Unit <compare_32>.
+    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/compare_32.v".
 WARNING:Xst:647 - Input <alufn<0:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <alufn<5:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -357,18 +357,18 @@ WARNING:Xst:737 - Found 1-bit latch for signal <out<0>>. Latches may be generate
     Summary:
 	inferred   1 Latch(s).
 	inferred   2 Multiplexer(s).
-Unit <compare_23> synthesized.
+Unit <compare_32> synthesized.
 
-Synthesizing Unit <boolean_24>.
-    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/boolean_24.v".
+Synthesizing Unit <boolean_33>.
+    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/boolean_33.v".
 WARNING:Xst:647 - Input <alufn<5:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Summary:
-Unit <boolean_24> synthesized.
+Unit <boolean_33> synthesized.
 
-Synthesizing Unit <shift_25>.
-    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/shift_25.v".
+Synthesizing Unit <shift_34>.
+    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/shift_34.v".
 WARNING:Xst:647 - Input <alufn<5:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -379,10 +379,10 @@ WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and lef
     Summary:
 	inferred   4 Multiplexer(s).
 	inferred   3 Combinational logic shifter(s).
-Unit <shift_25> synthesized.
+Unit <shift_34> synthesized.
 
-Synthesizing Unit <ws2812b_9>.
-    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/ws2812b_9.v".
+Synthesizing Unit <ws2812b_15>.
+    Related source file is "D:/SUTD/term 4 sophomore/50.002 Computer Structure/1D/game design/code/game/work/planAhead/game/game.srcs/sources_1/imports/verilog/ws2812b_15.v".
     Found 3-bit register for signal <M_led_ctr_q>.
     Found 1-bit register for signal <M_current_group_led_ctr_q>.
     Found 5-bit register for signal <M_bit_ctr_q>.
@@ -411,7 +411,7 @@ Synthesizing Unit <ws2812b_9>.
 	inferred   2 Comparator(s).
 	inferred   4 Multiplexer(s).
 	inferred   3 Combinational logic shifter(s).
-Unit <ws2812b_9> synthesized.
+Unit <ws2812b_15> synthesized.
 
 =========================================================================
 HDL Synthesis Report
@@ -419,23 +419,23 @@ HDL Synthesis Report
 Macro Statistics
 # Multipliers                                          : 8
  5x1-bit multiplier                                    : 8
-# Adders/Subtractors                                   : 76
+# Adders/Subtractors                                   : 79
  1-bit adder                                           : 8
  12-bit adder                                          : 8
  16-bit adder                                          : 1
  16-bit subtractor                                     : 1
- 20-bit adder                                          : 3
+ 20-bit adder                                          : 6
  3-bit adder                                           : 13
  4-bit adder                                           : 9
  5-bit adder                                           : 17
  6-bit adder                                           : 16
-# Registers                                            : 121
- 1-bit register                                        : 19
+# Registers                                            : 130
+ 1-bit register                                        : 22
  112-bit register                                      : 2
  12-bit register                                       : 8
  16-bit register                                       : 17
- 2-bit register                                        : 3
- 20-bit register                                       : 3
+ 2-bit register                                        : 6
+ 20-bit register                                       : 6
  3-bit register                                        : 13
  4-bit register                                        : 38
  5-bit register                                        : 9
@@ -449,8 +449,8 @@ Macro Statistics
  4-bit comparator equal                                : 20
  4-bit comparator greater                              : 1
  6-bit comparator greater                              : 16
-# Multiplexers                                         : 331
- 1-bit 2-to-1 multiplexer                              : 181
+# Multiplexers                                         : 334
+ 1-bit 2-to-1 multiplexer                              : 184
  1-bit 3-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 133
  16-bit 4-to-1 multiplexer                             : 3
@@ -478,24 +478,24 @@ Macro Statistics
 =========================================================================
 
 
-Synthesizing (advanced) Unit <button_conditioner_5>.
+Synthesizing (advanced) Unit <button_conditioner_8>.
 The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
-Unit <button_conditioner_5> synthesized (advanced).
+Unit <button_conditioner_8> synthesized (advanced).
 
-Synthesizing (advanced) Unit <game_FSM_8>.
+Synthesizing (advanced) Unit <game_FSM_14>.
 The following registers are absorbed into counter <M_check_row_q>: 1 register on signal <M_check_row_q>.
 The following registers are absorbed into counter <M_check_ans_q>: 1 register on signal <M_check_ans_q>.
-Unit <game_FSM_8> synthesized (advanced).
+Unit <game_FSM_14> synthesized (advanced).
 
-Synthesizing (advanced) Unit <ws2812b_9>.
+Synthesizing (advanced) Unit <ws2812b_15>.
 The following registers are absorbed into counter <M_current_group_led_ctr_q_0>: 1 register on signal <M_current_group_led_ctr_q_0>.
 The following registers are absorbed into counter <M_bit_ctr_q>: 1 register on signal <M_bit_ctr_q>.
 The following registers are absorbed into counter <M_led_ctr_q>: 1 register on signal <M_led_ctr_q>.
 The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
 The following registers are absorbed into counter <M_pixel_ctr_q>: 1 register on signal <M_pixel_ctr_q>.
 The following registers are absorbed into counter <M_rst_ctr_q>: 1 register on signal <M_rst_ctr_q>.
-	Multiplier <Mmult_n0123> in block <ws2812b_9> and adder/subtractor <Madd_M_current_group_led_ctr_q[0]_GND_16_o_add_12_OUT> in block <ws2812b_9> are combined into a MAC<Maddsub_n0123>.
-Unit <ws2812b_9> synthesized (advanced).
+	Multiplier <Mmult_n0123> in block <ws2812b_15> and adder/subtractor <Madd_M_current_group_led_ctr_q[0]_GND_16_o_add_12_OUT> in block <ws2812b_15> are combined into a MAC<Maddsub_n0123>.
+Unit <ws2812b_15> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -509,24 +509,24 @@ Macro Statistics
  16-bit subtractor                                     : 1
  3-bit adder                                           : 3
  5-bit adder                                           : 9
-# Counters                                             : 53
+# Counters                                             : 56
  1-bit up counter                                      : 8
  12-bit up counter                                     : 8
- 20-bit up counter                                     : 3
+ 20-bit up counter                                     : 6
  3-bit up counter                                      : 9
  4-bit up counter                                      : 9
  5-bit up counter                                      : 8
  6-bit up counter                                      : 8
-# Registers                                            : 654
- Flip-Flops                                            : 654
+# Registers                                            : 663
+ Flip-Flops                                            : 663
 # Comparators                                          : 40
  16-bit comparator greater                             : 1
  3-bit comparator greater                              : 2
  4-bit comparator equal                                : 20
  4-bit comparator greater                              : 1
  6-bit comparator greater                              : 16
-# Multiplexers                                         : 321
- 1-bit 2-to-1 multiplexer                              : 173
+# Multiplexers                                         : 324
+ 1-bit 2-to-1 multiplexer                              : 176
  1-bit 3-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 133
  16-bit 4-to-1 multiplexer                             : 3
@@ -549,32 +549,32 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <M_check_bull_state_q_2> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_led_reg_q_4> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_led_reg_q_5> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_led_reg_q_6> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_led_reg_q_7> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_final_q_1> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_final_q_5> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_final_q_9> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_final_q_13> has a constant value of 0 in block <game_FSM_8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <M_registerbull_q_0> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_1> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_2> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_3> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_4> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_5> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_6> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_7> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_8> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_9> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_10> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_11> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_12> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_13> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_14> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_15> has a constant value of 0 in block <beta_20>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <out_0> (without init value) has a constant value of 0 in block <compare_23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <M_check_bull_state_q_2> has a constant value of 0 in block <game_FSM_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_led_reg_q_4> has a constant value of 0 in block <game_FSM_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_led_reg_q_5> has a constant value of 0 in block <game_FSM_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_led_reg_q_6> has a constant value of 0 in block <game_FSM_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_led_reg_q_7> has a constant value of 0 in block <game_FSM_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_final_q_1> has a constant value of 0 in block <game_FSM_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_final_q_5> has a constant value of 0 in block <game_FSM_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_final_q_9> has a constant value of 0 in block <game_FSM_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_final_q_13> has a constant value of 0 in block <game_FSM_14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <M_registerbull_q_0> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_1> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_2> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_3> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_4> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_5> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_6> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_7> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_8> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_9> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_10> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_11> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_12> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_13> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_14> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_registerbull_q_15> has a constant value of 0 in block <beta_29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <out_0> (without init value) has a constant value of 0 in block <compare_32>. This FF/Latch will be trimmed during the optimization process.
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <game_FSM/FSM_0> on signal <M_state_q[1:52]> with one-hot encoding.
 ----------------------------------------------------------------
@@ -633,78 +633,78 @@ Optimizing FSM <game_FSM/FSM_0> on signal <M_state_q[1:52]> with one-hot encodin
  110010 | 0100000000000000000000000000000000000000000000000000
  101110 | 1000000000000000000000000000000000000000000000000000
 ----------------------------------------------------------------
-WARNING:Xst:2973 - All outputs of instance <mastermind_alu/compare> of block <compare_23> are unconnected in block <beta_20>. Underlying logic will be removed.
-INFO:Xst:2261 - The FF/Latch <M_final_q_2> in Unit <game_FSM_8> is equivalent to the following 3 FFs/Latches, which will be removed : <M_final_q_6> <M_final_q_10> <M_final_q_14> 
-INFO:Xst:2261 - The FF/Latch <M_final_q_3> in Unit <game_FSM_8> is equivalent to the following 3 FFs/Latches, which will be removed : <M_final_q_7> <M_final_q_11> <M_final_q_15> 
-INFO:Xst:2261 - The FF/Latch <M_registerlife_q_4> in Unit <beta_20> is equivalent to the following 11 FFs/Latches, which will be removed : <M_registerlife_q_5> <M_registerlife_q_6> <M_registerlife_q_7> <M_registerlife_q_8> <M_registerlife_q_9> <M_registerlife_q_10> <M_registerlife_q_11> <M_registerlife_q_12> <M_registerlife_q_13> <M_registerlife_q_14> <M_registerlife_q_15> 
+WARNING:Xst:2973 - All outputs of instance <mastermind_alu/compare> of block <compare_32> are unconnected in block <beta_29>. Underlying logic will be removed.
+INFO:Xst:2261 - The FF/Latch <M_final_q_2> in Unit <game_FSM_14> is equivalent to the following 3 FFs/Latches, which will be removed : <M_final_q_6> <M_final_q_10> <M_final_q_14> 
+INFO:Xst:2261 - The FF/Latch <M_final_q_3> in Unit <game_FSM_14> is equivalent to the following 3 FFs/Latches, which will be removed : <M_final_q_7> <M_final_q_11> <M_final_q_15> 
+INFO:Xst:2261 - The FF/Latch <M_registerlife_q_4> in Unit <beta_29> is equivalent to the following 11 FFs/Latches, which will be removed : <M_registerlife_q_5> <M_registerlife_q_6> <M_registerlife_q_7> <M_registerlife_q_8> <M_registerlife_q_9> <M_registerlife_q_10> <M_registerlife_q_11> <M_registerlife_q_12> <M_registerlife_q_13> <M_registerlife_q_14> <M_registerlife_q_15> 
 
 Optimizing unit <mojo_top_0> ...
 
-Optimizing unit <game_FSM_8> ...
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_5_q_0> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_5_q_2> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_4_q_4> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_4_q_6> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_6_q_0> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_6_q_2> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_5_q_4> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_5_q_6> 
-INFO:Xst:2261 - The FF/Latch <M_final_q_0> in Unit <game_FSM_8> is equivalent to the following 3 FFs/Latches, which will be removed : <M_final_q_4> <M_final_q_8> <M_final_q_12> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_6_q_4> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_6_q_6> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_6_q_8> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_6_q_10> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_0_q_0> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_0_q_2> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_4_q_8> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_4_q_10> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_2_q_8> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_2_q_10> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_6_q_12> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_6_q_14> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_4_q_12> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_4_q_14> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_1_q_0> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_1_q_2> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_0_q_8> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_0_q_10> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_2_q_12> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_2_q_14> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_0_q_4> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_0_q_6> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_0_q_12> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_0_q_14> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_2_q_0> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_2_q_2> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_1_q_4> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_1_q_6> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_3_q_0> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_3_q_2> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_2_q_4> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_2_q_6> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_3_q_4> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_3_q_6> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_5_q_8> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_5_q_10> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_3_q_8> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_3_q_10> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_1_q_8> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_1_q_10> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_5_q_12> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_5_q_14> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_3_q_12> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_3_q_14> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_1_q_12> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_1_q_14> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_4_q_0> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_4_q_2> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_60> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_62> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_48> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_50> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_24> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_26> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_68> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_70> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_28> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_30> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_32> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_34> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_52> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_54> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_104> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_106> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_16> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_18> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_36> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_38> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_108> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_110> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_72> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_74> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_0> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_2> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_20> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_22> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_76> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_78> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_40> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_42> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_4> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_6> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_44> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_46> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_8> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_10> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_12> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_14> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_96> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_98> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_88> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_90> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_80> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_82> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_100> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_102> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_92> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_94> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_56> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_58> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_64> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_66> 
-INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_84> in Unit <game_FSM_8> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_86> 
-INFO:Xst:2261 - The FF/Latch <M_answer_q_0> in Unit <game_FSM_8> is equivalent to the following 3 FFs/Latches, which will be removed : <M_answer_q_4> <M_answer_q_8> <M_answer_q_12> 
-INFO:Xst:2261 - The FF/Latch <M_temp_ans_bull_q_0> in Unit <game_FSM_8> is equivalent to the following 3 FFs/Latches, which will be removed : <M_temp_ans_bull_q_4> <M_temp_ans_bull_q_8> <M_temp_ans_bull_q_12> 
+Optimizing unit <game_FSM_14> ...
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_5_q_0> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_5_q_2> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_4_q_4> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_4_q_6> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_6_q_0> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_6_q_2> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_5_q_4> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_5_q_6> 
+INFO:Xst:2261 - The FF/Latch <M_final_q_0> in Unit <game_FSM_14> is equivalent to the following 3 FFs/Latches, which will be removed : <M_final_q_4> <M_final_q_8> <M_final_q_12> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_6_q_4> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_6_q_6> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_6_q_8> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_6_q_10> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_0_q_0> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_0_q_2> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_4_q_8> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_4_q_10> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_2_q_8> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_2_q_10> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_6_q_12> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_6_q_14> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_4_q_12> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_4_q_14> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_1_q_0> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_1_q_2> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_0_q_8> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_0_q_10> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_2_q_12> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_2_q_14> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_0_q_4> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_0_q_6> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_0_q_12> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_0_q_14> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_2_q_0> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_2_q_2> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_1_q_4> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_1_q_6> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_3_q_0> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_3_q_2> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_2_q_4> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_2_q_6> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_3_q_4> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_3_q_6> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_5_q_8> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_5_q_10> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_3_q_8> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_3_q_10> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_1_q_8> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_1_q_10> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_5_q_12> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_5_q_14> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_3_q_12> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_3_q_14> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_1_q_12> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_1_q_14> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_4_q_0> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_4_q_2> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_60> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_62> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_48> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_50> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_24> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_26> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_68> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_70> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_28> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_30> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_32> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_34> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_52> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_54> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_104> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_106> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_16> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_18> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_36> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_38> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_108> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_110> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_72> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_74> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_0> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_2> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_20> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_22> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_76> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_78> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_40> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_42> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_4> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_6> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_44> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_46> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_8> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_10> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_12> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_14> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_96> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_98> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_88> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_90> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_80> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_82> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_100> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_102> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_92> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_94> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_56> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_58> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_64> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_66> 
+INFO:Xst:2261 - The FF/Latch <M_bull_cow_input_q_84> in Unit <game_FSM_14> is equivalent to the following FF/Latch, which will be removed : <M_bull_cow_input_q_86> 
+INFO:Xst:2261 - The FF/Latch <M_answer_q_0> in Unit <game_FSM_14> is equivalent to the following 3 FFs/Latches, which will be removed : <M_answer_q_4> <M_answer_q_8> <M_answer_q_12> 
+INFO:Xst:2261 - The FF/Latch <M_temp_ans_bull_q_0> in Unit <game_FSM_14> is equivalent to the following 3 FFs/Latches, which will be removed : <M_temp_ans_bull_q_4> <M_temp_ans_bull_q_8> <M_temp_ans_bull_q_12> 
 
-Optimizing unit <beta_20> ...
-INFO:Xst:2261 - The FF/Latch <M_registerlife_q_1> in Unit <beta_20> is equivalent to the following FF/Latch, which will be removed : <M_registerlife_q_2> 
+Optimizing unit <beta_29> ...
+INFO:Xst:2261 - The FF/Latch <M_registerlife_q_1> in Unit <beta_29> is equivalent to the following FF/Latch, which will be removed : <M_registerlife_q_2> 
 
-Optimizing unit <ws2812b_9> ...
+Optimizing unit <ws2812b_15> ...
 INFO:Xst:2261 - The FF/Latch <ledout8/M_state_q> in Unit <mojo_top_0> is equivalent to the following 7 FFs/Latches, which will be removed : <ledout7/M_state_q> <ledout6/M_state_q> <ledout5/M_state_q> <ledout4/M_state_q> <ledout3/M_state_q> <ledout2/M_state_q> <ledout1/M_state_q> 
 INFO:Xst:2261 - The FF/Latch <ledout8/M_pixel_ctr_q_0> in Unit <mojo_top_0> is equivalent to the following 15 FFs/Latches, which will be removed : <ledout8/M_current_group_led_ctr_q_0> <ledout7/M_pixel_ctr_q_0> <ledout7/M_current_group_led_ctr_q_0> <ledout6/M_pixel_ctr_q_0> <ledout6/M_current_group_led_ctr_q_0> <ledout5/M_pixel_ctr_q_0> <ledout5/M_current_group_led_ctr_q_0> <ledout4/M_pixel_ctr_q_0> <ledout4/M_current_group_led_ctr_q_0> <ledout3/M_pixel_ctr_q_0> <ledout3/M_current_group_led_ctr_q_0> <ledout2/M_pixel_ctr_q_0> <ledout2/M_current_group_led_ctr_q_0> <ledout1/M_pixel_ctr_q_0> <ledout1/M_current_group_led_ctr_q_0> 
 INFO:Xst:2261 - The FF/Latch <ledout8/M_ctr_q_0> in Unit <mojo_top_0> is equivalent to the following 7 FFs/Latches, which will be removed : <ledout7/M_ctr_q_0> <ledout6/M_ctr_q_0> <ledout5/M_ctr_q_0> <ledout4/M_ctr_q_0> <ledout3/M_ctr_q_0> <ledout2/M_ctr_q_0> <ledout1/M_ctr_q_0> 
@@ -739,7 +739,7 @@ INFO:Xst:2261 - The FF/Latch <game_FSM/beta/M_registerlife_q_4> in Unit <mojo_to
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 18.
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 20.
 FlipFlop game_FSM/M_state_q_FSM_FFd51 has been replicated 1 time(s)
 FlipFlop game_FSM/M_state_q_FSM_FFd7 has been replicated 1 time(s)
 
@@ -749,6 +749,9 @@ Processing Unit <mojo_top_0> :
 	Found 2-bit shift register for signal <io_btn_cond_1/sync/M_pipe_q_1>.
 	Found 2-bit shift register for signal <io_btn_cond_2/sync/M_pipe_q_1>.
 	Found 2-bit shift register for signal <io_btn_cond_3/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <btn_cond_1/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <btn_cond_2/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <btn_cond_3/sync/M_pipe_q_1>.
 INFO:Xst:741 - HDL ADVISOR - A 4-bit shift register was found for signal <reset_cond/M_stage_q_3> and currently occupies 4 logic cells (2 slices). Removing the set/reset logic would take advantage of SRL32 (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
 Unit <mojo_top_0> processed.
 
@@ -756,10 +759,10 @@ Unit <mojo_top_0> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 666
- Flip-Flops                                            : 666
-# Shift Registers                                      : 3
- 2-bit shift register                                  : 3
+# Registers                                            : 729
+ Flip-Flops                                            : 729
+# Shift Registers                                      : 6
+ 2-bit shift register                                  : 6
 
 =========================================================================
 
@@ -782,31 +785,31 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 875
-#      GND                         : 10
-#      INV                         : 11
-#      LUT1                        : 68
+# BELS                             : 1089
+#      GND                         : 16
+#      INV                         : 17
+#      LUT1                        : 125
 #      LUT2                        : 34
-#      LUT3                        : 89
-#      LUT4                        : 60
-#      LUT5                        : 93
-#      LUT6                        : 360
-#      MUXCY                       : 68
-#      MUXF7                       : 1
-#      VCC                         : 9
-#      XORCY                       : 72
-# FlipFlops/Latches                : 669
-#      FD                          : 28
-#      FDE                         : 3
+#      LUT3                        : 88
+#      LUT4                        : 58
+#      LUT5                        : 103
+#      LUT6                        : 372
+#      MUXCY                       : 125
+#      MUXF7                       : 4
+#      VCC                         : 15
+#      XORCY                       : 132
+# FlipFlops/Latches                : 735
+#      FD                          : 31
+#      FDE                         : 6
 #      FDR                         : 279
-#      FDRE                        : 354
+#      FDRE                        : 414
 #      FDS                         : 5
-# Shift Registers                  : 3
-#      SRLC16E                     : 3
+# Shift Registers                  : 6
+#      SRLC16E                     : 6
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 63
-#      IBUF                        : 5
+# IO Buffers                       : 67
+#      IBUF                        : 9
 #      OBUF                        : 52
 #      OBUFT                       : 6
 
@@ -817,22 +820,22 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             669  out of  11440     5%  
- Number of Slice LUTs:                  718  out of   5720    12%  
-    Number used as Logic:               715  out of   5720    12%  
-    Number used as Memory:                3  out of   1440     0%  
-       Number used as SRL:                3
+ Number of Slice Registers:             735  out of  11440     6%  
+ Number of Slice LUTs:                  803  out of   5720    14%  
+    Number used as Logic:               797  out of   5720    13%  
+    Number used as Memory:                6  out of   1440     0%  
+       Number used as SRL:                6
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1100
-   Number with an unused Flip Flop:     431  out of   1100    39%  
-   Number with an unused LUT:           382  out of   1100    34%  
-   Number of fully used LUT-FF pairs:   287  out of   1100    26%  
-   Number of unique control sets:        57
+ Number of LUT Flip Flop pairs used:   1188
+   Number with an unused Flip Flop:     453  out of   1188    38%  
+   Number with an unused LUT:           385  out of   1188    32%  
+   Number of fully used LUT-FF pairs:   350  out of   1188    29%  
+   Number of unique control sets:        67
 
 IO Utilization: 
- Number of IOs:                          95
- Number of bonded IOBs:                  64  out of    102    62%  
+ Number of IOs:                          98
+ Number of bonded IOBs:                  68  out of    102    66%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -858,7 +861,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 672   |
+clk                                | BUFGP                  | 741   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -870,7 +873,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 6.822ns (Maximum Frequency: 146.585MHz)
-   Minimum input arrival time before clock: 3.526ns
+   Minimum input arrival time before clock: 5.226ns
    Maximum output required time after clock: 13.534ns
    Maximum combinational path delay: 6.539ns
 
@@ -881,7 +884,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 6.822ns (frequency: 146.585MHz)
-  Total number of paths / destination ports: 22126 / 1653
+  Total number of paths / destination ports: 26263 / 1839
 -------------------------------------------------------------------------
 Delay:               6.822ns (Levels of Logic = 5)
   Source:            game_FSM/M_state_q_FSM_FFd1 (FF)
@@ -906,24 +909,25 @@ Delay:               6.822ns (Levels of Logic = 5)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 7 / 7
+  Total number of paths / destination ports: 114 / 50
 -------------------------------------------------------------------------
-Offset:              3.526ns (Levels of Logic = 3)
-  Source:            rst_n (PAD)
-  Destination:       reset_cond/M_stage_q_3 (FF)
+Offset:              5.226ns (Levels of Logic = 4)
+  Source:            io_dip<1> (PAD)
+  Destination:       game_FSM/M_user_input_q_15 (FF)
   Destination Clock: clk rising
 
-  Data Path: rst_n to reset_cond/M_stage_q_3
+  Data Path: io_dip<1> to game_FSM/M_user_input_q_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.328   0.681  rst_n_IBUF (rst_n_IBUF)
-     INV:I->O              4   0.255   0.803  M_reset_cond_in1_INV_0 (M_reset_cond_in)
-     begin scope: 'reset_cond:in'
-     FDS:S                     0.459          M_stage_q_0
+     IBUF:I->O             4   1.328   0.803  io_dip_1_IBUF (io_dip_1_IBUF)
+     MUXF7:S->O           16   0.185   1.290  Mmux_M_game_FSM_reset11 (M_game_FSM_reset)
+     begin scope: 'game_FSM:reset'
+     LUT5:I3->O           12   0.250   1.068  M_state_q__n3828_inv1 (_n3828_inv)
+     FDRE:CE                   0.302          M_user_input_q_1
     ----------------------------------------
-    Total                      3.526ns (2.042ns logic, 1.484ns route)
-                                       (57.9% logic, 42.1% route)
+    Total                      5.226ns (2.065ns logic, 3.161ns route)
+                                       (39.5% logic, 60.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -939,7 +943,7 @@ Offset:              13.534ns (Levels of Logic = 9)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDRE:C->Q            62   0.525   2.190  M_pixel_ctr_q_2 (M_pixel_ctr_q_2)
-     LUT6:I2->O            1   0.254   0.910  Sh155_SW0 (N119)
+     LUT6:I2->O            1   0.254   0.910  Sh155_SW0 (N122)
      LUT4:I1->O            3   0.235   1.042  Sh155 (Sh155)
      LUT6:I2->O            1   0.254   0.682  Sh59135 (Sh59135)
      LUT6:I5->O            1   0.254   1.112  Sh59136 (Sh59136)
@@ -988,11 +992,11 @@ clk            |    6.822|         |         |         |
 
 
 Total REAL time to Xst completion: 13.00 secs
-Total CPU time to Xst completion: 12.94 secs
+Total CPU time to Xst completion: 13.60 secs
  
 --> 
 
-Total memory usage is 4528016 kilobytes
+Total memory usage is 4528464 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   81 (   0 filtered)

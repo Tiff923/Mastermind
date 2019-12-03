@@ -32,11 +32,11 @@ NET "io_led[14]" IOSTANDARD = LVTTL;
 NET "io_led[15]" LOC = P14;
 NET "io_led[15]" IOSTANDARD = LVTTL;
 
-NET "io_led[16]" LOC = P15;
+NET "io_led<16>" LOC = P15 | IOSTANDARD = LVTTL;
 NET "io_led[16]" IOSTANDARD = LVTTL;
 NET "io_led[17]" LOC = P16;
 NET "io_led[17]" IOSTANDARD = LVTTL;
-NET "io_led[18]" LOC = P17;
+NET "io_led<18>" LOC = P17 | IOSTANDARD = LVTTL;
 NET "io_led[18]" IOSTANDARD = LVTTL;
 NET "io_led[19]" LOC = P21;
 NET "io_led[19]" IOSTANDARD = LVTTL;
@@ -72,7 +72,7 @@ NET "io_sel[1]" LOC = P10;
 NET "io_sel[1]" IOSTANDARD = LVTTL;
 NET "io_sel[2]" LOC = P7;
 NET "io_sel[2]" IOSTANDARD = LVTTL;
-NET "io_sel[3]" LOC = P12;
+NET "io_sel<3>" LOC = P12 | IOSTANDARD = LVTTL;
 NET "io_sel[3]" IOSTANDARD = LVTTL;
 
 # PULLDOWN is needed to prevent floating inputs

@@ -4,30 +4,32 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module compare_23 (
+module boolean_33 (
     input clk,
     input rst,
     input [5:0] alufn,
-    input z,
-    input v,
-    input n,
+    input [15:0] a,
+    input [15:0] b,
     output reg [15:0] out
   );
   
   
   
   always @* begin
-    out[1+14-:15] = 15'h0000;
+    out = 1'h0;
     
-    case (alufn[1+1-:2])
-      2'h1: begin
-        out[0+0-:1] = z;
+    case (alufn[0+3-:4])
+      4'h8: begin
+        out = a & b;
       end
-      2'h2: begin
-        out[0+0-:1] = n ^ v;
+      4'he: begin
+        out = a | b;
       end
-      2'h3: begin
-        out[0+0-:1] = z | (n ^ v);
+      4'h6: begin
+        out = a ^ b;
+      end
+      4'ha: begin
+        out = a;
       end
     endcase
   end

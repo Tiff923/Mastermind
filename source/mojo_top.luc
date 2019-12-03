@@ -20,11 +20,11 @@ module mojo_top (
     input io_dip [3][8],     // DIP switches on IO Shield
 
     // arcade buttons
-    /*input button_1,
+    input button_1,
     input button_4,
-    input button_3,*/
+    input button_3,
         
-   output outled1,         // LED Strip Bot
+    output outled1,         // LED Strip Bot
     output outled2,         
     output outled3,         
     output outled4,         
@@ -45,22 +45,22 @@ module mojo_top (
     edge_detector io_edge_dt_btn_1 (#RISE(1), #FALL(0));
     edge_detector io_edge_dt_btn_2 (#RISE(1), #FALL(0));
     edge_detector io_edge_dt_btn_3 (#RISE(1), #FALL(0));
-    /*
+    
     // edge detector for arcade buttons
     edge_detector edge_dt_btn_1 (#RISE(1), #FALL(0));
     edge_detector edge_dt_btn_2 (#RISE(1), #FALL(0));
     edge_detector edge_dt_btn_3 (#RISE(1), #FALL(0));
-    */
+    
     // button conditioner for io buttons
     button_conditioner io_btn_cond_1;
     button_conditioner io_btn_cond_2;
     button_conditioner io_btn_cond_3;
-/*   
+   
    // button conditioner for arcade buttons
     button_conditioner btn_cond_1;
     button_conditioner btn_cond_2;
     button_conditioner btn_cond_3;
-    */
+    
     .rst(rst){
       game_FSM game_FSM;
       ws2812b ledout1;
@@ -88,9 +88,7 @@ module mojo_top (
     io_led = 3x{{8h00}};    // turn LEDs off
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
-            game_FSM.enter = io_edge_dt_btn_1.out;
-            game_FSM.toggle = io_edge_dt_btn_2.out;
-            game_FSM.reset = io_edge_dt_btn_3.out;    
+  
     
     // io buttons
     io_btn_cond_1.in = io_button[1];
@@ -99,28 +97,28 @@ module mojo_top (
     io_edge_dt_btn_1.in = io_btn_cond_1.out;
     io_edge_dt_btn_2.in = io_btn_cond_2.out;
     io_edge_dt_btn_3.in = io_btn_cond_3.out;
-    /*
+
     // arcade buttons
     btn_cond_1.in = button_1;
     btn_cond_2.in = button_4;
     btn_cond_3.in = button_3;
     edge_dt_btn_1.in = btn_cond_1.out;
     edge_dt_btn_2.in = btn_cond_2.out;
-    edge_dt_btn_3.in = btn_cond_3.out;*/
+    edge_dt_btn_3.in = btn_cond_3.out;
 
     case(io_dip[0][1]){ // debug switch for button input
-        /*0: // if debug false, use arcade buttons
+        0: // if debug false, use arcade buttons
             game_FSM.enter = edge_dt_btn_1.out;
             game_FSM.toggle = edge_dt_btn_2.out;
-            game_FSM.reset = edge_dt_btn_3.out;*/
+            game_FSM.reset = edge_dt_btn_3.out;
         1: // if debug true, use io buttons
             game_FSM.enter = io_edge_dt_btn_1.out;
             game_FSM.toggle = io_edge_dt_btn_2.out;
             game_FSM.reset = io_edge_dt_btn_3.out;
-        /*default: // default use arcade buttons
+        default: // default use arcade buttons
             game_FSM.enter = edge_dt_btn_1.out;
             game_FSM.toggle = edge_dt_btn_2.out;
-            game_FSM.reset = edge_dt_btn_3.out;*/
+            game_FSM.reset = edge_dt_btn_3.out;
 
     }
 

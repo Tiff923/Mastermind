@@ -4,7 +4,7 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module beta_20 (
+module beta_29 (
     input clk,
     input rst,
     input fsmregisterbullpluscowcal,
@@ -48,7 +48,7 @@ module beta_20 (
   reg [6-1:0] M_mastermind_alu_alufn;
   reg [16-1:0] M_mastermind_alu_a;
   reg [16-1:0] M_mastermind_alu_b;
-  alumodule_21 mastermind_alu (
+  alumodule_30 mastermind_alu (
     .clk(clk),
     .rst(rst),
     .alufn(M_mastermind_alu_alufn),
